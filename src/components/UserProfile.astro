@@ -1,0 +1,9 @@
+---
+import { getEntry } from 'astro:content'
+
+const { data } = await getEntry('authors', 'NPMRUN')
+---
+
+<p>
+    站长：{data.name}
+</p>

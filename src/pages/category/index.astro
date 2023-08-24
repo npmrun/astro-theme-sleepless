@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content'
+import SinglePage from '@blog/layouts/SinglePage.astro'
+const allPosts = await getCollection('posts')
+const categories = [
+    ...new Set(allPosts.map((post) => post.data.category).flat()),
+]
+
+const pageTitle = 'Tag Index'
+---
+
+<SinglePage>
+    <ul>
+        {
+            categories.map((category) => (
+                <li>
+                    <a href={'/category/' + category}>{category}</a>
+                </li>
+            ))
+        }
+    </ul>
+</SinglePage>

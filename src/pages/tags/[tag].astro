@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content'
+import SinglePage from '@blog/layouts/SinglePage.astro'
+
+export async function getStaticPaths() {
+    const allPosts = await getCollection('posts')
+    const uniqueTags = [
+        ...new Set(allPosts.map((post) => post.data.tags).flat()),
+    ]
+
+    return uniqueTags.map((tag) => {
+        const filteredPosts = allPosts.filter((post) =>
+            post.data.tags.includes(tag)
+        )
+        return {
+            params: { tag },
+            props: { posts: filteredPosts },
+        }
+    })
+}
+
+const { tag } = Astro.params
+const { posts } = Astro.props
+---
+
+<SinglePage>
+    <p>当前标签下文章： {tag}</p>
+    <ul>
+        {
+            posts.map((post: any) => (
+                <li>
+                    <a href={'/posts/' + post.slug} title={post.data.title}>
+                        {post.data.title}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</SinglePage>

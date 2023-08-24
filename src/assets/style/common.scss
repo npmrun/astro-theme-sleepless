@@ -1,0 +1,30 @@
+html,
+body {
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    width: 700px;
+    margin: 0 auto;
+}
+
+:root,
+:root[data-theme='light'] {
+    --bg-color: #eee;
+}
+
+:root[data-theme='dark'] {
+    --bg-color: red;
+}
+
+@font-face {
+    font-family: HarmonyOS_Sans_SC_Medium;
+    font-style: normal;
+    font-display: swap;
+    src: url('/HarmonyOS_Sans_SC_Medium.woff') format('woff');
+}
+body {
+    font-family: 'HarmonyOS_Sans_SC_Medium';
+}
