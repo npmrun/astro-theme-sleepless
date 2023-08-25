@@ -1,0 +1,202 @@
+// ::selection {
+//     background-color: #1abc9c;
+//     color: #fff;
+// }
+
+// pre ::selection {
+//     color: inherit;
+// }
+
+.markdown-body.green {
+    /* 块/段落引用 */
+    blockquote {
+        position: relative;
+        // color: #555;
+        font-weight: 400;
+        border-left: 6px solid #1abc9c;
+        padding-left: 1em;
+        margin-left: 0;
+        padding: 1em;
+        background-color: #1abc9c1a;
+    }
+
+    /* 让链接在 hover 状态下显示下划线 */
+    a {
+        color: #1abc9c;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    pre {
+        background: #f8f8f8;
+        /* border: 1px solid #ddd; */
+        padding: 1em 1.5em;
+        display: block;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    //     /* 底部印刷体、版本等标记 */
+    small,
+        /* 图片说明 */
+        figcaption {
+        font-size: 0.9em;
+        color: #888;
+    }
+    // .markdown-body {
+    legend {
+        color: #000;
+        font-weight: inherit;
+    }
+    caption {
+        color: #000;
+        font-weight: inherit;
+    }
+    del {
+        text-decoration: line-through #1abc9c 2px;
+    }
+    code {
+        color: #1abc9c;
+        background-color: #f9f2f4;
+        border-radius: 4px;
+        padding: 2px 4px;
+        font-size: 0.875em;
+        margin: 0;
+        vertical-align: text-bottom;
+    }
+    pre {
+        code {
+            padding: 0;
+            font-size: inherit;
+            color: inherit;
+            white-space: pre;
+            background-color: transparent;
+            vertical-align: baseline;
+            border-radius: 0;
+            margin: 0;
+        }
+    }
+    table {
+        th {
+            border: 1px solid #ddd;
+            padding: 0.5em 1em;
+            color: #666;
+            background: #fbfbfb;
+        }
+        td {
+            border: 1px solid #ddd;
+            padding: 0.5em 1em;
+            color: #666;
+        }
+        caption {
+            border: 1px solid #ddd;
+            padding: 0.5em 1em;
+            color: #666;
+            border-bottom: none;
+        }
+        thead {
+            th {
+                background: #f1f1f1;
+            }
+        }
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-top: 1.2em;
+        margin-bottom: 0.6em;
+        line-height: 1.35;
+        position: relative;
+    }
+    h1 {
+        font-size: 1.8em;
+    }
+    h2 {
+        font-size: 1.6em;
+    }
+    h3 {
+        font-size: 1.4em;
+    }
+    h4 {
+        font-size: 1.2em;
+    }
+    h5 {
+        font-size: 1em;
+    }
+    h6 {
+        font-size: 1em;
+    }
+    h1,
+    h2,
+    h3 {
+        display: inline;
+        width: auto;
+        background: linear-gradient(
+                to bottom,
+                transparent 70%,
+                rgba(26, 188, 156, 0.3) 0
+            )
+            no-repeat;
+        &::before {
+            content: '';
+            margin-top: 1.2em;
+            display: block;
+        }
+        &::after {
+            content: '';
+            display: block;
+            margin-bottom: 0.6em;
+        }
+    }
+    ::-webkit-calendar-picker-indicator {
+        filter: invert(50%);
+    }
+    em {
+        color: #000;
+        font-weight: inherit;
+        position: relative;
+        &:after {
+            position: absolute;
+            top: 0.65em;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            pointer-events: none;
+            color: #1abc9c;
+            content: '・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・';
+        }
+    }
+    ul.toc {
+        li {
+            list-style-type: none;
+            a {
+                text-decoration: none;
+                border: 0;
+                list-style-type: none;
+            }
+        }
+    }
+    &.chinese {
+        text-indent: 1.5em;
+        font-weight: 300;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        ol,
+        ul,
+        blockquote,
+        details,
+        summary,
+        pre {
+            text-indent: 0;
+        }
+    }
+}

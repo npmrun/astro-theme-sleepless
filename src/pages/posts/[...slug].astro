@@ -25,13 +25,15 @@ if (entry.data.relatedPosts) {
 ---
 
 <SinglePage>
-    <h1>{entry.data.title}</h1>
-    <p>Author: {author?.data.name}</p>
-    <Content />
+    <article class="markdown-body green">
+        <h1>{entry.data.title}</h1>
+        <p>Author: {author?.data.name}</p>
+        <Content />
 
-    <h2>You might also like:</h2>
-    {
-        relatedPosts &&
-            relatedPosts.map((p) => <a href={p.slug}>{p.data.title}</a>)
-    }
+        <h2>You might also like:</h2>
+        {
+            relatedPosts &&
+                relatedPosts.map((p) => <a href={p.slug}>{p.data.title}</a>)
+        }
+    </article>
 </SinglePage>
