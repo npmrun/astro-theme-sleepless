@@ -1,0 +1,45 @@
+---
+import { SiteInfo } from '@blog/config'
+
+interface IProps {
+    title?: string
+    description?: string
+    image: string
+}
+
+const defaultProps: IProps = {
+    title: SiteInfo.title,
+    description: SiteInfo.description,
+    image: '/placeholder-social.jpg',
+}
+const curProps = {} as IProps
+
+for (const key in defaultProps) {
+    const element = defaultProps[key as keyof IProps]
+    curProps[key as keyof IProps] = Astro.props[key] ?? element
+}
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Primary Meta Tags -->
+<title>{curProps.title}</title>
+<meta name="title" content={curProps.title} />
+<meta name="description" content={curProps.description} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={curProps.title} />
+<meta property="og:description" content={curProps.description} />
+<meta property="og:image" content={new URL(curProps.image, Astro.url)} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={curProps.title} />
+<meta property="twitter:description" content={curProps.description} />
+<meta property="twitter:image" content={new URL(curProps.image, Astro.url)} />

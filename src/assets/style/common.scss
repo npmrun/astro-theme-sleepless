@@ -27,7 +27,9 @@ body {
     font-family: HarmonyOS_Sans_SC_Medium;
     font-style: normal;
     font-display: swap;
-    src: url('/HarmonyOS_Sans_SC_Medium.woff') format('woff');
+    src: url('/HarmonyOS_Sans_SC_Medium.woff2') format('woff2'),
+        url('/HarmonyOS_Sans_SC_Medium.woff') format('woff');
+    // src: url('/HarmonyOS_Sans_SC_Medium.woff') format('woff');
 }
 
 /* 要注意表单元素并不继承父级 font 的问题 */

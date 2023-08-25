@@ -21,11 +21,48 @@
     }
 
     /* 让链接在 hover 状态下显示下划线 */
+    // a {
+    //     color: #1abc9c;
+    //     text-decoration: none;
+    //     &:hover {
+    //         text-decoration: underline;
+    //     }
+    // }
     a {
-        color: #1abc9c;
+        position: relative;
+        z-index: 10;
+        transition: color 0.3s linear;
+        cursor: pointer;
+        font-weight: bolder;
+        // text-decoration: underline #c7254e;
         text-decoration: none;
+        color: #ff4d20;
+        border-bottom: 1px solid currentColor;
+        &[data-footnote-backref],
+        &[data-footnote-ref] {
+            // text-decoration: none;
+            border: none;
+            &:hover {
+                background: none;
+                animation: none;
+            }
+        }
         &:hover {
-            text-decoration: underline;
+            content: '';
+            // text-decoration: none;
+            border: none;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath fill='none' stroke='%23ff4d20' d='M0 3.5c5 0 5-3 10-3s5 3 10 3 5-3 10-3 5 3 10 3'/%3E%3C/svg%3E")
+                repeat-x 0 100%;
+            background-size: 20px auto;
+            animation: waveMove 1s infinite linear;
+        }
+        @keyframes waveMove {
+            0% {
+                background-position: 0 100%;
+            }
+            100% {
+                background-position: -20px 100%;
+            }
         }
     }
 
@@ -57,11 +94,14 @@
         text-decoration: line-through #1abc9c 2px;
     }
     code {
-        color: #1abc9c;
-        background-color: #f9f2f4;
+        color: #ffffff;
+        background-color: #ff4d20;
         border-radius: 4px;
         padding: 2px 4px;
-        font-size: 0.875em;
+        // font-size: 0.875em;
+        font-size: 1.0769em;
+        position: relative;
+        top: 0.1em;
         margin: 0;
         vertical-align: text-bottom;
     }
@@ -81,18 +121,15 @@
         th {
             border: 1px solid #ddd;
             padding: 0.5em 1em;
-            color: #666;
             background: #fbfbfb;
         }
         td {
             border: 1px solid #ddd;
             padding: 0.5em 1em;
-            color: #666;
         }
         caption {
             border: 1px solid #ddd;
             padding: 0.5em 1em;
-            color: #666;
             border-bottom: none;
         }
         thead {

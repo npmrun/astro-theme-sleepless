@@ -1,19 +1,21 @@
 ---
+// https://iconify.design/docs/usage/svg/astro/
+import { Icon } from 'astro-icon'
 import { getCollection } from 'astro:content'
 import { BlogCollectionName } from '@blog/config'
 import SinglePage from '@blog/layouts/SinglePage.astro'
-import UserProfile from '@blog/components/UserProfile.astro'
 const blogEntries = await getCollection(BlogCollectionName)
 ---
 
 <SinglePage>
-    <UserProfile />
-    <h2>页面</h2>
+    <h2 class="flex items-center text-red-600">
+        <Icon name="mdi:home" class="w-[28px] h-[28px]" />页面
+    </h2>
     <ul>
-        <li>
+        <li class="ml-5">
             <a href={`/tags`}>标签</a>
         </li>
-        <li>
+        <li class="ml-5">
             <a href={`/category`}>分类</a>
         </li>
     </ul>
@@ -21,7 +23,7 @@ const blogEntries = await getCollection(BlogCollectionName)
     <ul>
         {
             blogEntries.map((blogPostEntry) => (
-                <li>
+                <li class="ml-5">
                     <a href={`/posts/${blogPostEntry.slug}`}>
                         {blogPostEntry.data.title}
                     </a>

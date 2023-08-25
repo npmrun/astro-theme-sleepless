@@ -1,7 +1,11 @@
 ---
 import Base from './Base/Base.astro'
+import UserProfile from '@blog/components/UserProfile.astro'
 ---
 
 <Base {...Astro.props}>
-    <slot />
+    <main class="pt-12">
+        <UserProfile />
+        <slot />
+    </main>
 </Base>

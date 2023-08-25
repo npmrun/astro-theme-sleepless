@@ -1,15 +1,16 @@
 ---
 import '@blog/assets/style/common.scss'
+import BaseHead from '@blog/components/BaseHead.astro'
 ---
 
 <html>
     <head>
-        <meta charset="UTF-8" />
-        <title>aaa</title>
+        <BaseHead></BaseHead>
     </head>
     <body>
         <div id="root">
             <slot />
         </div>
+        <script src="@blog/assets/script/main.ts"></script>
     </body>
 </html>

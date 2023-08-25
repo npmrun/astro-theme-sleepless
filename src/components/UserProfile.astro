@@ -1,9 +1,39 @@
 ---
+import { Icon } from 'astro-icon'
 import { getEntry } from 'astro:content'
 
 const { data } = await getEntry('authors', 'NPMRUN')
 ---
 
-<p>
-    站长：{data.name}
-</p>
+<style lang="scss">
+    .info {
+        background: repeating-linear-gradient(
+            135deg,
+            transparent,
+            transparent 3px,
+            #000 3px,
+            #000 8px
+        );
+        animation: shine 1s infinite linear;
+        overflow: hidden;
+        .inner {
+            margin: 1px;
+            padding: 10px;
+            background-color: var(--bg-color);
+        }
+    }
+
+    @keyframes shine {
+        0% {
+            background-position: -1px -1px;
+        }
+        100% {
+            background-position: -12px -12px;
+        }
+    }
+</style>
+<div class="info">
+    <div class="inner">
+        <Icon name="mdi:home" class="w-[28px] h-[28px]" />失眠通告：{data.name}
+    </div>
+</div>
