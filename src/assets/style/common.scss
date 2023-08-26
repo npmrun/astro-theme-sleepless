@@ -39,3 +39,9 @@ body {
         Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif,
         WenQuanYi Micro Hei, sans-serif;
 }
+
+.oneline{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

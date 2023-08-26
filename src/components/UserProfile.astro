@@ -1,39 +1,26 @@
 ---
 import { Icon } from 'astro-icon'
+import OldPicture from './OldPicture.astro'
 import { getEntry } from 'astro:content'
 
-const { data } = await getEntry('authors', 'NPMRUN')
+const { data: user } = await getEntry('authors', 'NPMRUN')
 ---
 
-<style lang="scss">
-    .info {
-        background: repeating-linear-gradient(
-            135deg,
-            transparent,
-            transparent 3px,
-            #000 3px,
-            #000 8px
-        );
-        animation: shine 1s infinite linear;
-        overflow: hidden;
-        .inner {
-            margin: 1px;
-            padding: 10px;
-            background-color: var(--bg-color);
-        }
+<div class="mt-6">
+    <OldPicture avatar={user.avatar} />
+</div>
+<div class="inline-grid mx-auto grid-flow-col auto-cols-auto gap-x-3 mt-4">
+    {
+        user.links.map((link: any) => {
+            return (
+                <a href={link.url} target="_blank">
+                    <Icon
+                        name={`mdi:${link.name}`}
+                        title={link.name}
+                        class="w-[25px] h-[25px]"
+                    />
+                </a>
+            )
+        })
     }
-
-    @keyframes shine {
-        0% {
-            background-position: -1px -1px;
-        }
-        100% {
-            background-position: -12px -12px;
-        }
-    }
-</style>
-<div class="info">
-    <div class="inner">
-        <Icon name="mdi:home" class="w-[28px] h-[28px]" />失眠通告：{data.name}
-    </div>
 </div>

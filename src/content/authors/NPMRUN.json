@@ -1,3 +1,22 @@
 {
-    "name": "NPMRUN"
+    "name": "NPMRUN",
+    "avatar": "https://xieyaxin.top/me.jpeg",
+    "links": [
+        {
+            "name": "github",
+            "url": "https://github.com/npmrun"
+        },
+        {
+            "name": "facebook",
+            "url": "https://github.com/npmrun"
+        },
+        {
+            "name": "twitter",
+            "url": "https://github.com/npmrun"
+        },
+        {
+            "name": "google",
+            "url": "https://github.com/npmrun"
+        }
+    ]
 }

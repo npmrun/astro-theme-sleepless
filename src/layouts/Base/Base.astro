@@ -1,14 +1,68 @@
 ---
 import '@blog/assets/style/common.scss'
 import BaseHead from '@blog/components/BaseHead.astro'
+import UserProfile from '@blog/components/UserProfile.astro'
+import { Icon } from 'astro-icon'
+
+const menus = [
+    {
+        name: '分类',
+        url: '/category',
+        count: '8',
+    },
+    {
+        name: '标签',
+        url: '/tags',
+        count: '20',
+    },
+    {
+        name: '文章',
+        url: '/',
+        count: '99',
+    },
+]
 ---
 
 <html>
     <head>
-        <BaseHead></BaseHead>
+        <BaseHead />
     </head>
     <body>
         <div id="root">
+            <div
+                class="left shadow fixed left-0 top-0 bottom-0 w-[300px] bg-white/[.6]"
+            >
+                <div class="pt-8 text-center">
+                    <a
+                        href="/" class="text-2xl flex items-center justify-center border-y py-2 shadow w-[102%] bg-white/[.8]"
+                    >
+                        <Icon
+                            name="logo"
+                            class="w-[30px] h-[30px] inline-block mr-2"
+                        />
+                        失眠通告
+                    </a>
+                    <UserProfile />
+                    <div class="flex mt-4">
+                        {
+                            menus.map((menu) => {
+                                return (
+                                    <a
+                                        href={menu.url}
+                                        class="grow w-0 group"
+                                        title={menu.count}
+                                    >
+                                        <div class="text-lg text-red-500 group-hover:underline oneline">
+                                            {menu.count}
+                                        </div>
+                                        <div class="text-lg">{menu.name}</div>
+                                    </a>
+                                )
+                            })
+                        }
+                    </div>
+                </div>
+            </div>
             <slot />
         </div>
         <script src="@blog/assets/script/main.ts"></script>
