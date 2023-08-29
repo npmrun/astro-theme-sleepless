@@ -1,35 +1,17 @@
 ---
 import { getCollection } from 'astro:content'
-import SinglePage from '@blog/layouts/SinglePage.astro'
+import { BlogCollectionName } from '@blog/config'
 import ArticleCard from '@blog/components/ArticleCard.astro'
-
-export async function getStaticPaths() {
-    const allPosts = await getCollection('posts')
-    const uniqueTags = [
-        ...new Set(allPosts.map((post) => post.data.tags).flat()),
-    ]
-
-    return uniqueTags.map((tag) => {
-        const filteredPosts = allPosts.filter((post) =>
-            post.data.tags.includes(tag)
-        )
-        return {
-            params: { tag },
-            props: { posts: filteredPosts },
-        }
-    })
-}
-
-const { tag } = Astro.params
-const { posts } = Astro.props
+import SinglePage from '@blog/layouts/SinglePage.astro'
+const blogEntries = await getCollection(BlogCollectionName)
 ---
 
 <SinglePage>
-    <p class="mb-8 text-2xl"># {tag}：</p>
+    <div class="mb-8 text-3xl">技术文章</div>
     {
-        !!posts.length && (
+        !!blogEntries.length && (
             <div class="grid grid-cols-6 auto-cols-auto gap-x-3 gap-y-4">
-                {posts.map((blogPostEntry: any) => (
+                {blogEntries.map((blogPostEntry) => (
                     <ArticleCard
                         articleData={blogPostEntry}
                         href={`/posts/${blogPostEntry.slug}`}
@@ -42,7 +24,7 @@ const { posts } = Astro.props
         )
     }
     {
-        !posts.length && (
+        !blogEntries.length && (
             <div class="text-center text-gray-400 text-2xl pt-5">
                 空空如也~~
             </div>

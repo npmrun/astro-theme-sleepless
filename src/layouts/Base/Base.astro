@@ -3,22 +3,33 @@ import '@blog/assets/style/common.scss'
 import BaseHead from '@blog/components/BaseHead.astro'
 import UserProfile from '@blog/components/UserProfile.astro'
 import { Icon } from 'astro-icon'
+import {
+    getBlogCount,
+    getCategoryCount,
+    getLiftCount,
+    getTagsCount,
+} from '@blog/utils'
+
+const blogCount = getBlogCount()
+const lifeCount = getLiftCount()
+const tagsCount = getTagsCount()
+const categoryCount = getCategoryCount()
 
 const menus = [
     {
         name: '分类',
         url: '/category',
-        count: '8',
+        count: categoryCount,
     },
     {
         name: '标签',
         url: '/tags',
-        count: '20',
+        count: tagsCount,
     },
     {
-        name: '文章',
-        url: '/',
-        count: '99',
+        name: '技术',
+        url: '/posts',
+        count: blogCount,
     },
 ]
 ---
@@ -30,11 +41,12 @@ const menus = [
     <body>
         <div id="root">
             <div
-                class="left shadow fixed left-0 top-0 bottom-0 w-[300px] bg-white/[.6]"
+                class="left shadow fixed left-0 top-0 bottom-0 w-[300px] hidden lg:block bg-white/[.6]"
             >
                 <div class="pt-8 text-center">
                     <a
-                        href="/" class="text-2xl flex items-center justify-center border-y py-2 shadow w-[102%] bg-white/[.8]"
+                        href="/"
+                        class="text-2xl flex items-center justify-center border-y py-2 shadow w-[102%] bg-white/[.8]"
                     >
                         <Icon
                             name="logo"
@@ -43,7 +55,7 @@ const menus = [
                         失眠通告
                     </a>
                     <UserProfile />
-                    <div class="flex mt-4">
+                    <div class="flex mt-4 mx-3 border-b pb-2">
                         {
                             menus.map((menu) => {
                                 return (
@@ -52,14 +64,39 @@ const menus = [
                                         class="grow w-0 group"
                                         title={menu.count}
                                     >
-                                        <div class="text-lg text-red-500 group-hover:underline oneline">
+                                        <div class="text-sm text-red-500 group-hover:underline oneline">
                                             {menu.count}
                                         </div>
-                                        <div class="text-lg">{menu.name}</div>
+                                        <div class="text-md drop-shadow-lg">
+                                            {menu.name}
+                                        </div>
                                     </a>
                                 )
                             })
                         }
+                    </div>
+                    <a
+                        href="/life"
+                        class="flex justify-center items-center my-2 group px-10"
+                        title={lifeCount}
+                    >
+                        <div
+                            class="text-sm text-red-500 group-hover:underline oneline"
+                        >
+                            {lifeCount}
+                        </div>
+                        <div
+                            class="text-md drop-shadow-lg ml-2 whitespace-nowrap"
+                        >
+                            生活
+                        </div>
+                    </a>
+                    <hr class="my-2 w-[30%] mx-auto" />
+                    <div
+                        class="text-[#555] text-center"
+                        style="text-wrap: balance;"
+                    >
+                        花间一壶酒，独酌无相亲。举杯邀明月，对影成三人。
                     </div>
                 </div>
             </div>

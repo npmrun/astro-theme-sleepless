@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content'
 import SinglePage from '@blog/layouts/SinglePage.astro'
+import ArticleCard from '@blog/components/ArticleCard.astro'
 
 export async function getStaticPaths() {
     const allPosts = await getCollection('posts')
@@ -24,16 +25,27 @@ const { posts } = Astro.props
 ---
 
 <SinglePage>
-    <p>当前分类下文章： {category}</p>
-    <ul>
-        {
-            posts.map((post) => (
-                <li>
-                    <a href={'/posts/' + post.slug} title={post.data.title}>
-                        {post.data.title}
-                    </a>
-                </li>
-            ))
-        }
-    </ul>
+    <p class="mb-8 text-2xl">{category}：</p>
+    {
+        !!posts.length && (
+            <div class="grid grid-cols-6 auto-cols-auto gap-x-3 gap-y-4">
+                {posts.map((blogPostEntry: any) => (
+                    <ArticleCard
+                        articleData={blogPostEntry}
+                        href={`/posts/${blogPostEntry.slug}`}
+                        title={blogPostEntry.data.title}
+                        desc={blogPostEntry.data.describtion}
+                        author={blogPostEntry.data.author}
+                    />
+                ))}
+            </div>
+        )
+    }
+    {
+        !posts.length && (
+            <div class="text-center text-gray-400 text-2xl pt-5">
+                空空如也~~
+            </div>
+        )
+    }
 </SinglePage>

@@ -1,34 +1,96 @@
 ---
 // https://iconify.design/docs/usage/svg/astro/
-import { Icon } from 'astro-icon'
-import { getCollection } from 'astro:content'
-import { BlogCollectionName } from '@blog/config'
+import ArticleCard from '@blog/components/ArticleCard.astro'
 import SinglePage from '@blog/layouts/SinglePage.astro'
-const blogEntries = await getCollection(BlogCollectionName)
+import { getBlogData, getLifeData, getBlogTop } from '@blog/utils'
+
+const blogList = await getBlogData()
+const lifeList = await getLifeData()
+const blogTop = await getBlogTop()
 ---
 
 <SinglePage>
-    <h2 class="flex items-center text-red-600">
-        <Icon name="mdi:home" class="w-[28px] h-[28px]" />页面
-    </h2>
-    <ul>
-        <li class="ml-5">
-            <a href={`/tags`}>标签</a>
-        </li>
-        <li class="ml-5">
-            <a href={`/category`}>分类</a>
-        </li>
-    </ul>
-    <h2>Posts</h2>
-    <ul>
-        {
-            blogEntries.map((blogPostEntry) => (
-                <li class="ml-5">
-                    <a href={`/posts/${blogPostEntry.slug}`}>
-                        {blogPostEntry.data.title}
-                    </a>
-                </li>
-            ))
-        }
-    </ul>
+    {
+        blogTop && (
+            <a href={`/posts/${blogTop.slug}`}>
+                <figure class="relative block h-[450px] rounded-lg overflow-hidden">
+                    <img
+                        class="block w-full h-full object-cover"
+                        src={blogTop.data.heroImage}
+                        style={`object-position: ${
+                            blogTop.data?.heroPosition ?? 'center'
+                        };`}
+                        alt=""
+                    />
+                    <figcaption class="absolute  bottom-0 text-white text-center px-6 w-full py-2 text-2xl bg-black/[.3] backdrop-blur-sm">
+                        <div class="truncate">{blogTop.data.title}</div>
+                    </figcaption>
+                </figure>
+            </a>
+        )
+    }
+
+    <div class="my-6">
+        <div class="flex items-center">
+            <a
+                href="/posts"
+                class="text-2xl relative group hover:text-red-400 transition-all"
+            >
+                <span
+                    class="absolute right-full mr-[6px] opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
+                    >#</span
+                >
+                技术
+            </a>
+        </div>
+        <div
+            class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 auto-cols-auto gap-x-3 gap-y-4 mt-6"
+        >
+            {
+                blogList.length &&
+                    blogList
+                        .slice(0, 6)
+                        .map((blogPostEntry) => (
+                            <ArticleCard
+                                articleData={blogPostEntry}
+                                href={`/posts/${blogPostEntry.slug}`}
+                                bg={blogPostEntry.data.heroImage}
+                                title={blogPostEntry.data.title}
+                                desc={blogPostEntry.data.describtion}
+                                author={blogPostEntry.data.author}
+                            />
+                        ))
+            }
+        </div>
+    </div>
+    <div class="my-6">
+        <div class="flex items-center">
+            <a
+                href="/life"
+                class="text-2xl relative group hover:text-red-400 transition-all"
+            >
+                <span
+                    class="absolute right-full mr-[6px] opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
+                    >#</span
+                >
+                生活
+            </a>
+        </div>
+        <div class="grid grid-cols-6 auto-cols-auto gap-x-3 gap-y-4 mt-6">
+            {
+                lifeList.length &&
+                    lifeList
+                        .slice(0, 6)
+                        .map((blogPostEntry) => (
+                            <ArticleCard
+                                articleData={blogPostEntry}
+                                href={`/life/${blogPostEntry.slug}`}
+                                title={blogPostEntry.data.title}
+                                desc={blogPostEntry.data.describtion}
+                                author={blogPostEntry.data.author}
+                            />
+                        ))
+            }
+        </div>
+    </div>
 </SinglePage>

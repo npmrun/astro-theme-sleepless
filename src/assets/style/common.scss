@@ -7,11 +7,11 @@ body {
     background-color: var(--bg-color);
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
-#root {
-    width: 700px;
-    margin: 0 auto;
+#root{
+    height: 100%;
 }
 
 :root,
@@ -38,9 +38,12 @@ body {
         -apple-system, BlinkMacSystemFont, 'Segoe UI', Lantinghei SC,
         Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif,
         WenQuanYi Micro Hei, sans-serif;
+    // font: 400 1em/1.6 PingFang SC, ui-sans-serif, -apple-system,
+    //     BlinkMacSystemFont, 'Segoe UI', Lantinghei SC, Microsoft Yahei,
+    //     Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
 }
 
-.oneline{
+.oneline {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

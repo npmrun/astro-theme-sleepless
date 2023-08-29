@@ -1,7 +1,12 @@
 ---
 title: 定制一个自己的markdown样式
+hot: true
+heroImage: https://w.wallhaven.cc/full/yx/wallhaven-yxqzpd.jpg
+heroPosition: top
+describtion: 定制一个自己的markdown样式定制一个自己的markdown样式定制一个自己的markdown样式定制一个自己的markdown样式
 tags:
     - MD
+    - hhk
 category: 技术
 author: NPMRUN
 ---

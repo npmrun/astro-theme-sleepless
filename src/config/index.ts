@@ -7,3 +7,8 @@ export const BlogCollectionName = 'posts'
 export const getBlogSlugPrefix = (url: string) => {
     return '/posts/' + url
 }
+
+export const LifeCollectionName = 'life'
+export const getLifeSlugPrefix = (url: string) => {
+    return '/life/' + url
+}

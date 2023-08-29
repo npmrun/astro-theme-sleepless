@@ -7,22 +7,28 @@
 //     color: inherit;
 // }
 
+.markdown-body {
+    --color-base: #ef4444;
+    --color-light: #ef44441a;
+    --color-extra: rgba(239, 68, 68, 0.3);
+}
+
 .markdown-body.green {
     /* 块/段落引用 */
     blockquote {
         position: relative;
         // color: #555;
         font-weight: 400;
-        border-left: 6px solid #1abc9c;
+        border-left: 6px solid var(--color-base);
         padding-left: 1em;
         margin-left: 0;
         padding: 1em;
-        background-color: #1abc9c1a;
+        background-color: var(--color-light);
     }
 
     /* 让链接在 hover 状态下显示下划线 */
     // a {
-    //     color: #1abc9c;
+    //     color: var(--color-base);
     //     text-decoration: none;
     //     &:hover {
     //         text-decoration: underline;
@@ -91,7 +97,7 @@
         font-weight: inherit;
     }
     del {
-        text-decoration: line-through #1abc9c 2px;
+        text-decoration: line-through var(--color-base) 2px;
     }
     code {
         color: #ffffff;
@@ -175,7 +181,7 @@
         background: linear-gradient(
                 to bottom,
                 transparent 70%,
-                rgba(26, 188, 156, 0.3) 0
+                var(--color-extra) 0
             )
             no-repeat;
         &::before {
@@ -204,7 +210,7 @@
             overflow: hidden;
             white-space: nowrap;
             pointer-events: none;
-            color: #1abc9c;
+            color: var(--color-base);
             content: '・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・';
         }
     }

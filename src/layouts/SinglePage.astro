@@ -1,11 +1,17 @@
 ---
 import Base from './Base/Base.astro'
-import UserProfile from '@blog/components/UserProfile.astro'
 ---
 
 <Base {...Astro.props}>
-    <main class="pt-12">
-        <UserProfile />
-        <slot />
-    </main>
+    <div class="min-h-full flex flex-col">
+        <main class="ml-[10px] mr-[10px] lg:ml-[330px] lg:mr-[30px] pb-10 pt-5 flex-1 flex flex-col">
+            <div class="h-0 flex-1">
+                <slot />
+            </div>
+        </main>
+        <div class="text-center mt-12 ml-[300px] py-8 bg-white/[.6] border-t">
+            <div>© 2023 NPMRUN. All rights reserved.</div>
+            <div>Built with ♥ by 失眠先生 Powered By Astro</div>
+        </div>
+    </div>
 </Base>

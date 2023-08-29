@@ -1,6 +1,7 @@
 ---
 import { getCollection, getEntries, getEntry } from 'astro:content'
 import SinglePage from '@blog/layouts/SinglePage.astro'
+import ArticleCard from '@root/src/components/ArticleCard.astro'
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
     const blogEntries = await getCollection('posts')
@@ -25,16 +26,43 @@ if (entry.data.relatedPosts) {
 ---
 
 <SinglePage>
-    <a href="/">返回首页</a>
     <article class="markdown-body green">
         <h1>{entry.data.title}</h1>
-        <p>Author: {author?.data.name}</p>
+        <p>作者: {author?.data.name}</p>
         <Content />
-
-        <h2>You might also like:</h2>
+        <!-- {
+            relatedPosts && relatedPosts.length &&
+                relatedPosts.map((p) => <a href={p.slug}>{p.data.title}</a>)
+        } -->
+    </article>
+    {
+        relatedPosts && relatedPosts.length && (
+            <hr class="h-[5px] bg-slate-300 my-4" />
+        )
+    }
+    {
+        relatedPosts && relatedPosts.length && (
+            <h2 class="text-2xl mb-10">可能喜欢:</h2>
+        )
+    }
+    <div
+        class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 auto-cols-auto gap-x-3 gap-y-4 mt-6"
+    >
         {
             relatedPosts &&
-                relatedPosts.map((p) => <a href={p.slug}>{p.data.title}</a>)
+                relatedPosts.length &&
+                relatedPosts
+                    .slice(0, 6)
+                    .map((blogPostEntry) => (
+                        <ArticleCard
+                            articleData={blogPostEntry}
+                            href={`/posts/${blogPostEntry.slug}`}
+                            bg={blogPostEntry.data.heroImage}
+                            title={blogPostEntry.data.title}
+                            desc={blogPostEntry.data.describtion}
+                            author={blogPostEntry.data.author}
+                        />
+                    ))
         }
-    </article>
+    </div>
 </SinglePage>

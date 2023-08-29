@@ -1,7 +1,8 @@
 ---
 title: 'Welcome to my blog'
 tags:
-    - welcome
+    - welcomewelc
+    - welcomewelcomewelcomewelcomewelcome
 category: aaa
 author: ben-holmes
 relatedPosts:

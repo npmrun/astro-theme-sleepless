@@ -6,7 +6,11 @@ const postsCollection = defineCollection({
   type: 'content', // v2.5.0 and later
   schema: z.object({
     title: z.string(),
+    describtion: z.string().optional(),
+    heroImage: z.string().optional(),
+    heroPosition: z.string().optional(),
     category: z.array(z.string()).or(z.string()),
+    hot: z.boolean().optional(),
     tags: z.array(z.string()).or(z.string()),
     image: z.string().optional().optional(),
     // Reference a single author from the `authors` collection by `id`
@@ -16,7 +20,24 @@ const postsCollection = defineCollection({
   }),
 });
 
+const lifeCollection = defineCollection({
+  type: "content", // v2.5.0 and later
+  schema: z.object({
+    title: z.string(),
+    describtion: z.string().optional(),
+    heroPosition: z.string().optional(),
+    heroImage: z.string().optional(),
+    hot: z.boolean().optional(),
+    image: z.string().optional().optional(),
+    // Reference a single author from the `authors` collection by `id`
+    author: reference('authors'),
+    // Reference an array of related posts from the `blog` collection by `slug`
+    relatedPosts: z.array(reference('posts')).or(z.array(reference('life'))).optional(),
+  }),
+});
+
 // 3. Export a single `collections` object to register your collection(s)
 export const collections = {
   posts: postsCollection,
+  life: lifeCollection,
 };

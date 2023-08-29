@@ -5,12 +5,11 @@ const allPosts = await getCollection('posts')
 const categories = [
     ...new Set(allPosts.map((post) => post.data.category).flat()),
 ]
-
-const pageTitle = 'Tag Index'
 ---
 
 <SinglePage>
-    <ul>
+    <h2 class="text-2xl">分类</h2>
+    <ul class="list-disc ml-10">
         {
             categories.map((category) => (
                 <li>

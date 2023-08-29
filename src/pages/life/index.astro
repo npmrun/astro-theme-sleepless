@@ -1,0 +1,32 @@
+---
+import { getLifeData } from '@blog/utils'
+import ArticleCard from '@blog/components/ArticleCard.astro'
+import SinglePage from '@blog/layouts/SinglePage.astro'
+const lifeEntries = await getLifeData()
+---
+
+<SinglePage>
+    <div class="mb-8 text-3xl">生活杂记</div>
+    {
+        !!lifeEntries.length && (
+            <div class="grid grid-cols-6 auto-cols-auto gap-x-3 gap-y-4">
+                {lifeEntries.map((blogPostEntry) => (
+                    <ArticleCard
+                        href={`/life/${blogPostEntry.slug}`}
+                        title={blogPostEntry.data.title}
+                        desc={blogPostEntry.data.describtion}
+                        author={blogPostEntry.data.author}
+                        tag="生活"
+                    />
+                ))}
+            </div>
+        )
+    }
+    {
+        !lifeEntries.length && (
+            <div class="text-center text-gray-400 text-2xl pt-5">
+                空空如也~~
+            </div>
+        )
+    }
+</SinglePage>
