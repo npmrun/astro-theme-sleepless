@@ -1,12 +1,13 @@
 ---
 title: 'Welcome to my blog'
 tags:
-    - welcomewelc
-    - welcomewelcomewelcomewelcomewelcome
-category: aaa
-author: ben-holmes
+    - welcome
+category: 杂记
+heroImage: https://w.wallhaven.cc/full/o3/wallhaven-o3or35.jpg
+heroPosition: top -180px right 0
+author: NPMRUN
 relatedPosts:
-    - about-me
+    - md测试文档
 ---
 
 <kbd>cmd+K</kbd>

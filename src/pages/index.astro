@@ -44,7 +44,7 @@ const blogTop = await getBlogTop()
             </a>
         </div>
         <div
-            class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 auto-cols-auto gap-x-3 gap-y-4 mt-6"
+            class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 auto-cols-auto gap-x-3 gap-y-4 mt-6"
         >
             {
                 blogList.length &&
@@ -76,7 +76,7 @@ const blogTop = await getBlogTop()
                 生活
             </a>
         </div>
-        <div class="grid grid-cols-6 auto-cols-auto gap-x-3 gap-y-4 mt-6">
+        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 auto-cols-auto gap-x-3 gap-y-4 mt-6">
             {
                 lifeList.length &&
                     lifeList
@@ -85,6 +85,7 @@ const blogTop = await getBlogTop()
                             <ArticleCard
                                 articleData={blogPostEntry}
                                 href={`/life/${blogPostEntry.slug}`}
+                                bg={blogPostEntry.data.heroImage}
                                 title={blogPostEntry.data.title}
                                 desc={blogPostEntry.data.describtion}
                                 author={blogPostEntry.data.author}

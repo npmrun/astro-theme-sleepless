@@ -10,12 +10,13 @@ const blogEntries = await getCollection(BlogCollectionName)
     <div class="mb-8 text-3xl">技术文章</div>
     {
         !!blogEntries.length && (
-            <div class="grid grid-cols-6 auto-cols-auto gap-x-3 gap-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 auto-cols-auto gap-x-3 gap-y-4">
                 {blogEntries.map((blogPostEntry) => (
                     <ArticleCard
                         articleData={blogPostEntry}
                         href={`/posts/${blogPostEntry.slug}`}
                         title={blogPostEntry.data.title}
+                        bg={blogPostEntry.data.heroImage}
                         desc={blogPostEntry.data.describtion}
                         author={blogPostEntry.data.author}
                     />

@@ -14,6 +14,7 @@ const lifeEntries = await getLifeData()
                     <ArticleCard
                         href={`/life/${blogPostEntry.slug}`}
                         title={blogPostEntry.data.title}
+                        bg={blogPostEntry.data.heroImage}
                         desc={blogPostEntry.data.describtion}
                         author={blogPostEntry.data.author}
                         tag="生活"

@@ -26,9 +26,61 @@ if (entry.data.relatedPosts) {
 ---
 
 <SinglePage>
+    <figure class="relative block h-[450px] mb-6 rounded-lg overflow-hidden">
+        <img
+            class="block w-full h-full object-cover brightness-75 bg-gray-200"
+            src={entry.data.heroImage}
+            style={`object-position: ${entry.data?.heroPosition ?? 'center'};`}
+            alt=""
+        />
+        <div
+            style="background: url(/mask.png);position:absolute;width:100%;height:100%;top: 0;"
+        >
+        </div>
+        <figcaption
+            class="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-white text-center px-6 py-2"
+        >
+            <div class="truncate text-2xl drop-shadow-lg">
+                {entry.data.title}
+            </div>
+            <div
+                class="inline-grid mx-auto grid-flow-col auto-cols-auto text-md gap-x-6 mt-1"
+            >
+                <p>作者: {author?.data.name}</p>
+                <p>
+                    分类: <a
+                        class="hover:text-red-400 cursor-pointer"
+                        href={`/category/${entry?.data.category}`}
+                        >{entry?.data.category}</a
+                    >
+                </p>
+            </div>
+            <div>
+                {
+                    entry &&
+                        entry.data &&
+                        entry.data.tags &&
+                        entry.data.tags.length && (
+                            <div class="inline-grid mx-auto grid-flow-col auto-cols-auto gap-x-2 mt-1">
+                                {entry.data.tags.map(
+                                    (tag: string, index: number) => {
+                                        return (
+                                            <a
+                                                href={`/tags/${tag}`}
+                                                class="bg-red-400 px-2 py-1 rounded-lg text-xs"
+                                            >
+                                                # {tag}
+                                            </a>
+                                        )
+                                    }
+                                )}
+                            </div>
+                        )
+                }
+            </div>
+        </figcaption>
+    </figure>
     <article class="markdown-body green">
-        <h1>{entry.data.title}</h1>
-        <p>作者: {author?.data.name}</p>
         <Content />
         <!-- {
             relatedPosts && relatedPosts.length &&
