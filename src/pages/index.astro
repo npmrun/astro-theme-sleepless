@@ -13,9 +13,9 @@ const blogTop = await getBlogTop()
     {
         blogTop && (
             <a href={`/posts/${blogTop.slug}`}>
-                <figure class="relative block h-[450px] rounded-lg overflow-hidden">
+                <figure class="relative block h-[450px] max-sm:h-[250px] rounded-lg overflow-hidden">
                     <img
-                        class="block w-full h-full object-cover"
+                        class="block w-full h-full object-cover max-sm:!object-center"
                         src={blogTop.data.heroImage}
                         style={`object-position: ${
                             blogTop.data?.heroPosition ?? 'center'

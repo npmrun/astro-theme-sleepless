@@ -38,13 +38,14 @@ if (articleData && articleData.data && articleData.data.category) {
     <div class="absolute -top-[6px] left-0 right-0 mb-1">
         {
             AllTags.map((item: any, index: number) => (
-                <div
+                <a
+                    href={`/tags/${item}`}
                     class={`relative max-w-full inline-block group-hover:-top-[25px] truncate delay-${
                         index * 100
                     } transition-all top-0 bg-red-400 text-white px-2 rounded-md py-1 text-sm`}
                 >
                     # {item}
-                </div>
+                </a>
             ))
         }
     </div>
@@ -73,12 +74,14 @@ if (articleData && articleData.data && articleData.data.category) {
             </div>
             {
                 AllCategory[0] && (
-                    <div
-                        class="ml-2 max-w-[40%] truncate"
+                    <a
+                        href={`/category/${AllCategory[0]}`}
+                        class="ml-2 max-w-[40%] truncate "
                         title={AllCategory[0]}
                     >
-                        分类：{AllCategory[0]}
-                    </div>
+                        分类：
+                        <span class="hover:text-red-400">{AllCategory[0]}</span>
+                    </a>
                 )
             }
         </div>

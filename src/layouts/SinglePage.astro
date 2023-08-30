@@ -1,17 +1,51 @@
 ---
 import Base from './Base/Base.astro'
+import { Icon } from 'astro-icon'
 ---
 
 <Base {...Astro.props}>
     <div class="min-h-full flex flex-col">
-        <main class="ml-[10px] mr-[10px] lg:ml-[330px] lg:mr-[30px] pb-10 pt-5 flex-1 flex flex-col">
+        <header
+            class="max-lg:flex hidden fixed left-0 right-0 top-0 h-[46px] bg-white items-center px-[10px] z-[50]"
+        >
+            <Icon id="menu-btn" name="mdi:menu" class="w-[36px] h-[36px]" />
+            <div
+                id="menu-mask"
+                style="pointer-events: none;opacity: 0;"
+                class="fixed transition-all left-0 right-0 top-0 bottom-0 bg-black/[.3] z-50"
+            >
+            </div>
+        </header>
+        <div class="h-[46px] hidden max-lg:block"></div>
+        <main
+            class="ml-[10px] mr-[10px] lg:ml-[330px] lg:mr-[30px] pt-5 flex-1 flex flex-col"
+        >
             <div class="h-0 flex-1">
                 <slot />
             </div>
         </main>
-        <div class="text-center mt-12 ml-0 lg:ml-[300px] py-8 bg-white/[.6] border-t">
+        <div
+            class="text-center  ml-0 lg:ml-[300px] py-8 bg-white/[.6] border-t"
+        >
             <div>© 2023 NPMRUN. All rights reserved.</div>
             <div>Built with ♥ by 失眠先生 Powered By Astro</div>
         </div>
     </div>
+    <script lang="ts">
+        const menuBtn = document.getElementById('menu-btn')
+        const menuMask = document.getElementById('menu-mask')
+        const menuWrapper = document.getElementById('menu-wrapper')
+        menuBtn.addEventListener('click', function () {
+            menuMask.style.pointerEvents = 'auto'
+            menuMask.style.opacity = 1
+            menuWrapper.style.left = '0'
+            document.body.style.overflow="hidden"
+        })
+        menuMask.addEventListener('click', function () {
+            menuMask.style.pointerEvents = 'none'
+            menuMask.style.opacity = 0
+            menuWrapper.style.left = '-310px'
+            document.body.style.overflow="auto"
+        })
+    </script>
 </Base>
