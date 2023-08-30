@@ -12,12 +12,8 @@ const lifeEntries = await getLifeData()
             <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 auto-cols-auto gap-x-3 gap-y-4">
                 {lifeEntries.map((blogPostEntry) => (
                     <ArticleCard
+                        articleData={blogPostEntry}
                         href={`/life/${blogPostEntry.slug}`}
-                        title={blogPostEntry.data.title}
-                        bg={blogPostEntry.data.heroImage}
-                        desc={blogPostEntry.data.describtion}
-                        author={blogPostEntry.data.author}
-                        tag="生活"
                     />
                 ))}
             </div>

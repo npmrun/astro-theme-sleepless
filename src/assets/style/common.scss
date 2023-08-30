@@ -10,7 +10,7 @@ body {
     height: 100%;
 }
 
-#root{
+#root {
     height: 100%;
 }
 
@@ -47,4 +47,8 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.swiper{
+    --swiper-theme-color: white;
 }

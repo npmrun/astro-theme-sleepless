@@ -3,32 +3,65 @@
 import ArticleCard from '@blog/components/ArticleCard.astro'
 import SinglePage from '@blog/layouts/SinglePage.astro'
 import { getBlogData, getLifeData, getBlogTop } from '@blog/utils'
+import { getEntry } from 'astro:content'
 
 const blogList = await getBlogData()
 const lifeList = await getLifeData()
-const blogTop = await getBlogTop()
+const blogTopList = await getBlogTop()
 ---
 
 <SinglePage>
-    {
-        blogTop && (
-            <a href={`/posts/${blogTop.slug}`}>
-                <figure class="relative block h-[450px] max-sm:h-[250px] rounded-lg overflow-hidden">
-                    <img
-                        class="block w-full h-full object-cover max-sm:!object-center"
-                        src={blogTop.data.heroImage}
-                        style={`object-position: ${
-                            blogTop.data?.heroPosition ?? 'center'
-                        };`}
-                        alt=""
-                    />
-                    <figcaption class="absolute  bottom-0 text-white text-center px-6 w-full py-2 text-2xl bg-black/[.3] backdrop-blur-sm">
-                        <div class="truncate">{blogTop.data.title}</div>
-                    </figcaption>
-                </figure>
-            </a>
-        )
-    }
+    <div class="swiper mySwiper h-[450px] max-sm:h-[250px]">
+        <div class="swiper-wrapper">
+            {
+                blogTopList &&
+                    blogTopList.length &&
+                    blogTopList.map(async (blogTop) => (
+                        <div class="swiper-slide h-[450px] max-sm:h-[250px]">
+                            <a href={`/posts/${blogTop.slug}`}>
+                                <figure class="relative block h-full rounded-lg overflow-hidden">
+                                    <img
+                                        class="block brightness-75 w-full h-full object-cover max-sm:!object-center"
+                                        src={blogTop.data.heroImage}
+                                        style={`object-position: ${
+                                            blogTop.data?.heroPosition ??
+                                            'center'
+                                        };`}
+                                        alt=""
+                                    />
+                                    <figcaption class="absolute top-[50%] left-[50%] w-full -translate-x-[50%] -translate-y-[50%] text-white text-center px-6 py-2">
+                                        <div class="truncate w-full text-3xl drop-shadow-lg">
+                                            {blogTop.data.title}
+                                        </div>
+                                        {blogTop.data.author && (
+                                            <div class="inline-grid mx-auto md:grid-flow-col max-lg:grid-cols-1 auto-cols-auto text-md gap-x-6 mt-1">
+                                                <p>
+                                                    作者:{' '}
+                                                    {
+                                                        (
+                                                            await getEntry(
+                                                                blogTop.data
+                                                                    .author
+                                                                    .collection,
+                                                                blogTop.data
+                                                                    .author.id
+                                                            )
+                                                        )?.data.name
+                                                    }
+                                                </p>
+                                            </div>
+                                        )}
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                    ))
+            }
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
 
     <div class="my-6">
         <div class="flex items-center">
@@ -54,10 +87,6 @@ const blogTop = await getBlogTop()
                             <ArticleCard
                                 articleData={blogPostEntry}
                                 href={`/posts/${blogPostEntry.slug}`}
-                                bg={blogPostEntry.data.heroImage}
-                                title={blogPostEntry.data.title}
-                                desc={blogPostEntry.data.describtion}
-                                author={blogPostEntry.data.author}
                             />
                         ))
             }
@@ -76,7 +105,9 @@ const blogTop = await getBlogTop()
                 生活
             </a>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 auto-cols-auto gap-x-3 gap-y-4 mt-6">
+        <div
+            class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 auto-cols-auto gap-x-3 gap-y-4 mt-6"
+        >
             {
                 lifeList.length &&
                     lifeList
@@ -85,10 +116,6 @@ const blogTop = await getBlogTop()
                             <ArticleCard
                                 articleData={blogPostEntry}
                                 href={`/life/${blogPostEntry.slug}`}
-                                bg={blogPostEntry.data.heroImage}
-                                title={blogPostEntry.data.title}
-                                desc={blogPostEntry.data.describtion}
-                                author={blogPostEntry.data.author}
                             />
                         ))
             }

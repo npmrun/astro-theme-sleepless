@@ -1,3 +1,15 @@
+import Swiper from "swiper";
+import "swiper/swiper-bundle.css";
+import { Navigation, Pagination } from 'swiper/modules';
+
+new Swiper(".mySwiper", {
+    modules: [Pagination, Navigation],
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+});
+
 if (
     localStorage.theme === 'dark' ||
     (!('theme' in localStorage) &&

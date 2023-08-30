@@ -1,10 +1,10 @@
 ---
 import { getEntry } from 'astro:content'
-const { title, desc, bg, href, author, articleData } = Astro.props as any
+const { href, articleData } = Astro.props as any
 
 let authorData
-if (author) {
-    authorData = (await getEntry(author.collection, author.id)) as any
+if (articleData?.data?.author) {
+    authorData = (await getEntry(articleData?.data?.author.collection, articleData?.data?.author.id)) as any
 }
 
 let AllTags: string[] = []
@@ -54,7 +54,7 @@ if (articleData && articleData.data && articleData.data.category) {
             <div class="w-full h-full transition img-wrapper relative bg-white">
                 <img
                     class="w-full h-full object-cover group-hover:scale-110 transition-transform"
-                    src={bg ||
+                    src={articleData.data.heroImage ||
                         'https://w.wallhaven.cc/full/d6/wallhaven-d6o77l.jpg'}
                 />
                 <div
@@ -66,7 +66,7 @@ if (articleData && articleData.data && articleData.data.category) {
     </div>
     <div class="px-4 py-2">
         <a href={href}>
-            <div class="truncate text-lg">{title}</div>
+            <div class="truncate text-lg">{articleData.data.title}</div>
         </a>
         <div class="text-sm text-gray-500 flex">
             <div class="w-0 flex-grow truncate">
@@ -86,7 +86,7 @@ if (articleData && articleData.data && articleData.data.category) {
             }
         </div>
         <div class="text-xs pt-2 line-clamp-2 text-gray-400">
-            {desc ?? '作者很懒，没有写说明'}
+            {articleData.data.describtion ?? '作者很懒，没有写说明'}
         </div>
     </div>
 </div>

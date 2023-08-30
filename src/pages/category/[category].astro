@@ -33,9 +33,6 @@ const { posts } = Astro.props
                     <ArticleCard
                         articleData={blogPostEntry}
                         href={`/posts/${blogPostEntry.slug}`}
-                        title={blogPostEntry.data.title}
-                        desc={blogPostEntry.data.describtion}
-                        author={blogPostEntry.data.author}
                     />
                 ))}
             </div>

@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content'
 
 export async function getBlogTop() {
     const blogEntries = await getBlogData()
-    return blogEntries.find((node) => {
+    return blogEntries.filter((node) => {
         return !!node.data.hot
     })
 }

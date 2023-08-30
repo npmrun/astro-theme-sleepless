@@ -58,7 +58,7 @@ const menus = [
                     <UserProfile />
                     <div class="flex mt-4 mx-3 border-b pb-2">
                         {
-                            menus.map((menu) => {
+                            menus.map((menu: any) => {
                                 return (
                                     <a
                                         href={menu.url}
@@ -79,7 +79,7 @@ const menus = [
                     <a
                         href="/life"
                         class="flex justify-center items-center my-2 group px-10"
-                        title={lifeCount}
+                        title={lifeCount as any as string}
                     >
                         <div
                             class="text-sm text-red-500 group-hover:underline oneline"
