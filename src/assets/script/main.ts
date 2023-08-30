@@ -1,9 +1,12 @@
 import Swiper from "swiper";
 import "swiper/swiper-bundle.css";
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
 new Swiper(".mySwiper", {
-    modules: [Pagination, Navigation],
+    modules: [Pagination, Navigation, Autoplay],
+    autoplay: {
+        delay: 5000,
+    },
     navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
@@ -31,3 +34,9 @@ function toggleTheme() {
 }
 
 window.toggleTheme = toggleTheme
+
+declare global {
+    interface Window {
+        toggleTheme(): void
+    }
+}

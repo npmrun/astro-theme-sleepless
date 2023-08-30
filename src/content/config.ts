@@ -9,7 +9,7 @@ const postsCollection = defineCollection({
     describtion: z.string().optional(),
     heroImage: z.string().optional(),
     heroPosition: z.string().optional(),
-    category: z.array(z.string()).or(z.string()),
+    category: z.string(),
     hot: z.boolean().optional(),
     tags: z.array(z.string()).or(z.string()),
     image: z.string().optional().optional(),

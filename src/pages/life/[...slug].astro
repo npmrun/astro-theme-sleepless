@@ -1,5 +1,5 @@
 ---
-import { getCollection, getEntries, getEntry } from 'astro:content'
+import { getEntries, getEntry } from 'astro:content'
 import SinglePage from '@blog/layouts/SinglePage.astro'
 import ArticleCard from '@root/src/components/ArticleCard.astro'
 import { getLifeData } from '@root/src/utils'
@@ -32,31 +32,43 @@ if (entry.data.relatedPosts) {
     >
         <img
             class="block w-full h-full object-cover brightness-75 bg-gray-200 max-lg:!object-center"
-            src={entry.data.heroImage}
+            src={entry.data.heroImage || "/bg.png"}
             style={`object-position: ${entry.data?.heroPosition ?? 'center'};`}
-            alt=""
+            alt={entry.data.title}
         />
         <div
             style="background: url(/mask.png);position:absolute;width:100%;height:100%;top: 0;"
         >
         </div>
         <figcaption
-            class="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-white text-center px-6 py-2"
+            class="absolute top-[50%] w-full left-[50%] -translate-x-[50%] -translate-y-[50%] text-white text-center px-6 py-2"
         >
-            <div class="truncate text-3xl drop-shadow-lg">
+            <div class="line-clamp-2 text-3xl drop-shadow-lg">
                 {entry.data.title}
             </div>
             <div
                 class="inline-grid mx-auto md:grid-flow-col max-lg:grid-cols-1 auto-cols-auto text-md gap-x-6 mt-1"
             >
                 <p>作者: {author?.data.name}</p>
-                <p>
-                    <a class="hover:text-red-400 cursor-pointer" href={`/category`}>分类</a>: <a
-                        class="hover:text-red-400 cursor-pointer"
-                        href={`/category/${entry?.data.category}`}
-                        >{entry?.data.category}</a
-                    >
-                </p>
+                {
+                    entry?.data.category && (
+                        <p>
+                            <a
+                                class="hover:text-red-400 cursor-pointer"
+                                href={`/category`}
+                            >
+                                分类
+                            </a>
+                            :{' '}
+                            <a
+                                class="hover:text-red-400 cursor-pointer"
+                                href={`/category/${entry?.data.category}`}
+                            >
+                                {entry?.data.category}
+                            </a>
+                        </p>
+                    )
+                }
             </div>
             <div>
                 {
@@ -66,7 +78,7 @@ if (entry.data.relatedPosts) {
                         entry.data.tags.length && (
                             <div class="inline-grid mx-auto grid-flow-col auto-cols-auto gap-x-2 mt-1">
                                 {entry.data.tags.map(
-                                    (tag: string, index: number) => {
+                                    (tag: string) => {
                                         return (
                                             <a
                                                 href={`/tags/${tag}`}
@@ -83,32 +95,34 @@ if (entry.data.relatedPosts) {
             </div>
         </figcaption>
     </figure>
-    <article class="markdown-body green p-3 bg-white rounded-lg">
-        <Content />
-        <!-- {
-            relatedPosts && relatedPosts.length &&
-                relatedPosts.map((p) => <a href={p.slug}>{p.data.title}</a>)
-        } -->
-    </article>
-    {
-        relatedPosts && relatedPosts.length && (
-            <h2 class="text-2xl my-8">可能喜欢:</h2>
-        )
-    }
-    <div
-        class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 auto-cols-auto gap-x-3 gap-y-4 mt-6 mb-6"
-    >
+    <div class="p-3 lg:p-6 bg-white rounded-lg max-w-[980px] mx-auto mb-8">
+        <article class="markdown-body green">
+            <Content />
+            <!-- {
+                relatedPosts && relatedPosts.length &&
+                    relatedPosts.map((p) => <a href={p.slug}>{p.data.title}</a>)
+            } -->
+        </article>
         {
-            relatedPosts &&
-                relatedPosts.length &&
-                relatedPosts
-                    .slice(0, 6)
-                    .map((blogPostEntry) => (
-                        <ArticleCard
-                            articleData={blogPostEntry}
-                            href={`/posts/${blogPostEntry.slug}`}
-                        />
-                    ))
+            relatedPosts && relatedPosts.length && (
+                <h2 class="text-2xl my-8">可能喜欢:</h2>
+            )
+        }
+        {
+            relatedPosts && relatedPosts.length && (
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-cols-auto gap-x-3 gap-y-4 mt-6 mb-6">
+                    {relatedPosts &&
+                        relatedPosts.length &&
+                        relatedPosts
+                            .slice(0, 6)
+                            .map((blogPostEntry) => (
+                                <ArticleCard
+                                    articleData={blogPostEntry}
+                                    href={`/posts/${blogPostEntry.slug}`}
+                                />
+                            ))}
+                </div>
+            )
         }
     </div>
 </SinglePage>

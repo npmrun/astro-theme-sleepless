@@ -9,10 +9,10 @@ const categories = [
 
 <SinglePage>
     <h2 class="text-2xl">分类</h2>
-    <ul class="list-disc ml-10">
+    <ul class="flex">
         {
             categories.map((category) => (
-                <li>
+                <li class="ml-2 mt-2 first:ml-0">
                     <a href={'/category/' + category}>{category}</a>
                 </li>
             ))

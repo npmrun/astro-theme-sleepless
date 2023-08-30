@@ -5,6 +5,14 @@
         {
             "name": "github",
             "url": "https://github.com/npmrun"
+        },
+        {
+            "name": "web",
+            "url": "https://blog.xieyaxin.top"
+        },
+        {
+            "name": "feather",
+            "url": "/about"
         }
     ]
 }

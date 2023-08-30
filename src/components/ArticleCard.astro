@@ -4,7 +4,10 @@ const { href, articleData } = Astro.props as any
 
 let authorData
 if (articleData?.data?.author) {
-    authorData = (await getEntry(articleData?.data?.author.collection, articleData?.data?.author.id)) as any
+    authorData = (await getEntry(
+        articleData?.data?.author.collection,
+        articleData?.data?.author.id
+    )) as any
 }
 
 let AllTags: string[] = []
@@ -54,8 +57,7 @@ if (articleData && articleData.data && articleData.data.category) {
             <div class="w-full h-full transition img-wrapper relative bg-white">
                 <img
                     class="w-full h-full object-cover group-hover:scale-110 transition-transform"
-                    src={articleData.data.heroImage ||
-                        'https://w.wallhaven.cc/full/d6/wallhaven-d6o77l.jpg'}
+                    src={articleData.data.heroImage || '/bg.png'}
                 />
                 <div
                     style="background: url(/mask.png);position:absolute;width:100%;height:100%;top: 0;"

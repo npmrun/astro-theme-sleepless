@@ -1,6 +1,6 @@
 // @import './reset.css';
 @import './markdown-reset.scss';
-@import './markdown.scss';
+@import './markdown-shape.scss';
 
 html,
 body {
@@ -29,7 +29,6 @@ body {
     font-display: swap;
     src: url('/HarmonyOS_Sans_SC_Medium.woff2') format('woff2'),
         url('/HarmonyOS_Sans_SC_Medium.woff') format('woff');
-    // src: url('/HarmonyOS_Sans_SC_Medium.woff') format('woff');
 }
 
 /* 要注意表单元素并不继承父级 font 的问题 */
@@ -38,9 +37,6 @@ body {
         -apple-system, BlinkMacSystemFont, 'Segoe UI', Lantinghei SC,
         Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif,
         WenQuanYi Micro Hei, sans-serif;
-    // font: 400 1em/1.6 PingFang SC, ui-sans-serif, -apple-system,
-    //     BlinkMacSystemFont, 'Segoe UI', Lantinghei SC, Microsoft Yahei,
-    //     Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
 }
 
 .oneline {
@@ -49,6 +45,6 @@ body {
     white-space: nowrap;
 }
 
-.swiper{
+.swiper {
     --swiper-theme-color: white;
 }
