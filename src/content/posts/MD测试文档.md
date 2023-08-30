@@ -1,6 +1,5 @@
 ---
 title: MD测试文档
-hot: true
 heroImage: https://w.wallhaven.cc/full/jx/wallhaven-jxd59w.jpg
 describtion: 定制一个自己的markdown样式定制一个自己的markdown样式定制一个自己的markdown样式定制一个自己的markdown样式
 tags:
