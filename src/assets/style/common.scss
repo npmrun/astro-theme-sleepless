@@ -1,6 +1,7 @@
 // @import './reset.css';
 @import './markdown-reset.scss';
 @import './markdown-shape.scss';
+@import './prism.scss';
 
 html,
 body {
@@ -16,7 +17,7 @@ body {
 
 :root,
 :root[data-theme='light'] {
-    --bg-color: #eee;
+    --bg-color: #f7f7fb;
 }
 
 :root[data-theme='dark'] {
@@ -47,4 +48,38 @@ body {
 
 .swiper {
     --swiper-theme-color: white;
+}
+
+.shine-text {
+    // display: inline-block;
+    margin: 0 10px;
+    margin-top: 20px;
+    background: repeating-linear-gradient(
+        135deg,
+        transparent,
+        transparent 3px,
+        #000 3px,
+        #000 8px
+    );
+    animation: shine 1s infinite linear;
+    overflow: hidden;
+    .inner {
+        // position: absolute;
+        // right: 0;
+        // top: -100%;
+        // bottom: 0;
+        // height: 150px;
+        margin: 1px;
+        padding: 10px;
+        background-color: var(--bg-color);
+    }
+}
+
+@keyframes shine {
+    0% {
+        background-position: -1px -1px;
+    }
+    100% {
+        background-position: -12px -12px;
+    }
 }
