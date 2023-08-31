@@ -1,9 +1,8 @@
 ---
-import { getCollection } from 'astro:content'
-import { BlogCollectionName } from '@blog/config'
 import ArticleCard from '@blog/components/ArticleCard.astro'
 import SinglePage from '@blog/layouts/SinglePage.astro'
-const blogEntries = await getCollection(BlogCollectionName)
+import { getBlogDataSortByTime } from '@root/src/utils'
+const blogEntries = await getBlogDataSortByTime()
 ---
 
 <SinglePage>

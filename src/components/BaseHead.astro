@@ -1,5 +1,6 @@
 ---
 import { SiteInfo } from '@blog/config'
+import { ViewTransitions } from 'astro:transitions';
 
 interface IProps {
     title?: string
@@ -29,6 +30,8 @@ for (const key in defaultProps) {
 <title>{curProps.title}</title>
 <meta name="title" content={curProps.title} />
 <meta name="description" content={curProps.description} />
+
+<ViewTransitions />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />

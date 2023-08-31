@@ -14,14 +14,6 @@
 }
 
 .markdown-body.green {
-    ::selection {
-        background-color: var(--color-base);
-        color: #fff;
-    }
-    pre ::selection {
-        background-color: var(--color-light);
-        color: inherit;
-    }
     /* 块/段落引用 */
     blockquote {
         position: relative;

@@ -2,10 +2,10 @@
 // https://iconify.design/docs/usage/svg/astro/
 import ArticleCard from '@blog/components/ArticleCard.astro'
 import SinglePage from '@blog/layouts/SinglePage.astro'
-import { getBlogData, getLifeData, getBlogTop } from '@blog/utils'
+import { getBlogDataSortByTime, getLifeData, getBlogTop } from '@blog/utils'
 import { getEntry } from 'astro:content'
 
-const blogList = await getBlogData()
+const blogList = await getBlogDataSortByTime()
 const lifeList = await getLifeData()
 const blogTopList = await getBlogTop()
 ---

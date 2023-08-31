@@ -1,10 +1,11 @@
 ---
-import { getCollection, getEntries, getEntry } from 'astro:content'
+import { getEntries, getEntry } from 'astro:content'
 import SinglePage from '@blog/layouts/SinglePage.astro'
 import ArticleCard from '@root/src/components/ArticleCard.astro'
+import { getBlogData } from '@root/src/utils'
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
-    const blogEntries = await getCollection('posts')
+    const blogEntries = await getBlogData()
     return blogEntries.map((entry) => ({
         params: { slug: entry.slug },
         props: { entry },
@@ -27,11 +28,11 @@ if (entry.data.relatedPosts) {
 
 <SinglePage>
     <figure
-        class="relative block h-[450px] max-md:h-[250px] mb-6 rounded-lg overflow-hidden"
+        class="relative block h-[450px] max-md:h-[250px] mb-3 rounded-lg overflow-hidden"
     >
         <img
             class="block w-full h-full object-cover brightness-75 bg-gray-200 max-lg:!object-center"
-            src={entry.data.heroImage || "/bg.png"}
+            src={entry.data.heroImage || '/bg.png'}
             style={`object-position: ${entry.data?.heroPosition ?? 'center'};`}
             alt={entry.data.title}
         />
@@ -92,7 +93,58 @@ if (entry.data.relatedPosts) {
             </div>
         </figcaption>
     </figure>
-    <div class="p-3 lg:p-6 bg-white rounded-lg max-w-[980px] mx-auto mb-8 shadow-sm">
+    <div
+        class="mb-3 max-w-[980px] mx-auto text-gray-400 line-clamp-3 text-sm drop-shadow-lg mx-auto text-left"
+    >
+        大致说明：{entry.data.description}
+    </div>
+    <div
+        class="mb-3 max-w-[980px] mx-auto text-gray-400 text-sm text-center md:text-left"
+    >
+        <div
+            class="inline-grid md:grid-flow-col max-lg:grid-cols-1 auto-cols-auto gap-x-6"
+        >
+            {
+                entry.data.pubDate && (
+                    <p>
+                        创建于:
+                        {new Date(entry.data.pubDate).toLocaleDateString(
+                            'zh-cn',
+                            {
+                                year: 'numeric',
+                                month: 'short',
+                                day: 'numeric',
+                                hour: 'numeric',
+                                minute: 'numeric',
+                                second: 'numeric',
+                            },
+                        )}
+                    </p>
+                )
+            }
+            {
+                entry.data.updatedDate && (
+                    <p>
+                        修改于:
+                        {new Date(entry.data.updatedDate).toLocaleDateString(
+                            'zh-cn',
+                            {
+                                year: 'numeric',
+                                month: 'short',
+                                day: 'numeric',
+                                hour: 'numeric',
+                                minute: 'numeric',
+                                second: 'numeric',
+                            },
+                        )}
+                    </p>
+                )
+            }
+        </div>
+    </div>
+    <div
+        class="p-3 lg:p-6 bg-white rounded-lg max-w-[980px] mx-auto mb-8 shadow-sm"
+    >
         <article class="markdown-body green">
             <Content />
             <!-- {

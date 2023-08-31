@@ -1,46 +1,52 @@
 ---
 title: MD测试文档
-heroImage: https://pic.rmb.bdstatic.com/bjh/0e0fcfcf1a0983dccf207fd1364f0eb9.jpeg
-describtion: MD测试文档
+description: MD测试文档
+pubDate: 2023/8/31 13:58:47
+updatedDate: 2023/08/31 15:47:11
 tags:
-    - 测试
-category: 技术
+    - DEMO
+    - MD
+category: 默认
 author: NPMRUN
+heroImage: https://pic.rmb.bdstatic.com/bjh/0e0fcfcf1a0983dccf207fd1364f0eb9.jpeg
+relatedPosts:
+    - unified/如何将一个md文档按h2和h3分块
 ---
-# Welcome to Leanote! 欢迎来到Leanote!
- 
+
+# Welcome to Leanote! 欢迎来到 Leanote!
+
 ## 1. 排版
- 
-**粗体** *斜体* 
- 
+
+**粗体** _斜体_
+
 ~~这是一段错误的文本。~~
- 
+
 引用:
- 
-> 引用Leanote官方的话, 为什么要做Leanote, 原因是...
- 
+
+> 引用 Leanote 官方的话, 为什么要做 Leanote, 原因是...
+
 有充列表:
- 1. 支持Vim
- 2. 支持Emacs
- 
+
+1.  支持 Vim
+2.  支持 Emacs
+
 无序列表:
- 
- - 项目1
- - 项目2
- 
- 
+
+-   项目 1
+-   项目 2
+
 ## 2. 图片与链接
- 
+
 图片:
 ![leanote](http://leanote.com/images/logo/leanote_icon_blue.png)
 链接:
- 
-[这是去往Leanote官方博客的链接](http://leanote.leanote.com)
- 
+
+[这是去往 Leanote 官方博客的链接](http://leanote.leanote.com)
+
 ## 3. 标题
- 
-以下是各级标题, 最多支持5级标题
- 
+
+以下是各级标题, 最多支持 5 级标题
+
 ```
 # h1
 ## h2
@@ -49,90 +55,90 @@ author: NPMRUN
 ##### h4
 ###### h5
 ```
- 
+
 ## 4. 代码
- 
+
 示例:
- 
+
     function get(key) {
         return m[key];
     }
-    
+
 代码高亮示例:
- 
-``` javascript
+
+```javascript
 /**
-* nth element in the fibonacci series.
-* @param n >= 0
-* @return the nth element, >= 0.
-*/
+ * nth element in the fibonacci series.
+ * @param n >= 0
+ * @return the nth element, >= 0.
+ */
 function fib(n) {
-  var a = 1, b = 1;
-  var tmp;
-  while (--n >= 0) {
-    tmp = a;
-    a += b;
-    b = tmp;
-  }
-  return a;
+    var a = 1,
+        b = 1
+    var tmp
+    while (--n >= 0) {
+        tmp = a
+        a += b
+        b = tmp
+    }
+    return a
 }
- 
-document.write(fib(10));
+
+document.write(fib(10))
 ```
- 
+
 ```python
 class Employee:
    empCount = 0
- 
+
    def __init__(self, name, salary):
         self.name = name
         self.salary = salary
         Employee.empCount += 1
 ```
- 
+
 # 5. Markdown 扩展
- 
+
 Markdown 扩展支持:
- 
-* 表格
-* 定义型列表
-* Html 标签
-* 脚注
-* 目录
-* 时序图与流程图
-* MathJax 公式
- 
+
+-   表格
+-   定义型列表
+-   Html 标签
+-   脚注
+-   目录
+-   时序图与流程图
+-   MathJax 公式
+
 ## 5.1 表格
- 
-Item     | Value
--------- | ---
-Computer | \$1600
-Phone    | \$12
-Pipe     | \$1
- 
-可以指定对齐方式, 如Item列左对齐, Value列右对齐, Qty列居中对齐
- 
-| Item     | Value | Qty   |
-| :------- | ----: | :---: |
-| Computer | \$1600 |  5    |
-| Phone    | \$12   |  12   |
-| Pipe     | \$1    |  234  |
- 
- 
+
+| Item     | Value  |
+| -------- | ------ |
+| Computer | \$1600 |
+| Phone    | \$12   |
+| Pipe     | \$1    |
+
+可以指定对齐方式, 如 Item 列左对齐, Value 列右对齐, Qty 列居中对齐
+
+| Item     |  Value | Qty |
+| :------- | -----: | :-: |
+| Computer | \$1600 |  5  |
+| Phone    |   \$12 | 12  |
+| Pipe     |    \$1 | 234 |
+
 ## 5.2 定义型列表
- 
+
 名词 1
-:   定义 1（左侧有一个可见的冒号和四个不可见的空格）
- 
+: 定义 1（左侧有一个可见的冒号和四个不可见的空格）
+
 代码块 2
-:   这是代码块的定义（左侧有一个可见的冒号和四个不可见的空格）
- 
+: 这是代码块的定义（左侧有一个可见的冒号和四个不可见的空格）
+
         代码块（左侧有八个不可见的空格）
- 
+
 ## 5.3 Html 标签
- 
+
 支持在 Markdown 语法中嵌套 Html 标签，譬如，你可以用 Html 写一个纵跨两行的表格：
- 
+
     <table>
         <tr>
             <th rowspan="2">值班人员</th>
@@ -146,8 +152,7 @@ Pipe     | \$1
             <td>王平</td>
         </tr>
     </table>
- 
- 
+
 <table>
     <tr>
         <th rowspan="2">值班人员</th>

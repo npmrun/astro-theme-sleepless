@@ -1,10 +1,7 @@
 ---
-import { getCollection } from 'astro:content'
 import SinglePage from '@blog/layouts/SinglePage.astro'
-const allPosts = await getCollection('posts')
-const categories = [
-    ...new Set(allPosts.map((post) => post.data.category).flat()),
-]
+import { getCategoryData } from '@root/src/utils';
+const categories = await getCategoryData()
 ---
 
 <SinglePage>

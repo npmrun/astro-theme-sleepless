@@ -12,7 +12,8 @@
         },
         {
             "name": "feather",
-            "url": "/about"
+            "url": "/about",
+            "target": "_self"
         }
     ]
 }

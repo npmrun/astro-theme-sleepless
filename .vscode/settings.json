@@ -1,0 +1,26 @@
+{
+  "less.lint.unknownAtRules": "ignore",
+  "less.validate": false,
+  "scss.lint.unknownAtRules": "ignore",
+  "scss.validate": false,
+  "markdown-image.local.path": "/public/article", 
+  "markdown-image.local.referencePath": "/article/${mdname}/",
+  "markdown-image.base.fileNameFormat": "${mdname}/${YY}-${MM}-${DD}_${DD}-${HH}-${mm}-${ss}",
+  "markdown-image.base.urlEncode": false,
+  "templateGenerator.fields.author": "NPMRUN",
+  "templateGenerator.fields.email": "1549469775",
+  "templateGenerator.fields.link": "https://blog.xieyaxin.top",
+  "templateGenerator.templatesPath": "${rootPath}/template",
+  // linux的edge位置
+//   "browse-lite.chromeExecutable": "/usr/bin/microsoft-edge-stable",
+  // window的edge位置
+  "browse-lite.chromeExecutable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+  "browse-lite.startUrl": "http://localhost:3311",
+  "insertDateString.format": "YYYY/MM/DD hh:mm:ss",
+  "insertDateString.formatDate": "YYYY/MM/DD",
+  "insertDateString.formatTime": "hh:mm:ss",
+  "files.associations": { "*.mdx": "markdown" },
+  "lpubsppop01.autoTimeStamp.lineLimit": 10, //前十行定义的以下两种字段会自动更新时间戳
+  "lpubsppop01.autoTimeStamp.birthTimeStart":"pubDate: ",
+  "lpubsppop01.autoTimeStamp.modifiedTimeStart":"updatedDate: "
+}

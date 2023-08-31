@@ -18,3 +18,5 @@ heroImage: https://api.r10086.com/樱道随机图片api接口.php?图片系列=�
     2. https://github.com/bradlc/remark-rehype-wrap/blob/main/test.js
     3. https://github.com/syntax-tree/unist-util-select
     4. https://github.com/npmrun/somebuild/blob/master/packages/build-docs/src/node/config/index.ts
+
+- [ ] 升级Astro3

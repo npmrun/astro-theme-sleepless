@@ -1,13 +1,20 @@
 ---
 title: 如何将一个md文档按h2和h3分块
-describtion: 如何将一个md文档按h2和h3分块
+description: 如何将一个md文档按h2和h3分块
+pubDate: 2023/8/31 13:58:47
+updatedDate: 2023/08/31 15:47:11
 tags:
     - unified
 category: 技术
 author: NPMRUN
+heroImage: https://api.r10086.com/%E5%9B%BE%E5%8C%85webp/%E5%8A%A8%E6%BC%AB%E7%BB%BC%E5%90%882/yande555770_charunetra.webp
 ---
 
-这个问题参照了 chatgpt 的答案并加以修改，直接看[附件](#源码)
+这个问题参照了 chatgpt 的答案并加以修改，直接看[源码](#源码)。
+
+## 探究
+
+根据其回答思路，主要是编写了一个插件，通过遍历其中的 h2 和 h3 元素，如果有，则作为指示器，跳过其子节点，然后按顺序将相邻节点筛选出来。
 
 ## 源码
 

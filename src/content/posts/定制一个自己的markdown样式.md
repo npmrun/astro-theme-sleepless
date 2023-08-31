@@ -1,13 +1,14 @@
 ---
 title: 定制一个自己的markdown样式
-hot: true
-heroImage: https://w.wallhaven.cc/full/yx/wallhaven-yxqzpd.jpg
-heroPosition: top
-describtion: 定制一个自己的markdown样式定制一个自己的markdown样式定制一个自己的markdown样式定制一个自己的markdown样式
+description: 定制一个自己的markdown样式定制一个自己的markdown样式定制一个自己的markdown样式定制一个自己的markdown样式
+pubDate: 2023/8/31 13:58:47
+updatedDate: 2023/08/31 15:47:11
 tags:
     - MD
 category: 技术
 author: NPMRUN
+heroImage: https://w.wallhaven.cc/full/yx/wallhaven-yxqzpd.jpg
+heroPosition: top
 ---
 
 ## 重置样式

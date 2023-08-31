@@ -1,13 +1,11 @@
 ---
-import { getCollection } from 'astro:content'
 import SinglePage from '@blog/layouts/SinglePage.astro'
 import ArticleCard from '@blog/components/ArticleCard.astro'
+import { getBlogData, getTagsData } from '@root/src/utils'
 
 export async function getStaticPaths() {
-    const allPosts = await getCollection('posts')
-    const uniqueTags = [
-        ...new Set(allPosts.map((post) => post.data.tags).flat()),
-    ]
+    const allPosts = await getBlogData()
+    const uniqueTags = await getTagsData()
 
     return uniqueTags.map((tag) => {
         const filteredPosts = allPosts.filter((post) =>

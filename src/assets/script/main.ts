@@ -40,3 +40,19 @@ declare global {
         toggleTheme(): void
     }
 }
+
+const menuBtn = document.getElementById('menu-btn')
+const menuMask = document.getElementById('menu-mask')
+const menuWrapper = document.getElementById('menu-wrapper')
+menuBtn.addEventListener('click', function () {
+    menuMask.style.pointerEvents = 'auto'
+    menuMask.style.opacity = '1'
+    menuWrapper.style.left = '0'
+    document.body.style.overflow = "hidden"
+})
+menuMask.addEventListener('click', function () {
+    menuMask.style.pointerEvents = 'none'
+    menuMask.style.opacity = '0'
+    menuWrapper.style.left = '-310px'
+    document.body.style.overflow = "auto"
+})

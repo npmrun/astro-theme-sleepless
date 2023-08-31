@@ -1,8 +1,10 @@
 ---
 title: 'Welcome to my blog'
 tags:
-    - welcome
-category: 杂记
+    - 默认
+category: 默认
+pubDate: 2023/8/31 13:58:47
+updatedDate: 2023/08/31 14:32:22
 heroImage: https://w.wallhaven.cc/full/o3/wallhaven-o3or35.jpg
 heroPosition: top -180px right 0
 author: NPMRUN

@@ -1,8 +1,8 @@
 ---
-import { getLifeData } from '@blog/utils'
+import { getLifeDataSortByTime } from '@blog/utils'
 import ArticleCard from '@blog/components/ArticleCard.astro'
 import SinglePage from '@blog/layouts/SinglePage.astro'
-const lifeEntries = await getLifeData()
+const lifeEntries = await getLifeDataSortByTime()
 ---
 
 <SinglePage>
