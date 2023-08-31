@@ -13,6 +13,10 @@ export default defineConfig({
     markdown: {
         syntaxHighlight: 'prism',
         extendDefaultPlugins: true,
+        remarkRehype: {
+            footnoteLabel: "脚注",
+            footnoteBackLabel: "回到文本"
+        }
     },
     integrations: [tailwind()],
 })
