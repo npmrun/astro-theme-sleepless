@@ -2,7 +2,7 @@
 title: 定制一个自己的markdown样式
 description: 定制一个自己的markdown样式定制一个自己的markdown样式定制一个自己的markdown样式定制一个自己的markdown样式
 pubDate: 2023/8/31 13:58:47
-updatedDate: 2023/08/31 15:47:11
+updatedDate: 2023/09/01 01:38:39
 tags:
     - MD
 category: 技术
@@ -18,7 +18,6 @@ heroPosition: top
 对元素的字体优化，去除空白，以及打乱字符，防止一个单次过长导致溢出出现滚动条。
 
 ```css
-/*  */
 .markdown-body {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;

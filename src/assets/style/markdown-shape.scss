@@ -76,11 +76,14 @@
     pre {
         background: var(--prism-background);
         font-size: var(--prism-font-size);
-        font-family: var(--prism-font-family);
         //     /* border: 1px solid #ddd; */
         // padding: 1em 1.5em;
         display: block;
         -webkit-overflow-scrolling: touch;
+    }
+
+    pre,code{
+        font-family: var(--prism-font-family);
     }
 
     //     /* 底部印刷体、版本等标记 */

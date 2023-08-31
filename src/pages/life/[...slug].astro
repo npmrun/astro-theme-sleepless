@@ -13,7 +13,8 @@ export async function getStaticPaths() {
 }
 // 2. For your template, you can get the entry directly from the prop
 const { entry } = Astro.props
-const { Content } = await entry.render()
+// @ts-ignore
+const { Content, remarkPluginFrontmatter  } = await entry.render()
 
 let author
 if (entry.data.author) {

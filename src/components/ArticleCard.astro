@@ -6,7 +6,7 @@ let authorData
 if (articleData?.data?.author) {
     authorData = (await getEntry(
         articleData?.data?.author.collection,
-        articleData?.data?.author.id
+        articleData?.data?.author.id,
     )) as any
 }
 
@@ -36,7 +36,7 @@ if (articleData && articleData.data && articleData.data.category) {
     }
 </style>
 <div
-    class="h-[310px] group bg-white/[.6] shadow rounded-lg transition relative"
+    class="h-[325px] group bg-white/[.6] shadow rounded-lg transition relative"
 >
     <div class="absolute -top-[6px] left-0 right-0 mb-1">
         {
@@ -52,7 +52,7 @@ if (articleData && articleData.data && articleData.data.category) {
             ))
         }
     </div>
-    <div class="h-[65%] overflow-hidden rounded-tl-lg rounded-tr-lg">
+    <div class="h-[62%] overflow-hidden rounded-tl-lg rounded-tr-lg">
         <a href={href}>
             <div class="w-full h-full transition img-wrapper relative bg-white">
                 <img
@@ -70,6 +70,41 @@ if (articleData && articleData.data && articleData.data.category) {
         <a href={href}>
             <div class="truncate text-lg">{articleData.data.title}</div>
         </a>
+        <div class="truncate text-xs text-gray-400 mb-1">
+            {
+                articleData?.data.updatedDate ? (
+                    <span>
+                        修改时间：
+                        {new Date(
+                            articleData.data.updatedDate,
+                        ).toLocaleDateString('zh-cn', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric',
+                            hour: 'numeric',
+                            minute: 'numeric',
+                            second: 'numeric',
+                        })}
+                    </span>
+                ) : (
+                    articleData?.data.pubDate && (
+                        <span>
+                            创建时间：
+                            {new Date(
+                                articleData.data.pubDate,
+                            ).toLocaleDateString('zh-cn', {
+                                year: 'numeric',
+                                month: 'short',
+                                day: 'numeric',
+                                hour: 'numeric',
+                                minute: 'numeric',
+                                second: 'numeric',
+                            })}
+                        </span>
+                    )
+                )
+            }
+        </div>
         <div class="text-sm text-gray-500 flex">
             <div class="w-0 flex-grow truncate">
                 作者：{authorData?.data.name}

@@ -1,17 +1,25 @@
-import Swiper from "swiper";
-import "swiper/swiper-bundle.css";
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import Swiper from 'swiper'
+import 'swiper/swiper-bundle.css'
+import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 
-new Swiper(".mySwiper", {
-    modules: [Pagination, Navigation, Autoplay],
-    autoplay: {
-        delay: 5000,
-    },
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-});
+let swiper: Swiper | null = null
+document.addEventListener('astro:page-load', () => {
+    if (swiper) {
+        swiper.destroy()
+        swiper = null
+    }
+    if(!document.querySelector('.mySwiper')) return
+    swiper = new Swiper('.mySwiper', {
+        modules: [Pagination, Navigation, Autoplay],
+        autoplay: {
+            delay: 5000,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    })
+})
 
 if (
     localStorage.theme === 'dark' ||
@@ -41,18 +49,20 @@ declare global {
     }
 }
 
-const menuBtn = document.getElementById('menu-btn')
-const menuMask = document.getElementById('menu-mask')
-const menuWrapper = document.getElementById('menu-wrapper')
-menuBtn.addEventListener('click', function () {
-    menuMask.style.pointerEvents = 'auto'
-    menuMask.style.opacity = '1'
-    menuWrapper.style.left = '0'
-    document.body.style.overflow = "hidden"
-})
-menuMask.addEventListener('click', function () {
-    menuMask.style.pointerEvents = 'none'
-    menuMask.style.opacity = '0'
-    menuWrapper.style.left = '-310px'
-    document.body.style.overflow = "auto"
+document.addEventListener('astro:page-load', () => {
+    const menuBtn = document.getElementById('menu-btn')
+    const menuMask = document.getElementById('menu-mask')
+    const menuWrapper = document.getElementById('menu-wrapper')
+    menuBtn!.addEventListener('click', function () {
+        menuMask!.style.pointerEvents = 'auto'
+        menuMask!.style.opacity = '1'
+        menuWrapper!.style.left = '0'
+        document.body.style.overflow = 'hidden'
+    })
+    menuMask!.addEventListener('click', function () {
+        menuMask!.style.pointerEvents = 'none'
+        menuMask!.style.opacity = '0'
+        menuWrapper!.style.left = '-310px'
+        document.body.style.overflow = 'auto'
+    })
 })

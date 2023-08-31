@@ -20,3 +20,9 @@ heroImage: https://api.r10086.com/樱道随机图片api接口.php?图片系列=�
     4. https://github.com/npmrun/somebuild/blob/master/packages/build-docs/src/node/config/index.ts
 
 - [ ] 升级Astro3
+    
+    1. https://github.com/Charca/astro-movies/blob/main/src/scripts/spa-navigation.js
+    2. https://github.com/Charca/view-transitions-live/tree/main
+    3. https://github.com/search?q=view+transition+astro+&type=repositories&s=stars&o=desc
+    4. https://github.com/anurag-roy/view-transitions-api-demo
+    5. https://github.com/Charca?tab=repositories

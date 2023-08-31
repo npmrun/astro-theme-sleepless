@@ -11,6 +11,21 @@ body {
     height: 100%;
 }
 
+::-webkit-scrollbar-track {
+    border: none;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(100, 100, 100, 0.3);
+    transition: background linear 1s;
+}
+::-webkit-scrollbar-corner {
+    background: none;
+}
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
 ::selection {
     background-color: #ef4444;
     color: #fff;
