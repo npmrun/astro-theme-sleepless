@@ -12,3 +12,5 @@ export const LifeCollectionName = 'life'
 export const getLifeSlugPrefix = (url: string) => {
     return '/life/' + url
 }
+
+export const OpenViewTransitions = false

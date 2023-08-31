@@ -8,8 +8,13 @@ export default function () {
         visit(tree, 'element', (node) => {
             if (!node.properties) node.properties = {}
             if (node.tagName === 'a') {
+                let value
+                const url = node?.properties?.href
+                if (url && url.startsWith('http')) {
+                    value = '_blank'
+                }
                 // node.properties.className = "link"
-                node.properties.target = '_blank'
+                node.properties.target = value
             }
         })
     }

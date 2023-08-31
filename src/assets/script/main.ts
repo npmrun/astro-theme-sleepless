@@ -1,14 +1,16 @@
+import { OpenViewTransitions } from '@blog/config'
+
 import Swiper from 'swiper'
 import 'swiper/swiper-bundle.css'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 
 let swiper: Swiper | null = null
-document.addEventListener('astro:page-load', () => {
+function initSwiper() {
     if (swiper) {
         swiper.destroy()
         swiper = null
     }
-    if(!document.querySelector('.mySwiper')) return
+    if (!document.querySelector('.mySwiper')) return
     swiper = new Swiper('.mySwiper', {
         modules: [Pagination, Navigation, Autoplay],
         autoplay: {
@@ -19,7 +21,10 @@ document.addEventListener('astro:page-load', () => {
             prevEl: '.swiper-button-prev',
         },
     })
-})
+}
+if (OpenViewTransitions) {
+    document.addEventListener('astro:page-load', initSwiper)
+} else initSwiper()
 
 if (
     localStorage.theme === 'dark' ||
@@ -49,7 +54,7 @@ declare global {
     }
 }
 
-document.addEventListener('astro:page-load', () => {
+function initMobile() {
     const menuBtn = document.getElementById('menu-btn')
     const menuMask = document.getElementById('menu-mask')
     const menuWrapper = document.getElementById('menu-wrapper')
@@ -65,4 +70,7 @@ document.addEventListener('astro:page-load', () => {
         menuWrapper!.style.left = '-310px'
         document.body.style.overflow = 'auto'
     })
-})
+}
+if (OpenViewTransitions) {
+    document.addEventListener('astro:page-load', initMobile)
+} else initMobile()
