@@ -18,12 +18,12 @@ const categoryCount = getCategoryCount()
 const menus = [
     {
         name: '分类',
-        url: '/category',
+        // url: '/category',
         count: categoryCount,
     },
     {
         name: '标签',
-        url: '/tags',
+        // url: '/tags',
         count: tagsCount,
     },
     {
@@ -61,7 +61,12 @@ const menus = [
                                         class="grow w-0 group"
                                         title={menu.count}
                                     >
-                                        <div class="text-sm text-red-500 group-hover:underline oneline">
+                                        <div
+                                            class="text-sm  group-hover:underline oneline"
+                                            class:list={
+                                                menu.url && 'text-red-500'
+                                            }
+                                        >
                                             {menu.count}
                                         </div>
                                         <div class="text-md drop-shadow-lg">
