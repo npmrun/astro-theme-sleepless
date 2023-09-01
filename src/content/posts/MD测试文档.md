@@ -1,8 +1,8 @@
 ---
 title: MD测试文档
-description: MD测试文档
+description: Markdown全功能测试
 pubDate: 2023/8/31 13:58:47
-updatedDate: 2023/08/31 15:47:11
+updatedDate: 2023/09/01 09:59:37
 tags:
     - DEMO
     - MD
@@ -13,7 +13,7 @@ relatedPosts:
     - unified/如何将一个md文档按h2和h3分块
 ---
 
-# Welcome to Leanote! 欢迎来到 Leanote!
+# Welcome to Sleepless! 欢迎来到 失眠先生!
 
 ## 1. 排版
 
@@ -23,7 +23,7 @@ relatedPosts:
 
 引用:
 
-> 引用 Leanote 官方的话, 为什么要做 Leanote, 原因是...
+> 引用 Sleepless 官方的话, 为什么要做 Sleepless, 原因是...
 
 有充列表:
 
@@ -38,10 +38,10 @@ relatedPosts:
 ## 2. 图片与链接
 
 图片:
-![leanote](http://leanote.com/images/logo/leanote_icon_blue.png)
+![sleepless](/favicon.svg)
 链接:
 
-[这是去往 Leanote 官方博客的链接](http://leanote.leanote.com)
+[这是去往 Sleepless 官方博客的链接](/)
 
 ## 3. 标题
 
@@ -169,67 +169,19 @@ Markdown 扩展支持:
  
 **提示**, 如果想对图片的宽度和高度进行控制, 你也可以通过img标签, 如:
  
-<img src="http://leanote.com/images/logo/leanote_icon_blue.png" width="50px" />
+<img src="/bg.png" width="120px" />
  
 ## 5.4 脚注
  
-Leanote[^footnote]来创建一个脚注
-  [^footnote]: Leanote是一款强大的开源云笔记产品.
+Sleepless[^footnote]来创建一个脚注
+  [^footnote]: Sleepless是一款强大的开源云笔记产品.
  
 ## 5.5 目录
  
 通过 `[TOC]` 在文档中插入目录, 如:
  
 [TOC]
- 
-## 5.6 时序图与流程图
- 
-```sequence
-Alice->Bob: Hello Bob, how are you?
-Note right of Bob: Bob thinks
-Bob-->Alice: I am good thanks!
-```
- 
-流程图:
- 
-```flow
-st=>start: Start
-e=>end
-op=>operation: My Operation
-cond=>condition: Yes or No?
- 
-st->op->cond
-cond(yes)->e
-cond(no)->op
-```
- 
-> **提示:** 更多关于时序图与流程图的语法请参考:
- 
-> - [时序图语法](http://bramp.github.io/js-sequence-diagrams/)
-> - [流程图语法](http://adrai.github.io/flowchart.js)
- 
-## 5.7 MathJax 公式
- 
-$ 表示行内公式： 
- 
-质能守恒方程可以用一个很简洁的方程式 $E=mc^2$ 来表达。
- 
-$$ 表示整行公式：
- 
-$$\sum_{i=1}^n a_i=0$$
- 
-$$f(x_1,x_x,\ldots,x_n) = x_1^2 + x_2^2 + \cdots + x_n^2 $$
- 
-$$\sum^{j-1}_{k=0}{\widehat{\gamma}_{kj} z_k}$$
- 
-更复杂的公式:
-$$
-\begin{eqnarray}
-\vec\nabla \times (\vec\nabla f) & = & 0  \cdots\cdots梯度场必是无旋场\\
-\vec\nabla \cdot(\vec\nabla \times \vec F) & = & 0\cdots\cdots旋度场必是无散场\\
-\vec\nabla \cdot (\vec\nabla f) & = & {\vec\nabla}^2f\\
-\vec\nabla \times(\vec\nabla \times \vec F) & = & \vec\nabla(\vec\nabla \cdot \vec F) - {\vec\nabla}^2 \vec F\\
-\end{eqnarray}
-$$
- 
-访问 [MathJax](http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference) 参考更多使用方法。
+
+# 特殊元素
+
+键盘：<kbd>cmd+K</kbd>

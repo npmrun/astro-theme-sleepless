@@ -123,7 +123,7 @@ if (articleData && articleData.data && articleData.data.category) {
             }
         </div>
         <div class="text-xs pt-2 line-clamp-2 text-gray-400">
-            {articleData.data.description ?? '作者很懒，没有写说明'}
+            {articleData.data.description || '作者很懒，没有写说明'}
         </div>
     </div>
 </div>
