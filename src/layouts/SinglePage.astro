@@ -24,11 +24,18 @@ import { Icon } from 'astro-icon'
                 <slot />
             </div>
         </main>
-        <div
-            class="text-center  ml-0 lg:ml-[300px] py-8 bg-white border-t"
-        >
-            <div>© 2023 NPMRUN. All rights reserved.</div>
-            <div>Built with <span class="text-red-400 text-3xl relative top-1">♥</span> by 失眠先生 Powered By Astro</div>
+        <div class="text-center ml-0 lg:ml-[300px] py-8 bg-white border-t">
+            <div>
+                © 2023 <a class="text-red-400" href="https://github.com/npmrun">NPMRUN</a>. All
+                rights reserved.
+            </div>
+            <div>
+                Built with <span class="text-red-400 text-3xl relative top-1 heart-pong drop-shadow-lg"
+                    >♥</span
+                > by <a class="text-red-400" href="https://github.com/npmrun/astro-theme-sleepless"
+                    >失眠先生</a
+                > Powered By <a class="text-red-400" href="https://astro.build/">Astro</a>
+            </div>
         </div>
     </div>
 </Base>

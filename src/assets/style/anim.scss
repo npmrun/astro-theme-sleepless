@@ -1,0 +1,22 @@
+.heart-pong {
+    display: inline-block;
+    animation: pong 2.5s linear infinite;
+}
+
+@keyframes pong {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(0.75);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.25);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

@@ -14,6 +14,26 @@
 }
 
 .markdown-body.green {
+    
+    &.chinese {
+        text-indent: 1.5em;
+        font-weight: 300;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        ol,
+        ul,
+        blockquote,
+        details,
+        summary,
+        pre {
+            text-indent: 0;
+        }
+    }
+
     /* 块/段落引用 */
     blockquote {
         position: relative;
@@ -82,7 +102,8 @@
         -webkit-overflow-scrolling: touch;
     }
 
-    pre,pre code{
+    pre,
+    pre code {
         font-family: var(--prism-font-family);
     }
 

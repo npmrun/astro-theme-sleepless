@@ -39,6 +39,7 @@
                     const colors = []
                     for (let x = 0; x < img.width; x += 10) {
                         for (let y = 0; y < img.height; y += 10) {
+                            // 这个colorThief使用有问题
                             const color = colorThief.getColor(canvas, x, y)
                             colors.push(color)
                         }
@@ -69,7 +70,7 @@
                 }
             }
             // createColorBlurBackground("https://w.wallhaven.cc/full/9d/wallhaven-9dz1e8.jpg")
-            createColorBlurBackground("https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png")
+            // createColorBlurBackground("https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png")
         </script>
     </body>
 </html>

@@ -97,11 +97,13 @@ if (entry.data.relatedPosts) {
             </div>
         </figcaption>
     </figure>
-    <div
-        class="mb-3 max-w-[980px] mx-auto text-gray-400 line-clamp-3 text-sm drop-shadow-lg text-center md:text-left"
-    >
-        描述：{entry.data.description}
-    </div>
+    {
+        entry.data.description && (
+            <div class="mb-3 max-w-[980px] mx-auto text-gray-400 line-clamp-3 text-sm drop-shadow-md text-center md:text-left">
+                描述：{entry.data.description}
+            </div>
+        )
+    }
     <div
         class="mb-3 max-w-[980px] mx-auto text-gray-400 text-sm text-center md:text-left"
     >
@@ -149,7 +151,10 @@ if (entry.data.relatedPosts) {
     <div
         class="p-3 lg:p-6 bg-white rounded-lg max-w-[980px] mx-auto mb-8 shadow-sm"
     >
-        <article class="markdown-body green">
+        <article
+            class="markdown-body green"
+            class:list={entry.data.chinese && 'chinese'}
+        >
             <Content />
             <!-- {
                 relatedPosts && relatedPosts.length &&

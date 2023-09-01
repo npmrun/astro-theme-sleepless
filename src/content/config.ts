@@ -13,6 +13,7 @@ const postsCollection = defineCollection({
     updatedDate: z.string().optional(),
     category: z.string(),
     hot: z.boolean().optional(),
+    chinese: z.boolean().optional(),
     tags: z.array(z.string()).or(z.string()),
     image: z.string().optional().optional(),
     // Reference a single author from the `authors` collection by `id`
@@ -32,6 +33,7 @@ const lifeCollection = defineCollection({
     heroPosition: z.string().optional(),
     heroImage: z.string().optional(),
     hot: z.boolean().optional(),
+    chinese: z.boolean().optional(),
     image: z.string().optional().optional(),
     // Reference a single author from the `authors` collection by `id`
     author: reference('authors'),
