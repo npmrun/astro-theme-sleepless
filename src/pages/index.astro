@@ -11,13 +11,65 @@ const blogTopList = await getBlogTop()
 ---
 
 <SinglePage>
-    <div class="swiper mySwiper h-[450px] max-sm:h-[250px]">
-        <div class="swiper-wrapper">
+    <div class="flex">
+        <div class="swiper mySwiper h-[450px] max-sm:h-[250px] flex-grow w-0">
+            <div class="swiper-wrapper">
+                {
+                    blogTopList &&
+                        blogTopList.length &&
+                        blogTopList.map(async (blogTop) => (
+                            <div class="swiper-slide h-[450px] max-sm:h-[250px]">
+                                <a href={`/posts/${blogTop.slug}`}>
+                                    <figure class="relative block h-full rounded-lg overflow-hidden">
+                                        <img
+                                            class="block brightness-75 w-full h-full object-cover max-sm:!object-center"
+                                            src={blogTop.data.heroImage}
+                                            style={`object-position: ${
+                                                blogTop.data?.heroPosition ??
+                                                'center'
+                                            };`}
+                                            alt=""
+                                        />
+                                        <figcaption class="absolute top-[50%] left-[50%] w-full -translate-x-[50%] -translate-y-[50%] text-white text-center px-6 py-2">
+                                            <div class="truncate w-full text-3xl drop-shadow-lg">
+                                                {blogTop.data.title}
+                                            </div>
+                                            {blogTop.data.author && (
+                                                <div class="inline-grid mx-auto md:grid-flow-col max-lg:grid-cols-1 auto-cols-auto text-md gap-x-6 mt-1">
+                                                    <p>
+                                                        作者:{' '}
+                                                        {
+                                                            (
+                                                                await getEntry(
+                                                                    blogTop.data
+                                                                        .author
+                                                                        .collection,
+                                                                    blogTop.data
+                                                                        .author
+                                                                        .id,
+                                                                )
+                                                            )?.data.name
+                                                        }
+                                                    </p>
+                                                </div>
+                                            )}
+                                        </figcaption>
+                                    </figure>
+                                </a>
+                            </div>
+                        ))
+                }
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <!-- 显示最近编辑的三条文章 -->
+        <div class="pl-3 lg:grid grid-cols-1 grid-rows-3 gap-y-2 w-[250px] hidden">
             {
-                blogTopList &&
-                    blogTopList.length &&
-                    blogTopList.map(async (blogTop) => (
-                        <div class="swiper-slide h-[450px] max-sm:h-[250px]">
+                blogList.length &&
+                    blogList.slice(0, 3).map(async (blogTop) => (
+                        <div class="rounded-md">
                             <a href={`/posts/${blogTop.slug}`}>
                                 <figure class="relative block h-full rounded-lg overflow-hidden">
                                     <img
@@ -30,11 +82,11 @@ const blogTopList = await getBlogTop()
                                         alt=""
                                     />
                                     <figcaption class="absolute top-[50%] left-[50%] w-full -translate-x-[50%] -translate-y-[50%] text-white text-center px-6 py-2">
-                                        <div class="truncate w-full text-3xl drop-shadow-lg">
+                                        <div class="truncate w-full text-md drop-shadow-lg">
                                             {blogTop.data.title}
                                         </div>
                                         {blogTop.data.author && (
-                                            <div class="inline-grid mx-auto md:grid-flow-col max-lg:grid-cols-1 auto-cols-auto text-md gap-x-6 mt-1">
+                                            <div class="inline-grid mx-auto md:grid-flow-col max-lg:grid-cols-1 auto-cols-auto text-xs gap-x-6 mt-1">
                                                 <p>
                                                     作者:{' '}
                                                     {
@@ -58,9 +110,6 @@ const blogTopList = await getBlogTop()
                     ))
             }
         </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
     </div>
     <div class="my-6">
         <div class="flex items-center">

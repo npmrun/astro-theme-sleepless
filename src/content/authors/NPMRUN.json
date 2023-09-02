@@ -14,6 +14,11 @@
             "name": "feather",
             "url": "/about",
             "target": "_self"
+        },
+        {
+            "name": "todo-add",
+            "url": "/todo",
+            "target": "_self"
         }
     ]
 }
