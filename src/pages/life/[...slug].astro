@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 // 2. For your template, you can get the entry directly from the prop
 const { entry } = Astro.props
 // @ts-ignore
-const { Content, remarkPluginFrontmatter  } = await entry.render()
+const { Content, remarkPluginFrontmatter } = await entry.render()
 
 let author
 if (entry.data.author) {
@@ -33,7 +33,7 @@ if (entry.data.relatedPosts) {
     >
         <img
             class="block w-full h-full object-cover brightness-75 bg-gray-200 max-lg:!object-center"
-            src={entry.data.heroImage || "/bg.png"}
+            src={entry.data.heroImage || '/bg.png'}
             style={`object-position: ${entry.data?.heroPosition ?? 'center'};`}
             alt={entry.data.title}
         />
@@ -78,26 +78,30 @@ if (entry.data.relatedPosts) {
                         entry.data.tags &&
                         entry.data.tags.length && (
                             <div class="inline-grid mx-auto grid-flow-col auto-cols-auto gap-x-2 mt-1">
-                                {entry.data.tags.map(
-                                    (tag: string) => {
-                                        return (
-                                            <a
-                                                href={`/tags/${tag}`}
-                                                class="bg-red-400 hover:-translate-y-1 transition-transform px-2 py-1 rounded-lg text-xs"
-                                            >
-                                                # {tag}
-                                            </a>
-                                        )
-                                    }
-                                )}
+                                {entry.data.tags.map((tag: string) => {
+                                    return (
+                                        <a
+                                            href={`/tags/${tag}`}
+                                            class="bg-red-400 hover:-translate-y-1 transition-transform px-2 py-1 rounded-lg text-xs"
+                                        >
+                                            # {tag}
+                                        </a>
+                                    )
+                                })}
                             </div>
                         )
                 }
             </div>
         </figcaption>
     </figure>
-    <div class="p-3 lg:p-6 bg-white rounded-lg max-w-[980px] mx-auto mb-8">
-        <article class="markdown-body" class:list={[entry.data.chinese && 'chinese', ...(entry.data.theme ?? ['green'])]}>
+    <div class="rounded-lg max-w-[980px] mx-auto mb-8">
+        <article
+            class="markdown-body"
+            class:list={[
+                entry.data.chinese && 'chinese',
+                entry.data.theme ?? 'green',
+            ]}
+        >
             <Content />
             <!-- {
                 relatedPosts && relatedPosts.length &&
