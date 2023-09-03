@@ -1,0 +1,10 @@
+@import "animate.css";
+
+.article-card{
+    visibility: hidden;
+}
+
+.article-card.animate__animated{
+    animation-fill-mode: none;
+    visibility: inherit;
+}

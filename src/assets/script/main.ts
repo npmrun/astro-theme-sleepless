@@ -1,5 +1,7 @@
 import { OpenViewTransitions } from '@blog/config'
 
+import "./motion"
+
 import Swiper from 'swiper'
 import 'swiper/swiper-bundle.css'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
