@@ -5,6 +5,8 @@
 @import './prism.scss';
 @import './motion.scss';
 
+@import './components/Tabs.scss';
+
 html,
 body {
     background-color: var(--bg-color);
