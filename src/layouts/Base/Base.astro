@@ -9,6 +9,7 @@ import {
     getLiftCount,
     getTagsCount,
 } from '@blog/utils'
+import { UseMotion } from '@blog/config'
 
 const blogCount = getBlogCount()
 const lifeCount = getLiftCount()
@@ -38,7 +39,7 @@ const menus = [
     <head>
         <BaseHead />
     </head>
-    <body>
+    <body class={UseMotion && 'use-motion'}>
         <div id="root">
             <div
                 id="menu-wrapper"
@@ -121,7 +122,7 @@ const menus = [
         </div>
         <script src="@blog/assets/script/main.ts"></script>
         <noscript>
-            <link rel="stylesheet" href="/motion-less.css">
+            <link rel="stylesheet" href="/motion-less.css" />
         </noscript>
     </body>
 </html>

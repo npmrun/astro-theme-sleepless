@@ -1,7 +1,7 @@
 // @import "animate.css";
 
 @mixin ff($name) {
-    #{$name} {
+    .use-motion #{$name} {
         visibility: hidden;
         &.animated {
             animation-fill-mode: none;

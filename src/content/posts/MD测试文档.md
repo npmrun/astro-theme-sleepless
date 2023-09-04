@@ -2,7 +2,7 @@
 title: MD测试文档
 description: Markdown全功能测试
 pubDate: 2023/8/31 13:58:47
-updatedDate: 2023/09/01 09:59:37
+updatedDate: 2023/09/05 00:23:25
 tags:
     - DEMO
     - MD
@@ -14,6 +14,58 @@ relatedPosts:
 ---
 
 # Welcome to Sleepless! 欢迎来到 失眠先生!
+
+## 标签
+
+<!-- tabs aaa -->
+
+<!-- tab bbb -->
+
+> 阿松大
+
+```
+asdas
+```
+
+<!-- tabs zzz -->
+
+<!-- tab 111 -->
+
+<!-- tabs ccc -->
+
+<!-- tab fff -->
+
+1111233
+
+<!-- endtab fff -->
+
+<!-- tab ggg -->
+
+222safffffffff
+
+<!-- endtab ggg -->
+
+<!-- endtabs ccc -->
+
+<!-- endtab 111 -->
+
+<!-- tab 222 -->
+
+assssssssssssssss
+
+<!-- endtab 222 -->
+
+<!-- endtabs zzz -->
+
+<!-- endtab bbb -->
+
+<!-- tab ccc -->
+
+ccc
+
+<!-- endtab ccc -->
+
+<!-- endtabs aaa -->
 
 ## 1. 排版
 
@@ -112,7 +164,7 @@ Markdown 扩展支持:
 ## 5.1 表格
 
 | Item     | Value  |
-| -------- | ------ |
+|----------|--------|
 | Computer | \$1600 |
 | Phone    | \$12   |
 | Pipe     | \$1    |
@@ -120,7 +172,7 @@ Markdown 扩展支持:
 可以指定对齐方式, 如 Item 列左对齐, Value 列右对齐, Qty 列居中对齐
 
 | Item     |  Value | Qty |
-| :------- | -----: | :-: |
+|:---------|-------:|:---:|
 | Computer | \$1600 |  5  |
 | Phone    |   \$12 | 12  |
 | Pipe     |    \$1 | 234 |
