@@ -13,9 +13,34 @@ allCard.forEach((el, i) => {
             targets: el,
             duration: 500,
             complete: function (anim) {
-                el.classList.add('animate__animated', 'animate__fadeInDown')
+                el.classList.add('animated', 'fadeInDown')
             },
         },
         '-=400'
     )
 })
+const el = document.querySelector('.left')
+
+tl.add(
+    {
+        targets: el,
+        duration: 500,
+        complete: function (anim) {
+            el?.classList.add('animated', 'fadeInLeft')
+        },
+    },
+    '-=1200'
+)
+
+const swiper_el = document.querySelector('.swiper-parent')
+
+tl.add(
+    {
+        targets: swiper_el,
+        duration: 500,
+        complete: function (anim) {
+            swiper_el?.classList.add('animated', 'fadeIn')
+        },
+    },
+    '-=1200'
+)

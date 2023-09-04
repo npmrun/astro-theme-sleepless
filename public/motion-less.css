@@ -1,0 +1,5 @@
+.swiper-parent,
+.left,
+.article-card {
+    visibility: inherit !important;
+}

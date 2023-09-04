@@ -1,10 +1,74 @@
-@import "animate.css";
+// @import "animate.css";
 
-.article-card{
-    visibility: hidden;
+@mixin ff($name) {
+    #{$name} {
+        visibility: hidden;
+        &.animated {
+            animation-fill-mode: none;
+            visibility: inherit;
+        }
+    }
+}
+@mixin fuck($names...) {
+    @each $name in $names {
+        @include ff($name);
+    }
 }
 
-.article-card.animate__animated{
-    animation-fill-mode: none;
-    visibility: inherit;
+@include fuck('.swiper-parent', '.left', '.article-card');
+
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.animated.infinite {
+    animation-iteration-count: infinite;
+}
+
+.animated.hinge {
+    animation-duration: 2s;
+}
+
+@mixin applyAnim($name) {
+    @keyframes #{$name} {
+        @content;
+    }
+
+    .#{$name} {
+        animation-name: #{$name};
+    }
+}
+
+@include applyAnim(fadeInDown) {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@include applyAnim(fadeInLeft) {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@include applyAnim(fadeIn) {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
