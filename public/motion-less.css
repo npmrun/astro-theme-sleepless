@@ -1,5 +1,6 @@
 .swiper-parent,
 .left,
-.article-card {
+.article-card,
+.markdown-body {
     visibility: inherit !important;
 }

@@ -6,6 +6,9 @@ export default function splitSections() {
 
     return (tree, file) => {
         let theme = file.data.astro.frontmatter?.theme
+        if(!theme){
+            return
+        }
         if(typeof theme === "string" && theme !== 'split'){
             return
         }else if(Array.isArray(theme) && !theme.includes('split')){

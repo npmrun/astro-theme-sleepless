@@ -21,6 +21,19 @@ if (UseMotion) {
         },
         '-=600'
     )
+
+    tl.add(
+        {
+            targets: '.markdown-body',
+            duration: 500,
+            complete: function (anim) {
+                document.querySelectorAll('.markdown-body').forEach((el, i) => {
+                    el.classList.add('animated', 'fadeInDown')
+                })
+            },
+        },
+        '-=600'
+    )
     
     // allCard.forEach((el, i) => {
     //     tl.add(

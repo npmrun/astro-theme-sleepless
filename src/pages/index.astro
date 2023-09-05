@@ -11,8 +11,10 @@ const blogTopList = await getBlogTop()
 ---
 
 <SinglePage>
-    <div class="swiper-parent flex">
-        <div class="swiper mySwiper h-[450px] max-sm:h-[250px] flex-grow w-0">
+    <div class="swiper-parent flex max-lg:flex-col">
+        <div
+            class="swiper mySwiper h-[450px] max-sm:h-[250px] flex-grow w-0 max-lg:w-full"
+        >
             <div class="swiper-wrapper">
                 {
                     blogTopList &&
@@ -65,7 +67,9 @@ const blogTopList = await getBlogTop()
             <div class="swiper-pagination"></div>
         </div>
         <!-- 显示最近编辑的三条文章 -->
-        <div class="pl-3 lg:grid grid-cols-1 grid-rows-3 gap-y-2 w-[250px] hidden">
+        <div
+            class="pl-3 grid grid-cols-1 grid-rows-3 gap-y-2 w-[250px] max-lg:mt-2 max-lg:gap-x-2 max-lg:pl-0 max-lg:w-full max-lg:grid-cols-3 max-lg:grid-rows-1"
+        >
             {
                 blogList.length &&
                     blogList.slice(0, 3).map(async (blogTop) => (
@@ -81,12 +85,12 @@ const blogTopList = await getBlogTop()
                                         };`}
                                         alt=""
                                     />
-                                    <figcaption class="absolute top-[50%] left-[50%] w-full -translate-x-[50%] -translate-y-[50%] text-white text-center px-6 py-2">
+                                    <figcaption class="absolute top-[50%] left-[50%] w-full -translate-x-[50%] -translate-y-[50%] text-white text-center max-lg:px-1 px-6 py-2">
                                         <div class="truncate w-full text-md drop-shadow-lg">
                                             {blogTop.data.title}
                                         </div>
                                         {blogTop.data.author && (
-                                            <div class="inline-grid mx-auto md:grid-flow-col max-lg:grid-cols-1 auto-cols-auto text-xs gap-x-6 mt-1">
+                                            <div class="inline-grid mx-auto md:grid-flow-col max-lg:grid-cols-1 auto-cols-auto text-xs gap-x-6 mt-1 max-lg:hidden">
                                                 <p>
                                                     作者:{' '}
                                                     {
