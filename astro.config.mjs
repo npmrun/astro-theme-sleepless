@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config'
 import tailwind from '@astrojs/tailwind'
 import remarkBreaks from 'remark-breaks'
 import rehypeCommon from './plugins/rehype/rehype-common.mjs'
+import rehypeCodeBtn from './plugins/rehype/rehype-code-btn.mjs'
 import rehypeTabs from './plugins/rehype/rehype-tabs.mjs'
 import rehypesplitSections from './plugins/rehype/rehype-splitSections.mjs'
 
@@ -19,7 +20,7 @@ export default defineConfig({
     markdown: {
         syntaxHighlight: 'prism',
         extendDefaultPlugins: true,
-        rehypePlugins: [rehypeCommon, rehypesplitSections, rehypeTabs],
+        rehypePlugins: [rehypeCommon, rehypeCodeBtn, rehypesplitSections, rehypeTabs],
         remarkPlugins: [remarkCommon, remarkBreaks],
         remarkRehype: {
             footnoteLabel: '脚注',
