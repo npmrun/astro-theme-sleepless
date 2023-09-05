@@ -16,4 +16,4 @@ export const getLifeSlugPrefix = (url: string) => {
 export const OpenViewTransitions = false
 
 // 是否开启动画，写文章时可以关闭，避免刷新时执行动画
-export const UseMotion = import.meta.env.PROD
+export const UseMotion = true //import.meta.env.PROD

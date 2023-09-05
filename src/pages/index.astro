@@ -2,11 +2,11 @@
 // https://iconify.design/docs/usage/svg/astro/
 import ArticleCard from '@blog/components/ArticleCard.astro'
 import SinglePage from '@blog/layouts/SinglePage.astro'
-import { getBlogDataSortByTime, getLifeData, getBlogTop } from '@blog/utils'
+import { getBlogDataSortByTime, getLifeDataSortByTime, getBlogTop } from '@blog/utils'
 import { getEntry } from 'astro:content'
 
 const blogList = await getBlogDataSortByTime()
-const lifeList = await getLifeData()
+const lifeList = await getLifeDataSortByTime()
 const blogTopList = await getBlogTop()
 ---
 
@@ -115,7 +115,7 @@ const blogTopList = await getBlogTop()
             }
         </div>
     </div>
-    <div class="my-6">
+    <div class="my-6 home-panel">
         <div class="flex items-center">
             <a
                 href="/posts"
@@ -144,7 +144,7 @@ const blogTopList = await getBlogTop()
             }
         </div>
     </div>
-    <div class="my-6">
+    <div class="my-6 home-panel">
         <div class="flex items-center">
             <a
                 href="/life"

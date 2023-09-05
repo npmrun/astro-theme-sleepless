@@ -7,20 +7,34 @@ if (UseMotion) {
         // duration: 1800,
     })
 
-    const allCard = document.querySelectorAll('.article-card')
+    // const allCard = document.querySelectorAll('.article-card')
 
-    tl.add(
-        {
-            targets: allCard,
-            duration: 500,
-            complete: function (anim) {
-                allCard.forEach((el, i) => {
+    // tl.add(
+    //     {
+    //         targets: allCard,
+    //         duration: 500,
+    //         complete: function (anim) {
+    //             allCard.forEach((el, i) => {
+    //                 el.classList.add('animated', 'fadeInDown')
+    //             })
+    //         },
+    //     },
+    //     '-=200'
+    // )
+
+    const allHomePanel = document.querySelectorAll('.home-panel')
+    allHomePanel.forEach((el, i) => {
+        tl.add(
+            {
+                targets: el,
+                duration: 500,
+                complete: function (anim) {
                     el.classList.add('animated', 'fadeInDown')
-                })
+                },
             },
-        },
-        '-=600'
-    )
+            '-=200'
+        )
+    })
 
     tl.add(
         {
@@ -34,7 +48,7 @@ if (UseMotion) {
         },
         '-=600'
     )
-    
+
     // allCard.forEach((el, i) => {
     //     tl.add(
     //         {
@@ -47,7 +61,7 @@ if (UseMotion) {
     //         '-=400'
     //     )
     // })
-    
+
     const el = document.querySelector('.left')
 
     tl.add(

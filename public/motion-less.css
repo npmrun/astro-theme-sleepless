@@ -1,6 +1,6 @@
 .swiper-parent,
 .left,
-.article-card,
-.markdown-body {
+.markdown-body,
+.home-panel {
     visibility: inherit !important;
 }
