@@ -15,7 +15,7 @@
     }
 }
 
-@include fuck('.swiper-parent', '.left', '.markdown-body', '.home-panel');
+@include fuck('.swiper-parent', '.left', '.markdown-body', '.home-panel', '.article-image');
 
 .animated {
     animation-duration: 1s;

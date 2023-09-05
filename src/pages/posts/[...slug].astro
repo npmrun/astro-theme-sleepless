@@ -30,9 +30,13 @@ if (entry.data.relatedPosts) {
 }
 ---
 
-<SinglePage>
+<SinglePage
+    title={entry.data.title}
+    description={entry.data.description}
+    image={entry.data.heroImage}
+>
     <figure
-        class="relative block h-[450px] max-md:h-[250px] mb-3 rounded-lg overflow-hidden"
+        class="article-image relative block h-[450px] max-md:h-[250px] mb-3 rounded-lg overflow-hidden"
     >
         <img
             class="block w-full h-full object-cover brightness-75 bg-gray-200 max-lg:!object-center"

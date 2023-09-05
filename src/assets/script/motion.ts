@@ -48,7 +48,19 @@ if (UseMotion) {
         },
         '-=600'
     )
-
+    tl.add(
+        {
+            targets: '.article-image',
+            duration: 500,
+            complete: function (anim) {
+                document.querySelectorAll('.article-image').forEach((el, i) => {
+                    el.classList.add('animated', 'fadeIn')
+                })
+            },
+        },
+        '-=600'
+    )
+    
     // allCard.forEach((el, i) => {
     //     tl.add(
     //         {

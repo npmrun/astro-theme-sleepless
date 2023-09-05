@@ -1,6 +1,7 @@
 .swiper-parent,
 .left,
 .markdown-body,
-.home-panel {
+.home-panel，
+.article-image {
     visibility: inherit !important;
 }

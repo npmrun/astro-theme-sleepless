@@ -37,9 +37,9 @@ const menus = [
 
 <html lang="zh-CN">
     <head>
-        <BaseHead />
+        <BaseHead {...Astro.props} />
     </head>
-    <body class={UseMotion && 'use-motion'}>
+    <body class={UseMotion ? 'use-motion' : ''}>
         <div id="root">
             <div
                 id="menu-wrapper"
