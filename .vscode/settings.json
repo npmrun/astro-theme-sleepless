@@ -22,5 +22,14 @@
   "files.associations": { "*.mdx": "markdown" },
   "lpubsppop01.autoTimeStamp.lineLimit": 10, //前十行定义的以下两种字段会自动更新时间戳
   "lpubsppop01.autoTimeStamp.birthTimeStart":"pubDate: ",
-  "lpubsppop01.autoTimeStamp.modifiedTimeStart":"updatedDate: "
+  "lpubsppop01.autoTimeStamp.modifiedTimeStart": "updatedDate: ",
+  "editor.rulers": [
+    120
+  ],
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 120,
+  "[markdown]": {
+    "editor.wordWrapColumn": 120,
+    "editor.wordWrap": "wordWrapColumn"
+  }
 }

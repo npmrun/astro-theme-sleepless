@@ -1,6 +1,6 @@
 ---
 import SinglePage from '@blog/layouts/SinglePage.astro'
-import { getCategoryData } from '@root/src/utils';
+import { getCategoryData } from '@root/src/utils'
 const categories = await getCategoryData()
 ---
 
@@ -9,8 +9,13 @@ const categories = await getCategoryData()
     <ul class="flex">
         {
             categories.map((category) => (
-                <li class="ml-2 mt-2 first:ml-0">
-                    <a href={'/category/' + category}>{category}</a>
+                <li class="ml-2 mt-2 first:ml-0 bg-red-500 text-white rounded-md">
+                    <a
+                        class="px-3 py-1 inline-block"
+                        href={'/category/' + category}
+                    >
+                        {category}
+                    </a>
                 </li>
             ))
         }

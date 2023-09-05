@@ -2,10 +2,10 @@
 title: 浏览器输入url后经历的过程
 description: ''
 pubDate: 2023/9/5 11:14:42
-updatedDate: 2023/09/06 00:00:50
+updatedDate: 2023/09/06 01:32:14
 tags:
     - 面试
-category: 面试
+category: 前端知识
 author: NPMRUN
 heroImage: https://api.r10086.com/%E5%9B%BE%E5%8C%85webp/%E5%8A%A8%E6%BC%AB%E7%BB%BC%E5%90%882/5a80c559ae57e81e1a281a8b508b9c5d.png!q90.webp
 ---

@@ -2,10 +2,10 @@
 title: 如何将一个md文档按h2和h3分块
 description: 如何将一个md文档按h2和h3分块
 pubDate: 2023/8/31 13:58:47
-updatedDate: 2023/08/31 15:47:11
+updatedDate: 2023/09/06 01:21:52
 tags:
     - unified
-category: 技术
+category: unified
 author: NPMRUN
 heroImage: https://api.r10086.com/%E5%9B%BE%E5%8C%85webp/%E5%8A%A8%E6%BC%AB%E7%BB%BC%E5%90%882/yande555770_charunetra.webp
 ---
@@ -112,3 +112,12 @@ console.log(processedHtml)
     <p>This is content for section 3.</p>
 </div>
 ```
+## 问题
+
+当然，以上代码也有问题，具体有两个
+
+- 只支持顶层的h2和h3，如果是被引用框包裹住的这类的是不管的
+
+- 会从首个h2或者h3元素开始，其以上的元素会丢失，这个比较严重
+
+当然解决办法也是有的，第一个应该不算是个问题，我也就不太管了。主要是第二个问题，在本主题中已经解决了，其源码[在此](https://github.com/npmrun/astro-theme-sleepless/blob/master/plugins/rehype/rehype-splitSections.mjs)，可以点击查看。

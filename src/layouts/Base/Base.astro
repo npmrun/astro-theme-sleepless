@@ -19,7 +19,7 @@ const categoryCount = getCategoryCount()
 const menus = [
     {
         name: '分类',
-        // url: '/category',
+        url: '/category',
         count: categoryCount,
     },
     {
@@ -60,7 +60,6 @@ const menus = [
                                     <a
                                         href={menu.url}
                                         class="grow w-0 group"
-                                        title={menu.count}
                                     >
                                         <div
                                             class="text-sm  group-hover:underline oneline"
