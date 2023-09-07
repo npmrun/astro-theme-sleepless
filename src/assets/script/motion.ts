@@ -60,7 +60,19 @@ if (UseMotion) {
         },
         '-=600'
     )
-    
+        tl.add(
+        {
+            targets: '.footer',
+            duration: 500,
+            complete: function (anim) {
+                document.querySelectorAll('.footer').forEach((el, i) => {
+                    el.classList.add('animated', 'fadeInUp')
+                })
+            },
+        },
+        '-=600'
+    )
+
     // allCard.forEach((el, i) => {
     //     tl.add(
     //         {
@@ -95,6 +107,19 @@ if (UseMotion) {
             duration: 500,
             complete: function (anim) {
                 swiper_el?.classList.add('animated', 'fadeIn')
+            },
+        },
+        '-=1200'
+    )
+
+    const comment_el = document.querySelector('.comment-wrapper')
+
+    tl.add(
+        {
+            targets: comment_el,
+            duration: 500,
+            complete: function (anim) {
+                comment_el?.classList.add('animated', 'fadeIn')
             },
         },
         '-=1200'
