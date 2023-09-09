@@ -1,0 +1,28 @@
+---
+import SinglePage from '@blog/layouts/SinglePage.astro'
+
+// const curPath = decodeURIComponent(Astro.url.pathname)
+---
+
+<SinglePage title="找不到该页面">
+    <div class="text-center pt-12">
+        <div class="text-md text-gray-400">
+            找不到该页面，请检查网址是否正确
+        </div>
+        <!-- <div class="text-gray-400 bg-gray-200 inline-block p-4 my-4 rounded-md">{curPath}</div> -->
+        <div class="text-[50px] font-bold heart-pong">404</div>
+        <div class="mt-12 max-w-2xl md:flex mx-auto block justify-around">
+            <div>
+                <a
+                    class="px-3 border py-2 rounded-md border-red-400 text-red-400 hover:bg-red-400 hover:text-white transition-colors"
+                    href="/">回到首页</a
+                >
+            </div>
+            <div class="max-md:mt-4">
+                <a href="javascript: void 0" class="px-3 border py-2 rounded-md border-red-400 text-red-400 hover:bg-red-400 hover:text-white transition-colors" onclick="history.back()"
+                    >返回上一页</a
+                >
+            </div>
+        </div>
+    </div>
+</SinglePage>
