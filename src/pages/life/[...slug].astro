@@ -35,6 +35,15 @@ if (entry.data.relatedPosts) {
     <figure
         class="article-image relative block h-[450px] max-md:h-[250px] mb-6 rounded-lg overflow-hidden"
     >
+        {
+            entry?.data?.draft && (
+                <div class="absolute top-[50px] right-[50px]">
+                    <div class="text-white bg-red-400 absolute text-center -translate-y-[50%] -translate-x-[50%] top-[50%] w-[500px] rotate-[45deg] left-[50%] z-20">
+                        草稿
+                    </div>
+                </div>
+            )
+        }
         <img
             class="block w-full h-full object-cover brightness-75 bg-gray-200 max-lg:!object-center"
             src={entry.data.heroImage || '/bg.png'}
