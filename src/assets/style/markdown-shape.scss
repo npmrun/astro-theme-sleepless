@@ -54,7 +54,13 @@
     }
 
     strong {
-        color: #ff4d20;
+        &::before{
+            content: "『";
+        }
+        &::after{
+            content: "』";
+        }
+        // color: #ff4d20;
     }
 
     /* 块/段落引用 */
