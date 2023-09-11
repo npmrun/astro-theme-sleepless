@@ -52,7 +52,14 @@ if (articleData && articleData.data && articleData.data.category) {
             ))
         }
     </div>
-    <div class="h-[62%] overflow-hidden rounded-tl-lg rounded-tr-lg">
+    <div class="h-[62%] overflow-hidden relative rounded-tl-lg rounded-tr-lg">
+        {
+            articleData?.data?.draft && (
+                <div class="text-white bg-red-400 absolute text-center top-[4%] w-[80%] rotate-[45deg] left-[52%] z-20">
+                    草稿
+                </div>
+            )
+        }
         <a href={href}>
             <div class="w-full h-full transition img-wrapper relative bg-white">
                 <img

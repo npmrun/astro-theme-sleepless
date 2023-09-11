@@ -15,6 +15,7 @@ const postsCollection = defineCollection({
     theme: z.enum(["green", "split"]).or(z.array(z.enum(["green", "split"]))).optional(),
     hot: z.boolean().optional(),
     comment: z.boolean().optional(),
+    draft: z.boolean().optional(),
     chinese: z.boolean().optional(),
     tags: z.array(z.string()).or(z.string()),
     image: z.string().optional().optional(),
@@ -37,6 +38,7 @@ const lifeCollection = defineCollection({
     hot: z.boolean().optional(),
     theme: z.enum(["green", "split"]).or(z.array(z.enum(["green", "split"]))).optional(),
     chinese: z.boolean().optional(),
+    draft: z.boolean().optional(),
     comment: z.boolean().optional(),
     image: z.string().optional().optional(),
     // Reference a single author from the `authors` collection by `id`

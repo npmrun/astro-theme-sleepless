@@ -2,10 +2,10 @@
 title: vModelText的探究
 description: ''
 pubDate: 2023/9/6 23:39:03
-updatedDate: 2023/09/06 23:39:18
+updatedDate: 2023/09/09 19:37:43
 tags:
-    - Vue3
-category: Vue3
+    - vue3
+category: vue3
 author: NPMRUN
 heroImage: https://api.r10086.com/%E5%9B%BE%E5%8C%85webp/%E5%8A%A8%E6%BC%AB%E7%BB%BC%E5%90%882/20ef800ab6f9fdc7ea85ad9e68a4e74c.jpg!q90.webp
 ---
