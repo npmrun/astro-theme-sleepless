@@ -1,0 +1,20 @@
+{
+    "tabs": {
+        "scope": "markdown",
+        "prefix": "tabs",
+        "body": [
+            "<!-- tabs $1 -->",
+            "<!-- tab $2 -->",
+            "$3",
+            "<!-- endtab $2 -->",
+            "<!-- endtabs $1 -->"
+        ],
+        "description": "创建一个tabs"
+    },
+    "tab": {
+        "scope": "markdown",
+        "prefix": "tab",
+        "body": ["<!-- tab $1 -->", "$2", "<!-- endtab $1 -->"],
+        "description": "创建一个tab"
+    }
+}
