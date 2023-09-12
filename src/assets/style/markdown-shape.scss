@@ -157,8 +157,10 @@
         text-decoration: line-through var(--color-base) 2px;
     }
     code {
-        color: #ffffff;
-        background-color: #ff4c209c;
+        color: rgba(45,55,72,1);
+        background-color: rgba(160,174,192,0.25);
+        // color: #ffffff;
+        // background-color: #ff4c209c;
         border-radius: 4px;
         padding: 4px 4px;
         // font-size: 0.875em;
