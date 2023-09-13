@@ -18,6 +18,16 @@
     background-color: transparent !important;
     padding: 0 !important;
     .split-block {
+        // https://www.aigei.com/s?q=%E8%BE%B9%E6%A1%86&type=element
+        // https://www.cnblogs.com/deajax/p/13518497.html
+        border: 18px solid transparent;
+        border-image-source: url("/border-image.png");
+        border-image-slice:600 540 540 580;
+        border-image-width:90px 81px 81px 87px;
+        // border-image-outset:27px 27px 27px 27px;
+        // border-image-repeat:repeat;
+        // background-image: url("/border-image.png");
+        // background-size: cover;
         background-color: white;
         @apply shadow-sm p-3 lg:p-6;
         + .split-block {
