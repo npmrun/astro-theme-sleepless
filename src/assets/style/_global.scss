@@ -1,0 +1,21 @@
+@mixin chinese() {
+    &.chinese {
+        text-indent: 1.5em;
+        font-weight: 300;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        ol,
+        ul,
+        blockquote,
+        details,
+        summary,
+        pre,
+        .tabs {
+            text-indent: 0;
+        }
+    }
+}

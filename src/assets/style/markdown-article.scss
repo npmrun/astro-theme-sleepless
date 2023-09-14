@@ -1,0 +1,48 @@
+.markdown-body.article {
+    font-family: 'LXGW WenKai', sans-serif;
+    // /* Lite version */
+    // font-family: 'LXGW WenKai Lite', sans-serif;
+    // /* TC version */
+    // font-family: 'LXGW WenKai TC', sans-serif;
+    // /* Screen version */
+    // font-family: 'LXGW WenKai Screen', sans-serif;
+
+    &.split .split-block{
+        h2:only-child,h3:only-child{
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-top: 0.6em;
+        margin-bottom: 0.4em;
+        line-height: 1.35;
+        position: relative;
+    }
+    h1 {
+        font-size: 1.8em;
+    }
+    h2 {
+        font-size: 1.6em;
+    }
+    h3 {
+        font-size: 1.4em;
+    }
+    h4 {
+        font-size: 1.2em;
+    }
+    h5 {
+        font-size: 1em;
+    }
+    h6 {
+        font-size: 1em;
+    }
+
+    @include chinese;
+}

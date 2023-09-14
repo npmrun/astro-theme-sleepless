@@ -38,6 +38,16 @@ const menus = [
 <html lang="zh-CN">
     <head>
         <BaseHead {...Astro.props} />
+
+        <!-- https://github.com/chawyehsu/lxgw-wenkai-webfont -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css" />
+        <!-- Lite version -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css" />
+        <!-- TC version -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-tc-webfont@1.0.0/style.css" />
+        <!-- Screen version -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" />
+
     </head>
     <body class={UseMotion ? 'use-motion' : ''}>
         <div id="root">
