@@ -8,6 +8,7 @@ import rehypeMathjax from 'rehype-mathjax'
 import remarkBreaks from 'remark-breaks'
 
 import rehypeCommon from './plugins/rehype/rehype-common.mjs'
+import rehypeIframe from './plugins/rehype/rehype-iframe.mjs'
 import rehypeCodeBtn from './plugins/rehype/rehype-code-btn.mjs'
 import rehypeTabs from './plugins/rehype/rehype-tabs.mjs'
 import rehypesplitSections from './plugins/rehype/rehype-splitSections.mjs'
@@ -34,6 +35,7 @@ export default defineConfig({
             rehypeCodeBtn,
             rehypesplitSections,
             rehypeTabs,
+            rehypeIframe,
         ],
         remarkPlugins: [Directive, remarkMath, remarkCommon, remarkBreaks],
         remarkRehype: {

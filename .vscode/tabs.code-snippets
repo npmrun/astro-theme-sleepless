@@ -16,5 +16,11 @@
         "prefix": "tab",
         "body": ["<!-- tab $1 -->", "$2", "<!-- endtab $1 -->"],
         "description": "创建一个tab"
+    },
+    "iframe": {
+        "scope": "markdown",
+        "prefix": "iframe",
+        "body": ["<!-- iframe $1 -->"],
+        "description": "创建一个iframe"
     }
 }
