@@ -14,10 +14,10 @@ const { data: user } = await getEntry('authors', 'NPMRUN')
     {
         user.links.map((link: any) => {
             return (
-                <a href={link.url} target={link.target ?? "_blank"}>
+                <a class:list={[link.target === '_self' ? 'text-red-400':'']} href={link.url} target={link.target ?? "_blank"}>
                     <Icon
-                        name={`mdi:${link.name}`}
-                        title={link.name}
+                        name={`${link.name}`}
+                        title={link.title}
                         class="w-[25px] h-[25px]"
                     />
                 </a>

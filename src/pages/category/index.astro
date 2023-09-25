@@ -6,7 +6,7 @@ const categories = await getCategoryData()
 
 <SinglePage>
     <h2 class="text-2xl">分类</h2>
-    <ul class="flex">
+    <ul class="flex my-6 items-center flex-wrap">
         {
             categories.map((category) => (
                 <li class="ml-2 mt-2 first:ml-0 bg-red-500 text-white rounded-md">

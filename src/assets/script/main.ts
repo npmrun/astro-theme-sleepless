@@ -5,6 +5,7 @@ import "./motion"
 import Swiper from 'swiper'
 import 'swiper/swiper-bundle.css'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
+import { timestampFormat } from '@blog/utils/date'
 
 let swiper: Swiper | null = null
 function initSwiper() {
@@ -76,3 +77,24 @@ function initMobile() {
 if (OpenViewTransitions) {
     document.addEventListener('astro:page-load', initMobile)
 } else initMobile()
+
+function updateArticleTime() {
+    document.querySelectorAll(".updated-time").forEach(el=>{
+        const time = el.getAttribute("date-time")
+        if(time){
+            el.textContent = "修改时间："+ timestampFormat(time)
+        }
+    })
+    document.querySelectorAll(".pub-time").forEach(el=>{
+        const time = el.getAttribute("date-time")
+        if(time){
+            el.textContent = "创建时间："+ timestampFormat(time)
+        }
+    })
+}
+if (OpenViewTransitions) {
+    document.addEventListener('astro:page-load', updateArticleTime)
+} else updateArticleTime()
+
+// 是否每秒中执行，感觉没必要
+// setInterval(updateArticleTime, 1000)

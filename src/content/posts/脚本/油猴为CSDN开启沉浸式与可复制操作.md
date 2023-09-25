@@ -2,7 +2,7 @@
 title: 油猴为CSDN开启沉浸式与可复制操作
 description: ''
 pubDate: 2023/8/31 15:42:03
-updatedDate: 2023/09/01 09:45:46
+updatedDate: 2023/09/25 09:46:24
 tags:
     - 油猴
 category: 脚本
@@ -29,52 +29,22 @@ heroImage: https://api.r10086.com/%E5%9B%BE%E5%8C%85webp/%E5%8A%A8%E6%BC%AB%E7%B
 // @run-at       document-end
 // ==/UserScript==
 
-// 如果为详情页则去除无用内容，开起沉浸式阅读
-GM_addStyle(`
+    // 如果为详情页则去除无用内容，开起沉浸式阅读
+    GM_addStyle(`
         .blog_container_aside,#rightAside,.recommend-box,#treeSkill,#blogExtensionBox,#recommendNps,#toolBarBox,.comment-box-old,.insert-baidu-box,.blog-footer-bottom,.blog-footer-bottom,.comment-box,.template-box,.column-group,#csdn-toolbar,.csdn-side-toolbar,#passportbox,.passport-login-container,.hide-article-box{display:none!important;}
         .article_content{height:auto!important} #content_views pre code{user-select:text !important}
-    `)
+    `);
 
-// 调整主页面大小
-document.querySelector('#mainBox').style.width = '100%'
-document.getElementsByTagName('main')[0].style.width = '100%'
+    // 调整主页面大小
+    document.querySelector('#mainBox').style.width='100%';
+    document.getElementsByTagName('main')[0].style.width='100%'
 
-document.querySelectorAll('*').forEach((el) => (el.style.userSelect = 'auto'))
+    document.querySelectorAll("*").forEach(el=>el.style.userSelect="auto")
+document.querySelectorAll(".look-more-preCode").forEach(el=>el.click())
+document.querySelectorAll(".ide-preCode-box").forEach(el=>el.click())
 
-document
-    .querySelectorAll('*')
-    .forEach((el) =>
-        el.addEventListener(
-            'copy',
-            (event) => event.stopImmediatePropagation(),
-            true
-        )
-    )
-document
-    .querySelectorAll('*')
-    .forEach((el) =>
-        el.addEventListener(
-            'click',
-            (event) => event.stopImmediatePropagation(),
-            true
-        )
-    )
-document
-    .querySelectorAll('*')
-    .forEach((el) =>
-        el.addEventListener(
-            'mousedown',
-            (event) => event.stopImmediatePropagation(),
-            true
-        )
-    )
-document
-    .querySelectorAll('*')
-    .forEach((el) =>
-        el.addEventListener(
-            'mouseup',
-            (event) => event.stopImmediatePropagation(),
-            true
-        )
-    )
+document.querySelectorAll("*").forEach(el=>el.addEventListener("copy", event => event.stopImmediatePropagation(),true))
+document.querySelectorAll("*").forEach(el=>el.addEventListener("click", event => event.stopImmediatePropagation(),true))
+ document.querySelectorAll("*").forEach(el=>el.addEventListener("mousedown", event => event.stopImmediatePropagation(),true))
+ document.querySelectorAll("*").forEach(el=>el.addEventListener("mouseup", event => event.stopImmediatePropagation(),true))
 ```

@@ -3,21 +3,35 @@
     "avatar": "https://xieyaxin.top/me.jpeg",
     "links": [
         {
-            "name": "github",
+            "name": "mdi:web",
+            "title": "主页",
+            "url": "https://nuxt.xieyaxin.top/home"
+        },
+        {
+            "name": "mdi:github",
+            "title": "Github",
             "url": "https://github.com/npmrun"
         },
         {
-            "name": "web",
-            "url": "https://blog.xieyaxin.top"
+            "name": "mdi:notebook-outline",
+            "title": "碎语",
+            "url": "http://memos.xieyaxin.top/"
         },
         {
-            "name": "feather",
-            "url": "/about",
-            "target": "_self"
+            "name": "mdi:todo-add",
+            "title": "计划",
+            "url": "https://kan.xieyaxin.top/"
         },
         {
-            "name": "todo-add",
+            "name": "ant-design:code-filled",
+            "title": "编辑器",
             "url": "https://editor.xieyaxin.top"
+        },
+        {
+            "name": "mdi:feather",
+            "url": "/about",
+            "title": "关于",
+            "target": "_self"
         }
     ]
 }

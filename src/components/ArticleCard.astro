@@ -10,14 +10,14 @@ if (articleData?.data?.author) {
     )) as any
 }
 
-let AllTags: string[] = []
-if (articleData && articleData.data && articleData.data.tags) {
-    if (typeof articleData.data.tags === 'string') {
-        AllTags = [articleData.data.tags]
-    } else {
-        AllTags = [articleData.data.tags[0]]
-    }
-}
+// let AllTags: string[] = []
+// if (articleData && articleData.data && articleData.data.tags) {
+//     if (typeof articleData.data.tags === 'string') {
+//         AllTags = [articleData.data.tags]
+//     } else {
+//         AllTags = [articleData.data.tags[0]]
+//     }
+// }
 
 let AllCategory: string[] = []
 if (articleData && articleData.data && articleData.data.category) {
@@ -36,23 +36,23 @@ if (articleData && articleData.data && articleData.data.category) {
     }
 </style>
 <div
-    class="article-card h-[325px] group bg-white/[.6] shadow rounded-lg transition relative"
+    class="article-card h-[300px] group bg-white/[.6] shadow rounded-lg transition relative"
 >
     <div class="absolute -top-[6px] left-0 right-0 mb-1">
         {
-            AllTags.map((item: any, index: number) => (
+            AllCategory.map((item: any, index: number) => (
                 <a
-                    href={`/tags/${item}`}
+                    href={`/category/${item}`}
                     class={`relative max-w-full inline-block group-hover:-top-[25px] truncate delay-${
                         index * 100
                     } transition-all top-0 bg-red-400 text-white px-2 rounded-md py-1 text-sm`}
                 >
-                    # {item}
+                    {item}
                 </a>
             ))
         }
     </div>
-    <div class="h-[62%] overflow-hidden relative rounded-tl-lg rounded-tr-lg">
+    <div class="h-[70%] overflow-hidden relative rounded-tl-lg rounded-tr-lg">
         {
             articleData?.data?.draft && (
                 <div class="text-white bg-red-400 absolute text-center top-[4%] w-[80%] rotate-[45deg] left-[52%] z-20">
@@ -70,8 +70,19 @@ if (articleData && articleData.data && articleData.data.category) {
                     style="background: url(/mask.png);position:absolute;width:100%;height:100%;top: 0;"
                 >
                 </div>
-            </div></a
-        >
+                <div
+                    class="absolute top-0 left-0 right-0 bottom-0 bg-black/50 opacity-0 transition-all group-hover:opacity-100 flex"
+                >
+                    <span
+                        class="m-auto text-white text-sm text-center px-4 pt-2 line-clamp-4"
+                        >{
+                            articleData.data.description ||
+                                '作者很懒，没有写说明'
+                        }</span
+                    >
+                </div>
+            </div>
+        </a>
     </div>
     <div class="px-4 py-2">
         <a href={href}>
@@ -80,25 +91,14 @@ if (articleData && articleData.data && articleData.data.category) {
         <div class="truncate text-xs text-gray-400 mb-1">
             {
                 articleData?.data.updatedDate ? (
-                    <span>
+                    <span
+                        class="updated-time"
+                        date-time={articleData.data.updatedDate}
+                    >
                         修改时间：
-                        {new Date(
-                            articleData.data.updatedDate,
-                        ).toLocaleDateString('zh-cn', {
-                            year: 'numeric',
-                            month: 'short',
-                            day: 'numeric',
-                            hour: 'numeric',
-                            minute: 'numeric',
-                            second: 'numeric',
-                        })}
-                    </span>
-                ) : (
-                    articleData?.data.pubDate && (
-                        <span>
-                            创建时间：
+                        <span class="opacity-0">
                             {new Date(
-                                articleData.data.pubDate,
+                                articleData.data.updatedDate,
                             ).toLocaleDateString('zh-cn', {
                                 year: 'numeric',
                                 month: 'short',
@@ -108,6 +108,27 @@ if (articleData && articleData.data && articleData.data.category) {
                                 second: 'numeric',
                             })}
                         </span>
+                    </span>
+                ) : (
+                    articleData?.data.pubDate && (
+                        <span
+                            class="pub-time"
+                            date-time={articleData.data.pubDate}
+                        >
+                            创建时间：
+                            <span class="opacity-0">
+                                {new Date(
+                                    articleData.data.pubDate,
+                                ).toLocaleDateString('zh-cn', {
+                                    year: 'numeric',
+                                    month: 'short',
+                                    day: 'numeric',
+                                    hour: 'numeric',
+                                    minute: 'numeric',
+                                    second: 'numeric',
+                                })}
+                            </span>
+                        </span>
                     )
                 )
             }
@@ -116,7 +137,7 @@ if (articleData && articleData.data && articleData.data.category) {
             <div class="w-0 flex-grow truncate">
                 作者：{authorData?.data.name}
             </div>
-            {
+            <!-- {
                 AllCategory[0] && (
                     <a
                         href={`/category/${AllCategory[0]}`}
@@ -127,10 +148,10 @@ if (articleData && articleData.data && articleData.data.category) {
                         <span class="hover:text-red-400">{AllCategory[0]}</span>
                     </a>
                 )
-            }
+            } -->
         </div>
-        <div class="text-xs pt-2 line-clamp-2 text-gray-400">
+        <!-- <div class="text-xs pt-2 line-clamp-2 text-gray-400">
             {articleData.data.description || '作者很懒，没有写说明'}
-        </div>
+        </div> -->
     </div>
 </div>
