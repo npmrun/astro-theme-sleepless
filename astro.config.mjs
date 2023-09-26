@@ -12,6 +12,7 @@ import rehypeIframe from './plugins/rehype/rehype-iframe.mjs'
 import rehypeCodeBtn from './plugins/rehype/rehype-code-btn.mjs'
 import rehypeTabs from './plugins/rehype/rehype-tabs.mjs'
 import rehypesplitSections from './plugins/rehype/rehype-splitSections.mjs'
+import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 
 import remarkCommon from './plugins/remark/remark-common.mjs'
 
@@ -30,6 +31,8 @@ export default defineConfig({
         syntaxHighlight: 'prism',
         extendDefaultPlugins: true,
         rehypePlugins: [
+            // https://docs.astro.build/en/guides/markdown-content/#heading-ids-and-plugins
+            rehypeHeadingIds,
             rehypeMathjax,
             rehypeCommon,
             rehypeCodeBtn,
