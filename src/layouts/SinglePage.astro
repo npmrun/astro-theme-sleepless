@@ -1,4 +1,5 @@
 ---
+import Footer from '@blog/components/Footer.astro';
 import Base from './Base/Base.astro'
 import { Icon } from 'astro-icon'
 ---
@@ -16,7 +17,29 @@ import { Icon } from 'astro-icon'
             >
             </div>
         </header>
+
+        <!-- <header
+            class="ml-[10px] mr-[10px] lg:ml-[330px] lg:mr-[30px] mb-5 flex fixed left-0 right-0 top-0 h-[46px] items-center px-[10px] z-[50] backdrop-blur-md z-[5] shadow" style="background-color: var(--header-color);"
+        >
+            <div class="flex-1 w-0"></div>
+            <div>
+                <div class="cursor-pointer flex group items-center">
+                    <span class="mr-1">更多</span><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="1em"
+                        height="1em"
+                        class="transition-transform transform group-hover:rotate-[180deg]"
+                        viewBox="0 0 1024 1024"
+                        ><path
+                            fill="currentColor"
+                            d="M831.872 340.864L512 652.672L192.128 340.864a30.592 30.592 0 0 0-42.752 0a29.12 29.12 0 0 0 0 41.6L489.664 714.24a32 32 0 0 0 44.672 0l340.288-331.712a29.12 29.12 0 0 0 0-41.728a30.592 30.592 0 0 0-42.752 0z"
+                        ></path></svg>
+                </div>
+            </div>
+        </header> -->
+
         <div class="h-[46px] hidden max-lg:block"></div>
+        <!-- <div class="h-[46px] max-lg:block"></div> -->
         <main
             class="ml-[10px] mr-[10px] lg:ml-[330px] lg:mr-[30px] pt-5 flex-1 flex flex-col"
         >
@@ -24,31 +47,6 @@ import { Icon } from 'astro-icon'
                 <slot />
             </div>
         </main>
-        <div
-            class="footer text-center ml-0 lg:ml-[300px] py-8 bg-white border-t"
-        >
-            <div>
-                © 2023 <a
-                    target="_blank"
-                    class="text-red-400"
-                    href="https://github.com/npmrun">NPMRUN</a
-                >. All rights reserved.
-            </div>
-            <div>
-                Built with <span
-                    class="text-red-400 text-3xl relative top-1 heart-pong drop-shadow-lg"
-                    >♥</span
-                > by <a
-                    target="_blank"
-                    class="text-red-400"
-                    href="https://github.com/npmrun/astro-theme-sleepless"
-                    >失眠先生</a
-                > Powered By <a
-                    target="_blank"
-                    class="text-red-400"
-                    href="https://astro.build/">Astro</a
-                >
-            </div>
-        </div>
+        <Footer class="ml-0 lg:ml-[300px]"></Footer>
     </div>
 </Base>

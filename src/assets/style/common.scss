@@ -51,10 +51,12 @@ pre ::selection {
 :root,
 :root[data-theme='light'] {
     --bg-color: #f7f7fb;
+    --header-color: rgba(274, 274, 251, .3);
 }
 
 :root[data-theme='dark'] {
     --bg-color: red;
+    --header-color: rgba(274, 274, 251, .3);
 }
 
 @font-face {

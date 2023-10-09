@@ -1,0 +1,35 @@
+---
+import { getEntry } from 'astro:content'
+
+const { data: user } = await getEntry('authors', 'NPMRUN')
+---
+
+<div
+    class={`footer text-center py-8 bg-white border-t ${
+        Astro.props.class ?? ''
+    }`}
+    {...Astro.props}
+>
+    <div>
+        © 2023 <a
+            target="_blank"
+            class="text-red-400"
+            href="https://github.com/npmrun">{user.github_name}</a
+        >. All rights reserved.
+    </div>
+    <div>
+        Built with <span
+            class="text-red-400 text-3xl relative top-1 heart-pong drop-shadow-lg"
+            >♥</span
+        > by <a
+            target="_blank"
+            class="text-red-400"
+            href="https://github.com/npmrun/astro-theme-sleepless"
+            >{user.name}</a
+        > Powered By <a
+            target="_blank"
+            class="text-red-400"
+            href="https://astro.build/">Astro</a
+        >
+    </div>
+</div>
