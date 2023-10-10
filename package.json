@@ -21,6 +21,7 @@
     "browserslist": "^4.22.1",
     "esbuild-plugin-browserslist": "^0.9.1",
     "hast-util-from-html": "^2.0.1",
+    "medium-zoom": "^1.0.8",
     "prism-theme-vars": "^0.2.4",
     "rehype-mathjax": "^5.0.0",
     "remark-breaks": "^4.0.0",

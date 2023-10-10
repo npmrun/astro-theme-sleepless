@@ -20,6 +20,11 @@ body {
     scroll-behavior: smooth;
 }
 
+.medium-zoom-overlay,
+.medium-zoom-image--opened {
+  z-index: 999;
+}
+
 ::-webkit-scrollbar-track {
     border: none;
 }

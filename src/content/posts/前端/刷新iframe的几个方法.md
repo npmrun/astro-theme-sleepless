@@ -2,7 +2,7 @@
 title: 刷新iframe的几个方法
 description: ''
 pubDate: 2023/10/8 11:01:29
-updatedDate: 2023/10/08 11:21:02
+updatedDate: 2023/10/11 00:03:56
 tags:
     - 技术
 category: 技术
@@ -45,7 +45,7 @@ el.src = tmpUrl
 效果类似但又不完全类似于location.href = xxx，不同点 ：
 
 - iframe的src 不会随内部跳转而变化，location.href 会随页面跳转而变化。
-- 当 iframe 里面完全没有发生过跳转，且tmpUrl带hash时（如 https://cn.vuejs.org/v2/guide/installation.html#NPM带了#NPM），上述方法就无法刷新iframe，同样条件下location.href = location.href 可以刷新页面
+- 当 iframe 里面完全没有发生过跳转，且tmpUrl带hash时（如 https://cn.vuejs.org/v2/guide/installation.html#NPM 带了#NPM），上述方法就无法刷新iframe，同样条件下location.href = location.href 可以刷新页面
 
 ## 刷新带hash的iframe
 

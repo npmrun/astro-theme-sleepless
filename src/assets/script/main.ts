@@ -1,11 +1,12 @@
 import { OpenViewTransitions } from '@blog/config'
 
-import "./motion"
+import './motion'
 
 import Swiper from 'swiper'
 import 'swiper/swiper-bundle.css'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import { timestampFormat } from '@blog/utils/date'
+import mediumZoom from 'medium-zoom'
 
 let swiper: Swiper | null = null
 function initSwiper() {
@@ -79,16 +80,16 @@ if (OpenViewTransitions) {
 } else initMobile()
 
 function updateArticleTime() {
-    document.querySelectorAll(".updated-time").forEach(el=>{
-        const time = el.getAttribute("date-time")
-        if(time){
-            el.textContent = "修改时间："+ timestampFormat(time)
+    document.querySelectorAll('.updated-time').forEach((el) => {
+        const time = el.getAttribute('date-time')
+        if (time) {
+            el.textContent = '修改时间：' + timestampFormat(time)
         }
     })
-    document.querySelectorAll(".pub-time").forEach(el=>{
-        const time = el.getAttribute("date-time")
-        if(time){
-            el.textContent = "创建时间："+ timestampFormat(time)
+    document.querySelectorAll('.pub-time').forEach((el) => {
+        const time = el.getAttribute('date-time')
+        if (time) {
+            el.textContent = '创建时间：' + timestampFormat(time)
         }
     })
 }
@@ -98,3 +99,16 @@ if (OpenViewTransitions) {
 
 // 是否每秒中执行，感觉没必要
 // setInterval(updateArticleTime, 1000)
+
+function initImage() {
+    mediumZoom(document.querySelectorAll('.markdown-body img'), {
+        margin: 24,
+        background: 'rgba(25, 18, 25, 0.9)',
+        scrollOffset: 0,
+        // container: '#zoom-container',
+        // template: '#zoom-template',
+    })
+}
+if (OpenViewTransitions) {
+    document.addEventListener('astro:page-load', initImage)
+} else initImage()
