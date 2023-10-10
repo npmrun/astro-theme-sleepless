@@ -11,10 +11,10 @@ import {
 } from '@blog/utils'
 import { UseMotion } from '@blog/config'
 
-const blogCount = getBlogCount()
-const lifeCount = getLiftCount()
-const tagsCount = getTagsCount()
-const categoryCount = getCategoryCount()
+const blogCount = await getBlogCount()
+const lifeCount = await getLiftCount()
+const tagsCount = await getTagsCount()
+const categoryCount = await getCategoryCount()
 
 const menus = [
     {
@@ -31,6 +31,11 @@ const menus = [
         name: '技术',
         url: '/posts',
         count: blogCount,
+    },
+    {
+        name: '归档',
+        url: '/archive',
+        count: blogCount + lifeCount,
     },
 ]
 ---

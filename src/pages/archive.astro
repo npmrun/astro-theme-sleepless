@@ -1,0 +1,90 @@
+---
+import SinglePage from '@blog/layouts/SinglePage.astro'
+import MiniArticleCard from '@blog/components/MiniArticleCard.astro'
+import { getBlogDataSortByTime, getLifeDataSortByTime } from '@blog/utils'
+
+const blogList = await getBlogDataSortByTime()
+const lifeList = await getLifeDataSortByTime()
+
+function parseDate(date: string) {
+    const temp = new Date(date)
+    return {
+        year: temp.getFullYear(),
+    }
+}
+---
+
+<SinglePage>
+    <div class="max-w-[980px] mx-auto">
+        {
+            (() => {
+                let curYear = 0
+                let curYearList: astroHTML.JSX.HTMLAttributes[] = []
+                const renderList: astroHTML.JSX.HTMLAttributes[] = []
+                blogList.forEach((item) => {
+                    const curDate = parseDate(
+                        (item.data.updatedDate as string) ?? item.data.pubDate,
+                    )
+                    let renderYear = false
+                    if (curDate.year !== curYear) {
+                        renderYear = true
+                        curYear = curDate.year
+                    }
+                    if (renderYear) {
+                        renderList.push(
+                            <div style="display: flex;flex-wrap: wrap;margin: 0 -14px;">
+                                {curYearList}
+                            </div>,
+                        )
+                        curYearList = []
+                        renderList.push(
+                            <div class="text-2xl hover:text-red-400 cursor-pointer my-3">
+                                <span class="mr-2">#</span> {curYear}
+                            </div>,
+                        )
+                    }
+                    curYearList.push(
+                        <MiniArticleCard
+                            articleData={item}
+                            href={`/posts/${item.slug}`}
+                        />,
+                    )
+                })
+                if (curYearList.length !== 0) {
+                    renderList.push(
+                        <div style="display: flex;flex-wrap: wrap;margin: 0 -14px;">
+                            {curYearList}
+                        </div>,
+                    )
+                    curYearList = []
+                }
+                return renderList
+                // return blogList.map((item) => {
+                //     const curDate = parseDate(
+                //         (item.data.updatedDate as string) ?? item.data.pubDate,
+                //     )
+                //     let renderYear = false
+                //     if (curDate.year !== curYear) {
+                //         renderYear = true
+                //         curYear = curDate.year
+                //     }
+                //     return (
+                //         <>
+                //             {renderYear && (
+                //                 <div class="text-2xl group cursor-pointer my-3">
+                //                     <span class="group-hover:text-red-400 mr-2">
+                //                         #
+                //                     </span>{' '}
+                //                     {curYear}
+                //                 </div>
+                //             )}
+                //             <div>
+                //                 <MiniArticleCard articleData={item} />
+                //             </div>
+                //         </>
+                //     )
+                // })
+            })()
+        }
+    </div>
+</SinglePage>
