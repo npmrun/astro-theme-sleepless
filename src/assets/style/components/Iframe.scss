@@ -18,6 +18,7 @@
         background: #eee;
         color: #555;
         align-items: center;
+        gap: 6px;
         .text {
             flex: 1;
         }
@@ -39,12 +40,35 @@
                 }
             }
         }
+        .title{
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
     }
     .iframe-inner {
         height: 0;
         flex: 1;
+        position: relative;
         iframe {
             height: 100%;
+        }
+        .iframe-mask{
+            position: absolute;
+            inset: 0;
+            background-color: #55555523;
+            display: flex;
+            &::after{
+                content: "网页为懒加载，点击上方的手势加载";
+                margin: auto;
+                color: #a8a8a8;
+            }
+        }
+        &.notlazy .iframe-mask{
+            display: none;
+        }
+        &.iframe-load .iframe-mask{
+            display: none;
         }
     }
 }

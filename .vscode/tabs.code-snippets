@@ -20,7 +20,13 @@
     "iframe": {
         "scope": "markdown",
         "prefix": "iframe",
-        "body": ["<!-- iframe $1 -->"],
+        "body": ["<!-- iframe $1 $2-->"],
         "description": "创建一个iframe"
+    },
+    "iframe-lazy": {
+        "scope": "markdown",
+        "prefix": "iframe-lazy",
+        "body": ["<!-- iframe-lazy $1 $2-->"],
+        "description": "创建一个iframe-lazy"
     }
 }
