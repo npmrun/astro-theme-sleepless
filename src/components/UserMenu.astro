@@ -1,0 +1,99 @@
+---
+import UserProfile from '@blog/components/UserProfile.astro'
+import {
+    getBlogCount,
+    getCategoryCount,
+    getLiftCount,
+    getTagsCount,
+} from '@blog/utils'
+
+const blogCount = await getBlogCount()
+const lifeCount = await getLiftCount()
+const tagsCount = await getTagsCount()
+const categoryCount = await getCategoryCount()
+
+const menus = [
+    {
+        name: '分类',
+        url: '/category',
+        count: categoryCount,
+    },
+    {
+        name: '标签',
+        // url: '/tags',
+        count: tagsCount,
+    },
+    {
+        name: '技术',
+        url: '/posts',
+        count: blogCount,
+    },
+    {
+        name: '归档',
+        url: '/archive',
+        count: blogCount + lifeCount,
+    },
+]
+---
+
+<div id="menu-wrapper" class="shadow w-[300px] bg-white/[.6] sticky top-0 h-full pb-5 max-xl:fixed max-lg:z-[52] max-lg:bg-white max-lg:left-[-310px] transition-all">
+    <div class="pt-8 text-center">
+        <a
+            href="/"
+            class="text-2xl flex items-center justify-center border-y py-2 shadow w-[102%] bg-white/[.8]"
+        >
+            失眠先生
+        </a>
+        <UserProfile />
+        <div class="flex mt-4 mx-3 border-b pb-2">
+            {
+                menus.map((menu: any) => {
+                    return (
+                        <a href={menu.url} class="grow w-0 group">
+                            <div
+                                class="text-sm  group-hover:underline oneline"
+                                class:list={menu.url && 'text-red-500'}
+                            >
+                                {menu.count}
+                            </div>
+                            <div class="text-md drop-shadow-lg">
+                                {menu.name}
+                            </div>
+                        </a>
+                    )
+                })
+            }
+        </div>
+        <a
+            href="/life"
+            class="flex justify-center items-center my-2 group px-10"
+            title={lifeCount as any as string}
+        >
+            <div class="text-sm text-red-500 group-hover:underline oneline">
+                {lifeCount}
+            </div>
+            <div class="text-md drop-shadow-lg ml-2 whitespace-nowrap">
+                生活
+            </div>
+        </a>
+        <hr class="my-2 w-[30%] mx-auto" />
+        <div class="text-[#555] text-center" style="text-wrap: balance;">
+            花间一壶酒，独酌无相亲。举杯邀明月，对影成三人。
+        </div>
+        <!-- <div class="shine-text bg-red-50">
+                        <div class="inner p-2">
+                            <div
+                                class="text-2xl flex items-center justify-center"
+                            >
+                                <Icon
+                                    name="logo"
+                                    class="w-[30px] h-[30px] inline-block mr-2"
+                                />失眠<span class="bold">通告</span>
+                            </div>
+                            <div class="px-4 mt-3" style="text-wrap: balance;">
+                                博主这几日睡眠不够，不知道为啥，总是晚上睡不着，白天睡不够。唉，话说，工资什么时候发？？？
+                            </div>
+                        </div>
+                    </div> -->
+    </div>
+</div>
