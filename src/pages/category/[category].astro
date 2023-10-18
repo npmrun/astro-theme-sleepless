@@ -26,7 +26,7 @@ const { posts } = Astro.props
     <p class="mb-8 text-2xl">当前分类：{category}</p>
     {
         !!posts.length && (
-            <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 auto-cols-auto gap-x-3 gap-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 auto-cols-auto gap-x-3 gap-y-4">
                 {posts.map((blogPostEntry: any) => (
                     <ArticleCard
                         articleData={blogPostEntry}

@@ -3,12 +3,19 @@ layout: "@blog/layouts/SinglePost.astro"
 title: 关于此站
 heroImage: https://api.r10086.com/樱道随机图片api接口.php?图片系列=动漫综合2
 ---
+<!-- 
+想说点什么，又有点不知道说什么。这几年有点困在自己世界了，前路不明，迷雾重重，突入其来的疫情，逐渐冰点的职业生涯，人心越来越浮躁，身上还背着房贷，虽然不是自己想买的。
+
+记得自己曾说过很多要做的项目，结果无一例外，都烂尾了，有的是属于感觉项目结构乱了，或者发现了新的结构，有的是有了新的想法。
+
+## [网盘](https://alist.xieyaxin.top/) -->
+
 
 这是一个简单博客，于失眠夜所作。
 
 倘若有所触动，麻烦点亮一个⭐
 
-## TODO 
+<!-- ## TODO 
 
 - [ ] 增加块解析，将h3和h2以下的内容单独包裹起来
     
@@ -26,4 +33,4 @@ heroImage: https://api.r10086.com/樱道随机图片api接口.php?图片系列=�
     2. https://github.com/Charca/view-transitions-live/tree/main
     3. https://github.com/search?q=view+transition+astro+&type=repositories&s=stars&o=desc
     4. https://github.com/anurag-roy/view-transitions-api-demo
-    5. https://github.com/Charca?tab=repositories
+    5. https://github.com/Charca?tab=repositories -->

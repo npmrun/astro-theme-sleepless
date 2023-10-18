@@ -5,7 +5,7 @@ const { data: user } = await getEntry('authors', 'NPMRUN')
 ---
 
 <div
-    class={`footer text-center py-8 bg-white border-t ${
+    class={`footer text-center py-8 ${
         Astro.props.class ?? ''
     }`}
     {...Astro.props}
