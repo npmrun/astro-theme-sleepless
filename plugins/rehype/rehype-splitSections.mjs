@@ -1,7 +1,7 @@
 import { SKIP, visit } from 'unist-util-visit'
 
 export default function splitSections() {
-    const sections = []
+    let sections = []
     let currentSection = null
 
     return (tree, file) => {
@@ -51,5 +51,7 @@ export default function splitSections() {
             sections.push(currentSection)
         }
         tree.children = sections
+        sections = []
+        currentSection = null
     }
 }
