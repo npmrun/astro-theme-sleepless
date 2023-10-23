@@ -112,3 +112,69 @@ function initImage() {
 if (OpenViewTransitions) {
     document.addEventListener('astro:page-load', initImage)
 } else initImage()
+
+function scrollIntoView(traget: string | number) {
+    let isNum = false
+    if (typeof traget == "number") {
+      isNum = true
+    }
+    let tragetElem: HTMLDivElement | null = null;
+    let tragetElemPostition: number = 0;
+    if (isNum) {
+      tragetElemPostition = traget as number
+    } else {
+      tragetElem = document.querySelector(traget as string)
+      tragetElemPostition = tragetElem!.offsetTop
+    }
+    // 判断是否支持新特性
+    if (
+      typeof window.getComputedStyle(document.body).scrollBehavior ==
+      "undefined" || isNum
+    ) {
+      // 当前滚动高度
+      let scrollTop =
+        document.documentElement.scrollTop || document.body.scrollTop;
+      // 滚动step方法
+      const step = function () {
+        // 距离目标滚动距离
+        let distance = tragetElemPostition - scrollTop;
+  
+        // 目标需要滚动的距离，也就是只走全部距离的五分之一
+        scrollTop = scrollTop + distance / 5;
+        if (Math.abs(distance) < 1) {
+          window.scrollTo(0, tragetElemPostition);
+        } else {
+          window.scrollTo(0, scrollTop);
+          setTimeout(step, 20);
+        }
+      };
+      step();
+    } else if (tragetElem) {
+      tragetElem.scrollIntoView({
+        behavior: "smooth",
+        inline: "nearest"
+      });
+    }
+  }
+const topEl = document.getElementById("toTop")
+topEl!.addEventListener("click", (e) => {
+  scrollIntoView(0)
+})
+function initScroll() {
+    
+    const top = document.documentElement.scrollTop;
+    // const maxHeight = document.body.clientHeight + document.body.clientHeight / 2
+    const maxHeight = document.body.clientHeight / 2
+
+  if (top > maxHeight) {
+    topEl!.style.opacity = '1'
+    topEl!.style.pointerEvents = "auto"
+  } else {
+    topEl!.style.opacity = '0'
+    topEl!.style.pointerEvents = "none"
+  }
+}
+if (OpenViewTransitions) {
+    document.addEventListener('astro:page-load', initScroll)
+} else initScroll()
+window.addEventListener("scroll", initScroll);
