@@ -1,0 +1,22 @@
+---
+
+const { headings } = Astro.props
+
+---
+{
+    !!headings.length && <div class="px-2 pb-4 max-lg:hidden w-[250px] ml-2 ">
+        <div class="text-light sticky top-0 bg-white rounded-md">
+            <div class="text-lg py-2 mx-1 flex">
+                <span class="flex-1 w-0">目录</span>
+                <!-- <span class="scale-[1.3] text-gray-400">{headings.length}</span> -->
+            </div>
+            <div class="text-sm mx-1">
+                {
+                    headings.map((head: any)=>{
+                        return <a class="truncate block py-1 hover:text-red-400" style={{paddingLeft: `${(head.depth-1) * 12}px`}} href={'#'+head.slug} title={head.text}>{head.text}</a>
+                    })
+                }    
+            </div>
+        </div>
+    </div>
+}

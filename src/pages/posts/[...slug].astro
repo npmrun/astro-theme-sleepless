@@ -3,6 +3,7 @@ import { getEntries, getEntry } from 'astro:content'
 import SinglePage from '@blog/layouts/SinglePage.astro'
 import ArticleCard from '@root/src/components/ArticleCard.astro'
 import { getBlogData } from '@root/src/utils'
+import BlogMenu from '@root/src/components/BlogMenu.astro'
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
     const blogEntries = await getBlogData()
@@ -35,23 +36,6 @@ if (entry.data.relatedPosts) {
     description={entry.data.description}
     image={entry.data.heroImage}
 >
-    {
-        !!headings.length && <div slot="left-side" class="bg-white/[.6] px-2 pb-4 shadow max-xl:shadow-none rounded">
-            <div class="text-light">
-                <div class="text-lg py-2 mx-1 flex">
-                    <span class="flex-1 w-0">目录</span>
-                    <span class="scale-[1.3] text-gray-400">{headings.length}</span>
-                </div>
-                <div class="text-sm mx-1">
-                    {
-                        headings.map((head: any)=>{
-                            return <a class="truncate block py-1 hover:text-red-400" style={{paddingLeft: `${(head.depth-1) * 12}px`}} href={'#'+head.slug} title={head.text}>{head.text}</a>
-                        })
-                    }    
-                </div>
-            </div>
-        </div>
-    }
     <figure
         class="article-image relative block h-[450px] max-md:h-[250px] mb-3 rounded-lg overflow-hidden"
     >
@@ -130,13 +114,13 @@ if (entry.data.relatedPosts) {
     </figure>
     {
         entry.data.description && (
-            <div class="mb-3 max-w-[980px] mx-auto text-gray-400 line-clamp-3 text-sm drop-shadow-md text-center md:text-left">
+            <div class="mb-3 max-w-[1080px] mx-auto text-gray-400 line-clamp-3 text-sm drop-shadow-md text-center md:text-left">
                 描述：{entry.data.description}
             </div>
         )
     }
     <div
-        class="mb-3 max-w-[980px] mx-auto text-gray-400 text-sm text-center md:text-left"
+        class="mb-3 max-w-[1080px] mx-auto text-gray-400 text-sm text-center md:text-left"
     >
         <div
             class="inline-grid md:grid-flow-col max-lg:grid-cols-1 auto-cols-auto gap-x-6"
@@ -179,7 +163,7 @@ if (entry.data.relatedPosts) {
             }
         </div>
     </div>
-    <div class="rounded-lg max-w-[980px] mx-auto mb-8 shadow-sm flex">
+    <div class="rounded-lg max-w-[1080px] mx-auto mb-8 shadow-sm flex">
         <article
             class="markdown-body flex-1 w-0"
             class:list={[
@@ -193,6 +177,7 @@ if (entry.data.relatedPosts) {
                     relatedPosts.map((p) => <a href={p.slug}>{p.data.title}</a>)
             } -->
         </article>
+        <BlogMenu headings={headings}></BlogMenu>
         <!-- {
             !!headings.length && <div class="ml-5 w-[20%] hidden md:block">
                 <div class="sticky top-0 text-light">
@@ -205,7 +190,7 @@ if (entry.data.relatedPosts) {
             </div>
         } -->
     </div>
-    <div class="max-w-[980px] mx-auto">
+    <div class="max-w-[1080px] mx-auto">
         {
             relatedPosts && relatedPosts.length && (
                 <h2 class="text-2xl my-8">可能喜欢:</h2>
@@ -230,7 +215,7 @@ if (entry.data.relatedPosts) {
     </div>
     {
         ((entry?.data?.comment ?? true) && !import.meta.env.DEV) && <div
-        class="comment-wrapper rounded-lg max-w-[980px] w-full mx-auto mb-8 shadow-sm bg-white p-3"
+        class="comment-wrapper rounded-lg max-w-[1080px] w-full mx-auto mb-8 shadow-sm bg-white p-3"
     >
         <style is:global>
             .utterances {

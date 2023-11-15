@@ -115,8 +115,8 @@ const blogTopList = await getBlogTop()
             }
         </div>
     </div>
-    <div class="my-6 home-panel">
-        <div class="flex items-center">
+    <div class="my-6 home-panel overflow-auto">
+        <div class="flex items-center sticky left-0">
             <a
                 href="/posts"
                 class="text-2xl relative group hover:text-red-400 transition-all"
@@ -128,13 +128,14 @@ const blogTopList = await getBlogTop()
                  技术
             </a>
         </div>
+        <!-- grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 auto-cols-auto gap-x-3 gap-y-4 mt-6 -->
         <div
-            class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 auto-cols-auto gap-x-3 gap-y-4 mt-6"
+            class="flex gap-3 mt-6 mb-2"
         >
             {
                 blogList.length &&
                     blogList
-                        .slice(3, 7)
+                        .slice(3, 8)
                         .map((blogPostEntry) => (
                             <ArticleCard
                                 articleData={blogPostEntry}
@@ -144,8 +145,8 @@ const blogTopList = await getBlogTop()
             }
         </div>
     </div>
-    <div class="my-6 home-panel">
-        <div class="flex items-center">
+    <div class="my-6 home-panel overflow-auto">
+        <div class="flex items-center sticky left-0">
             <a
                 href="/life"
                 class="text-2xl relative group hover:text-red-400 transition-all"
@@ -157,13 +158,14 @@ const blogTopList = await getBlogTop()
                  生活
             </a>
         </div>
+        <!-- grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 auto-cols-auto gap-x-3 gap-y-4 mt-6 -->
         <div
-            class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 auto-cols-auto gap-x-3 gap-y-4 mt-6"
+            class="flex gap-3 mt-6 mb-2"
         >
             {
                 lifeList.length &&
                     lifeList
-                        .slice(0, 4)
+                        .slice(0, 5)
                         .map((blogPostEntry) => (
                             <ArticleCard
                                 articleData={blogPostEntry}
