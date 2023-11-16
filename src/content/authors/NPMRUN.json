@@ -27,12 +27,6 @@
             "name": "ant-design:code-filled",
             "title": "编辑器",
             "url": "https://editor.xieyaxin.top"
-        },
-        {
-            "name": "mdi:feather",
-            "url": "/about",
-            "title": "关于",
-            "target": "_self"
         }
     ]
 }

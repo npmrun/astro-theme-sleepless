@@ -1,0 +1,44 @@
+---
+import SinglePage from '@blog/layouts/SinglePage.astro'
+import UserCard from '@blog/components/UserCard.astro'
+---
+
+<SinglePage>
+    <div class="max-w-[980px] mx-auto min-h-[30vh]">
+        <div class="text-2xl hover:text-red-400 cursor-pointer my-3">
+            <span class="mr-2">#</span>朋友
+        </div>
+        <div>
+            <UserCard
+                title="enpitsulin"
+                url="https://enpitsulin.xyz"
+                desc="Just coding with a spirited and love 🧡."
+                avatar="https://enpitsulin.xyz/favicon.svg"
+            />
+        </div>
+    </div>
+    <div
+        class="comment-wrapper rounded-lg max-w-[980px] w-full mx-auto mb-8 shadow-sm p-3"
+    >
+        <style is:global>
+            .utterances {
+                max-width: 100% !important;
+                background: var(--mian-bg-color);
+            }
+            .utterances iframe {
+                /* padding: 0 25px; */
+                box-sizing: border-box;
+            }
+        </style>
+        <div
+            id="utteranc-sc"
+            style="text-align: center;padding: 0 0;position:relative;min-height: 100px;"
+        >
+            <span
+                style="position:absolute;top: 50%;left:50%;transform: translateX(-50%) translateY(-50%);"
+                >评论加载中...</span
+            >
+            <script is:raw src="/libs/utteranc.client.js"></script>
+        </div>
+    </div>
+</SinglePage>

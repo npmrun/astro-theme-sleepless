@@ -6,10 +6,11 @@ const blogEntries = await getBlogDataSortByTime()
 ---
 
 <SinglePage>
-    <div class="mb-8 text-3xl">技术文章</div>
+    <div class="mb-8 text-3xl max-w-[1080px] mx-auto">技术文章</div>
+    <!-- grid my-6 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  auto-cols-auto gap-x-3 gap-y-4 -->
     {
         !!blogEntries.length && (
-            <div class="grid my-6 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  auto-cols-auto gap-x-3 gap-y-4">
+            <div class="flex gap-3 gap-y-12 mt-6 mb-2 flex-wrap max-w-[1080px] mx-auto">
                 {blogEntries.map((blogPostEntry) => (
                     <ArticleCard
                         articleData={blogPostEntry}

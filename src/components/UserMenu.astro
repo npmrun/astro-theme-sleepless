@@ -6,6 +6,7 @@ import {
     getLiftCount,
     getTagsCount,
 } from '@blog/utils'
+import Icon from 'astro-icon'
 
 const blogCount = await getBlogCount()
 const lifeCount = await getLiftCount()
@@ -36,7 +37,10 @@ const menus = [
 ]
 ---
 
-<div id="menu-wrapper" class="w-[300px] w sticky top-0 h-[100vh] flex flex-col gap-2 max-lg:z-[52] max-lg:!bg-white max-lg:left-[-310px] transition-all bg-white/[.6] shadow max-lg:shadow-none max-lg:fixed">
+<div
+    id="menu-wrapper"
+    class="w-[300px] w sticky top-0 h-[100vh] flex flex-col gap-2 max-lg:z-[52] max-lg:!bg-white max-lg:left-[-310px] transition-all bg-white/[.6] shadow max-lg:shadow-none max-lg:fixed"
+>
     <div class="pt-8 text-center">
         <a
             href="/"
@@ -64,39 +68,57 @@ const menus = [
                 })
             }
         </div>
-        <a
-            href="/life"
-            class="flex justify-center items-center my-2 group px-10"
-            title={lifeCount as any as string}
-        >
-            <div class="text-sm text-red-500 group-hover:underline oneline">
-                {lifeCount}
+        <div class="flex gap-x-8 justify-center relative mb-2 mx-3 border-b">
+            <a
+                href="/life"
+                class="flex justify-center items-center py-2 group"
+                title={lifeCount as any as string}
+            >
+                <div class="text-sm text-red-500 group-hover:underline oneline">
+                    {lifeCount}
+                </div>
+                <div class="text-md drop-shadow-lg ml-2 whitespace-nowrap">
+                    生活
+                </div>
+            </a>
+            <a
+                href="/friends"
+                class="flex justify-center items-center py-2 group"
+            >
+                <Icon name="tabler:friends" class="w-[18px] h-[18px]" />
+                <div class="text-md drop-shadow-lg ml-1 whitespace-nowrap">
+                    朋友
+                </div>
+            </a>
+            <a
+                href="/about"
+                class="flex justify-center items-center py-2 group"
+            >
+                <Icon name="mdi:feather" class="w-[18px] h-[18px]" />
+                <div class="text-md drop-shadow-lg ml-1 whitespace-nowrap">
+                    关于
+                </div>
+            </a>
+            <!-- <hr class="w-full mx-auto absolute bottom-0" /> -->
+        </div>
+        <div class="shine-text bg-red-50">
+            <div class="inner p-2">
+                <div class="text-2xl flex items-center justify-center">
+                    <Icon
+                        name="mdi:announcement-outline"
+                        class="w-[30px] h-[30px] inline-block mr-2"
+                    /><span class="bold">通告</span>
+                </div>
+                <div class="px-4 mt-3" style="text-wrap: balance;">
+                    今年太难了，各位努力准备，祝愿面试成功！！！
+                </div>
             </div>
-            <div class="text-md drop-shadow-lg ml-2 whitespace-nowrap">
-                生活
-            </div>
-        </a>
-        <hr class="my-2 w-[30%] mx-auto" />
-        <!-- <div class="shine-text bg-red-50">
-                        <div class="inner p-2">
-                            <div
-                                class="text-2xl flex items-center justify-center"
-                            >
-                                <Icon
-                                    name="logo"
-                                    class="w-[30px] h-[30px] inline-block mr-2"
-                                />失眠<span class="bold">通告</span>
-                            </div>
-                            <div class="px-4 mt-3" style="text-wrap: balance;">
-                                博主这几日睡眠不够，不知道为啥，总是晚上睡不着，白天睡不够。唉，话说，工资什么时候发？？？
-                            </div>
-                        </div>
-                    </div> -->
+        </div>
     </div>
     <div class="sticky top-2 flex flex-col gap-2">
         <div class="text-[#555] text-center" style="text-wrap: balance;">
             花间一壶酒，独酌无相亲。举杯邀明月，对影成三人。
         </div>
-        <slot/>
+        <slot />
     </div>
 </div>
