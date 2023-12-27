@@ -12,12 +12,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/markdown-remark": "^3.5.0",
-    "@astrojs/tailwind": "^5.0.2",
+    "@astrojs/markdown-remark": "^4.0.1",
+    "@astrojs/tailwind": "^5.1.0",
     "@types/animejs": "^3.1.12",
     "animate.css": "^4.1.1",
     "animejs": "^3.2.1",
-    "astro": "^3.6.0",
+    "astro": "^4.0.8",
     "browserslist": "^4.22.1",
     "esbuild-plugin-browserslist": "^0.10.0",
     "hast-util-from-html": "^2.0.1",

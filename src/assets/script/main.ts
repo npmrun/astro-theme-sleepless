@@ -6,7 +6,7 @@ import Swiper from 'swiper'
 import 'swiper/swiper-bundle.css'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import { timestampFormat } from '@blog/utils/date'
-import mediumZoom from 'medium-zoom'
+import mediumZoom, { type Zoom } from 'medium-zoom'
 
 let swiper: Swiper | null = null
 function initSwiper() {
@@ -101,13 +101,16 @@ if (OpenViewTransitions) {
 // setInterval(updateArticleTime, 1000)
 
 function initImage() {
-    mediumZoom(document.querySelectorAll('.markdown-body img'), {
-        margin: 24,
-        background: 'rgba(25, 18, 25, 0.9)',
-        scrollOffset: 0,
-        // container: '#zoom-container',
-        // template: '#zoom-template',
-    })
+    let els = document.querySelectorAll('.markdown-body img')
+    if(els.length){
+      mediumZoom(els, {
+          margin: 24,
+          background: 'rgba(25, 18, 25, 0.9)',
+          scrollOffset: 0,
+          // container: '#zoom-container',
+          // template: '#zoom-template',
+      })
+    }
 }
 if (OpenViewTransitions) {
     document.addEventListener('astro:page-load', initImage)
