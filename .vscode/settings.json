@@ -36,5 +36,6 @@
         "comments": false,
         "strings": false
     },
-  }
+  },
+  "workbench.tree.enableStickyScroll": true
 }

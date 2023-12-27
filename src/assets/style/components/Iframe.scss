@@ -12,6 +12,20 @@
         margin-bottom: 0 !important;
     }
 
+    &.iframe-fullpage{
+        margin-bottom: 0 !important;
+        position: fixed;
+        z-index: 9999999;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        height: auto;
+        .iframe-inner {
+            background-color: #f7f7fb;
+        }
+    }
+
     .iframe-title {
         display: flex;
         padding: 5px 10px;
