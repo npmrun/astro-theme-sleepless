@@ -1,0 +1,14 @@
+---
+import '@blog/assets/style/common.scss'
+import BaseHead from '@blog/components/BaseHead.astro'
+import { UseMotion } from '@blog/config'
+---
+
+<html lang="zh-CN">
+    <head>
+        <BaseHead {...Astro.props.head ?? {}} />
+    </head>
+    <body class:list={[Astro.props.bodyClass, UseMotion ? 'use-motion' : '']}>
+        <slot />
+    </body>
+</html>

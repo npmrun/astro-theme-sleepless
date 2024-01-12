@@ -1,5 +1,5 @@
 ---
-const { avatar } = Astro.props
+const { avatar, alt } = Astro.props
 ---
 
 <!-- <style define:vars={{ cAvatar }}>
@@ -72,5 +72,5 @@ const { avatar } = Astro.props
 </style>
 
 <figure>
-    <img alt="主角" src={avatar} />
+    <img alt={alt} src={avatar} />
 </figure>

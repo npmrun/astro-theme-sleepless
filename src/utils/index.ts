@@ -9,9 +9,9 @@ export async function getBlogTop() {
     let list = blogEntries.filter((node) => {
         return !!node.data.hot
     })
-    if(list.length === 0){
-        list = blogEntries.slice(0, 3)
-    }
+    // if(list.length === 0){
+    //     list = blogEntries.slice(0, 3)
+    // }
     return list
 }
 

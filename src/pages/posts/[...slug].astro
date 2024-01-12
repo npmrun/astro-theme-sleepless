@@ -72,12 +72,12 @@ if (entry.data.relatedPosts) {
                 {
                     entry?.data.category && (
                         <p>
-                            <a
+                            <!-- <a
                                 class="hover:text-red-400 cursor-pointer"
                                 href={`/category`}
-                            >
+                            > -->
                                 分类
-                            </a>
+                            <!-- </a> -->
                             :{' '}
                             <a
                                 class="hover:text-red-400 cursor-pointer"
@@ -163,9 +163,9 @@ if (entry.data.relatedPosts) {
             }
         </div>
     </div>
-    <div class="rounded-lg max-w-[1080px] mx-auto mb-8 shadow-sm flex">
+    <div class="rounded-lg max-w-[1080px] mx-auto mb-8 flex">
         <article
-            class="markdown-body flex-1 w-0"
+            class="shadow-sm markdown-body flex-1 w-0"
             class:list={[
                 entry.data.chinese && 'chinese',
                 entry.data.theme ?? 'green',

@@ -129,3 +129,51 @@ body {
         background-position: -12px -12px;
     }
 }
+
+
+.anim-updown{
+    animation: updown 1.5s infinite linear;
+}
+
+@keyframes updown {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-2px);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    75% {
+        transform: translateX(6px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+// .anim-fire{
+//     transform-origin: bottom center;
+//     animation: fire 1.5s infinite linear;
+// }
+
+// @keyframes fire {
+//     0% {
+//         transform: rotate(0);
+//     }
+
+//     25% {
+//         transform: rotate(8deg);
+//     }
+//     50% {
+//         transform: rotate(0);
+//     }
+//     75% {
+//         transform: rotate(-8deg);
+//     }
+//     100% {
+//         transform: rotate(0);
+//     }
+// }

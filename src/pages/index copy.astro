@@ -1,0 +1,178 @@
+---
+// https://iconify.design/docs/usage/svg/astro/
+import ArticleCard from '@blog/components/ArticleCard.astro'
+import SinglePage from '@blog/layouts/SinglePage.astro'
+import { getBlogDataSortByTime, getLifeDataSortByTime, getBlogTop } from '@blog/utils'
+import { getEntry } from 'astro:content'
+
+const blogList = await getBlogDataSortByTime()
+const lifeList = await getLifeDataSortByTime()
+const blogTopList = await getBlogTop()
+---
+
+<SinglePage>
+    <div class="swiper-parent flex max-lg:flex-col">
+        <div
+            class="swiper mySwiper h-[450px] max-sm:h-[250px] flex-grow w-0 max-lg:w-full"
+        >
+            <div class="swiper-wrapper">
+                {
+                    blogTopList &&
+                        blogTopList.length &&
+                        blogTopList.map(async (blogTop) => (
+                            <div class="swiper-slide h-[450px] max-sm:h-[250px]">
+                                <a href={`/posts/${blogTop.slug}`}>
+                                    <figure class="relative block h-full rounded-lg overflow-hidden">
+                                        <img
+                                            class="block brightness-75 w-full h-full object-cover max-sm:!object-center"
+                                            src={blogTop.data.heroImage}
+                                            style={`object-position: ${
+                                                blogTop.data?.heroPosition ??
+                                                'center'
+                                            };`}
+                                            alt=""
+                                        />
+                                        <figcaption class="absolute top-[50%] left-[50%] w-full -translate-x-[50%] -translate-y-[50%] text-white text-center px-6 py-2">
+                                            <div class="truncate w-full text-3xl drop-shadow-lg">
+                                                {blogTop.data.title}
+                                            </div>
+                                            {blogTop.data.author && (
+                                                <div class="inline-grid mx-auto md:grid-flow-col max-lg:grid-cols-1 auto-cols-auto text-md gap-x-6 mt-1">
+                                                    <p>
+                                                        作者:{' '}
+                                                        {
+                                                            (
+                                                                await getEntry(
+                                                                    blogTop.data
+                                                                        .author
+                                                                        .collection,
+                                                                    blogTop.data
+                                                                        .author
+                                                                        .id,
+                                                                )
+                                                            )?.data.name
+                                                        }
+                                                    </p>
+                                                </div>
+                                            )}
+                                        </figcaption>
+                                    </figure>
+                                </a>
+                            </div>
+                        ))
+                }
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <!-- 显示最近编辑的三条文章 -->
+        <div
+            class="pl-3 grid grid-cols-1 grid-rows-3 gap-y-2 w-[250px] max-lg:mt-2 max-lg:gap-x-2 max-lg:pl-0 max-lg:w-full max-lg:grid-cols-3 max-lg:grid-rows-1"
+        >
+            {
+                blogList.length &&
+                    blogList.slice(0, 3).map(async (blogTop) => (
+                        <div class="rounded-md">
+                            <a href={`/posts/${blogTop.slug}`}>
+                                <figure class="relative block h-full rounded-lg overflow-hidden">
+                                    <img
+                                        class="block brightness-75 w-full h-full object-cover max-sm:!object-center"
+                                        src={blogTop.data.heroImage}
+                                        style={`object-position: ${
+                                            blogTop.data?.heroPosition ??
+                                            'center'
+                                        };`}
+                                        alt=""
+                                    />
+                                    <figcaption class="absolute top-[50%] left-[50%] w-full -translate-x-[50%] -translate-y-[50%] text-white text-center max-lg:px-1 px-6 py-2">
+                                        <div class="truncate w-full text-md drop-shadow-lg">
+                                            {blogTop.data.title}
+                                        </div>
+                                        {blogTop.data.author && (
+                                            <div class="inline-grid mx-auto md:grid-flow-col max-lg:grid-cols-1 auto-cols-auto text-xs gap-x-6 mt-1 max-lg:hidden">
+                                                <p>
+                                                    作者:{' '}
+                                                    {
+                                                        (
+                                                            await getEntry(
+                                                                blogTop.data
+                                                                    .author
+                                                                    .collection,
+                                                                blogTop.data
+                                                                    .author.id,
+                                                            )
+                                                        )?.data.name
+                                                    }
+                                                </p>
+                                            </div>
+                                        )}
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                    ))
+            }
+        </div>
+    </div>
+    <div class="my-6 home-panel overflow-auto">
+        <div class="flex items-center sticky left-0">
+            <a
+                href="/posts"
+                class="text-2xl relative group hover:text-red-400 transition-all"
+            >
+                <span
+                    class="absolute right-full mr-[6px] opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
+                    >#</span
+                >
+                 技术
+            </a>
+        </div>
+        <!-- grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 auto-cols-auto gap-x-3 gap-y-4 mt-6 -->
+        <div
+            class="flex gap-3 mt-6 mb-2"
+        >
+            {
+                blogList.length &&
+                    blogList
+                        .slice(3, 8)
+                        .map((blogPostEntry) => (
+                            <ArticleCard
+                                articleData={blogPostEntry}
+                                href={`/posts/${blogPostEntry.slug}`}
+                            />
+                        ))
+            }
+        </div>
+    </div>
+    <div class="my-6 home-panel overflow-auto">
+        <div class="flex items-center sticky left-0">
+            <a
+                href="/life"
+                class="text-2xl relative group hover:text-red-400 transition-all"
+            >
+                <span
+                    class="absolute right-full mr-[6px] opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
+                    >#</span
+                >
+                 生活
+            </a>
+        </div>
+        <!-- grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 auto-cols-auto gap-x-3 gap-y-4 mt-6 -->
+        <div
+            class="flex gap-3 mt-6 mb-2"
+        >
+            {
+                lifeList.length &&
+                    lifeList
+                        .slice(0, 5)
+                        .map((blogPostEntry) => (
+                            <ArticleCard
+                                articleData={blogPostEntry}
+                                href={`/life/${blogPostEntry.slug}`}
+                            />
+                        ))
+            }
+        </div>
+    </div>
+</SinglePage>

@@ -1,0 +1,157 @@
+---
+
+---
+
+<style is:inline>
+    #bg {
+        -moz-transform: scale(1);
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+        backface-visibility: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 0;
+    }
+
+    #bg:before,
+    #bg:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    #bg:before {
+        -moz-transition: background-color 2.5s ease-in-out;
+        -webkit-transition: background-color 2.5s ease-in-out;
+        -ms-transition: background-color 2.5s ease-in-out;
+        transition: background-color 2.5s ease-in-out;
+        -moz-transition-delay: 0.75s;
+        -webkit-transition-delay: 0.75s;
+        -ms-transition-delay: 0.75s;
+        transition-delay: 0.75s;
+        background-image: linear-gradient(
+                to top,
+                rgba(19, 21, 25, 0.5),
+                rgba(19, 21, 25, 0.5)
+            ),
+            url('https://jitsu.oss-cn-beijing.aliyuncs.com/home/img/overlay.png');
+        background-size:
+            auto,
+            256px 256px;
+        background-position: center, center;
+        background-repeat: no-repeat, repeat;
+        z-index: 2;
+    }
+
+    #bg:after {
+        -moz-transition:
+            -moz-transform 0.325s ease-in-out,
+            -moz-filter 0.325s ease-in-out;
+        -webkit-transition:
+            -webkit-transform 0.325s ease-in-out,
+            -webkit-filter 0.325s ease-in-out;
+        -ms-transition:
+            -ms-transform 0.325s ease-in-out,
+            -ms-filter 0.325s ease-in-out;
+        transition:
+            transform 0.325s ease-in-out,
+            filter 0.325s ease-in-out;
+        background-image: url('https://pic.xieyaxin.top/r10086/%E6%A8%B1%E9%81%93%E9%9A%8F%E6%9C%BA%E5%9B%BE%E7%89%87api%E6%8E%A5%E5%8F%A3.php?%E5%9B%BE%E7%89%87%E7%B3%BB%E5%88%97=%E5%8A%A8%E6%BC%AB%E7%BB%BC%E5%90%882');
+        /* background-image: url('https://moe.jitsu.top/api/?sort=pc'); */
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        z-index: 1;
+    }
+
+    @media screen and (max-width: 960px) {
+        #bg:after {
+            -moz-transition:
+                -moz-transform 0.325s ease-in-out,
+                -moz-filter 0.325s ease-in-out;
+            -webkit-transition:
+                -webkit-transform 0.325s ease-in-out,
+                -webkit-filter 0.325s ease-in-out;
+            -ms-transition:
+                -ms-transform 0.325s ease-in-out,
+                -ms-filter 0.325s ease-in-out;
+            transition:
+                transform 0.325s ease-in-out,
+                filter 0.325s ease-in-out;
+            /*background-image: url("https://pic.rmb.bdstatic.com/bjh/7902c658c69c6d73f14debc1800f6408.jpeg");*/
+            background-image: url('https://ae01.alicdn.com/kf/S25a1f99f111d4d6a8ad026371d45e68cn.jpg');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+    }
+    body.is-article-visible #bg:after {
+        -moz-transform: scale(1.0825);
+        -webkit-transform: scale(1.0825);
+        -ms-transform: scale(1.0825);
+        transform: scale(1.0825);
+        -moz-filter: blur(0.2rem);
+        -webkit-filter: blur(0.2rem);
+        -ms-filter: blur(0.2rem);
+        filter: blur(0.2rem);
+    }
+
+    body.is-preload #bg:before {
+        background-color: #000000;
+    }
+
+    body {
+        color: white;
+    }
+
+    .svg1 line {
+        stroke-dasharray: 100, 100;
+        stroke-dashoffset: 100;
+        animation: stroke 0.6s linear forwards;
+    }
+    .svg2 line {
+        stroke-dasharray: 150, 150;
+        stroke-dashoffset: 150;
+        animation: stroke2 0.6s linear 0.6s forwards;
+    }
+    .svg3 line {
+        stroke-dasharray: 100, 100;
+        stroke-dashoffset: 100;
+        animation: stroke 0.6s linear forwards;
+    }
+    @keyframes stroke {
+        0% {
+            stroke-dashoffset: 100;
+        }
+        100% {
+            stroke-dashoffset: 0;
+        }
+    }
+    @keyframes stroke2 {
+        0% {
+            stroke-dashoffset: 150;
+        }
+        100% {
+            stroke-dashoffset: 0;
+        }
+    }
+</style>
+<div id="bg"></div>
+<script is:inline>
+    const bg = new Image()
+    bg.src = 'https://pic.xieyaxin.top/r10086/%E6%A8%B1%E9%81%93%E9%9A%8F%E6%9C%BA%E5%9B%BE%E7%89%87api%E6%8E%A5%E5%8F%A3.php?%E5%9B%BE%E7%89%87%E7%B3%BB%E5%88%97=%E5%8A%A8%E6%BC%AB%E7%BB%BC%E5%90%882'
+    bg.addEventListener('load', function () {
+        setTimeout(function () {
+            document.body.classList.remove('is-preload')
+        }, 100)
+    })
+</script>
