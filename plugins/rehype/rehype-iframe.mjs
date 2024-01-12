@@ -1,9 +1,9 @@
 import { visitParents, CONTINUE, EXIT, SKIP } from 'unist-util-visit-parents'
 
-function buildNode (url, title, isLazy) {
+function buildNode (url, title, isLazy, style) {
     return {
         type: "raw",
-        value: `<figure class="iframe-wrapper">
+        value: `<div class="iframe-wrapper-parent" ${style?' style="'+style+'"':''}><figure class="iframe-wrapper">
         <div class="iframe-title">
       <!--   <div class="text">
           网页
@@ -32,7 +32,7 @@ function buildNode (url, title, isLazy) {
             </div>
           </iframe>
         </div>
-      </figure>`
+      </figure></div>`
     }
 }
 
@@ -40,13 +40,13 @@ export default function () {
     return async (tree) => {
         visitParents(tree, 'raw', (node, ancestors) => {
             const parent = ancestors[ancestors.length - 1]
-            const reg = new RegExp(`<\!-- iframe (.*?) (.*?)-->$`)
-            const lazyreg = new RegExp(`<\!-- iframe-lazy (.*?) (.*?)-->$`)
+            const reg = new RegExp(`<\!-- iframe (.*?) (.*?) (.*?)-->$`)
+            const lazyreg = new RegExp(`<\!-- iframe-lazy (.*?) (.*?) (.*?)-->$`)
             if (node.type === 'raw' && (reg.test(node.value)||lazyreg.test(node.value))) {
                 let isLazy = lazyreg.test(node.value)
                 let result = (isLazy ? lazyreg : reg).exec(node.value)
                 if (result && !!result.length) {
-                    const [_, url, title] = result
+                    let [_, url, styleOrTitle, title] = result
                     let index = -1
                     for (let i = 0; i < parent.children.length; i++) {
                         const element = parent.children[i]
@@ -55,7 +55,13 @@ export default function () {
                             break
                         }
                     }
-                    parent.children[index] = buildNode(url, title, isLazy)
+                    let style = ""
+                    if (styleOrTitle.startsWith("s:")) {
+                        style = styleOrTitle.replace(/^s\:/g, "")
+                    }else{
+                        title = styleOrTitle
+                    }
+                    parent.children[index] = buildNode(url, title, isLazy, style)
                     return SKIP
                 }
             }

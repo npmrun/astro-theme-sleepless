@@ -26,7 +26,7 @@ export default function () {
             delete node.title
             node.value = `
             <div style="text-align: center;">
-                <img style="display:block;margin:0 auto;max-width: 100%;" ${
+                <img onerror="this.classList.add('error');" style="display:block;margin:0 auto;max-width: 100%;" ${
                     alt ? altStr : ''
                 } src="${url}">
                 ${alt ? altEl : ''}
