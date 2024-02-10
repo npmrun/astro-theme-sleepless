@@ -40,13 +40,26 @@ export default function () {
     return async (tree) => {
         visitParents(tree, 'raw', (node, ancestors) => {
             const parent = ancestors[ancestors.length - 1]
-            const reg = new RegExp(`<\!-- iframe (.*?) (.*?) (.*?)-->$`)
-            const lazyreg = new RegExp(`<\!-- iframe-lazy (.*?) (.*?) (.*?)-->$`)
-            if (node.type === 'raw' && (reg.test(node.value)||lazyreg.test(node.value))) {
-                let isLazy = lazyreg.test(node.value)
-                let result = (isLazy ? lazyreg : reg).exec(node.value)
-                if (result && !!result.length) {
-                    let [_, url, styleOrTitle, title] = result
+            // const reg = new RegExp(`<\!-- iframe (.*?) (.*?) (.*?)-->$`)
+            // const lazyreg = new RegExp(`<\!-- iframe-lazy (.*?) (.*?) (.*?)-->$`)
+            function testFn(str){
+                if(typeof str === "string"){
+                    return str.startsWith("<\!-- iframe")
+                }
+                return false
+            }
+            function testLazyFn(str){
+                if(typeof str === "string"){
+                    return str.startsWith("<\!-- iframe-lazy")
+                }
+                return false
+            }
+            if (node.type === 'raw' && (testLazyFn(node.value)||testFn(node.value))) {
+                let isLazy = testLazyFn(node.value)
+                let result = node.value.split(" ").slice(1, -1)
+                if (result && result.length >= 2) {
+                    console.log(result);
+                    let [_, url, styleOrTitle, title = ""] = result
                     let index = -1
                     for (let i = 0; i < parent.children.length; i++) {
                         const element = parent.children[i]
@@ -56,10 +69,10 @@ export default function () {
                         }
                     }
                     let style = ""
-                    if (styleOrTitle.startsWith("s:")) {
+                    if (styleOrTitle && styleOrTitle.startsWith("s:")) {
                         style = styleOrTitle.replace(/^s\:/g, "")
                     }else{
-                        title = styleOrTitle
+                        title = styleOrTitle?styleOrTitle:""
                     }
                     parent.children[index] = buildNode(url, title, isLazy, style)
                     return SKIP

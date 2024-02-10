@@ -7,8 +7,9 @@
     // /* Screen version */
     // font-family: 'LXGW WenKai Screen', sans-serif;
 
-    &.split .split-block{
-        h2:only-child,h3:only-child{
+    &.split .split-block {
+        h2:only-child,
+        h3:only-child {
             margin-top: 0;
             margin-bottom: 0;
         }
@@ -45,4 +46,64 @@
     }
 
     @include chinese;
+    // h1,
+    // h2,
+    // h3 {
+    //     display: inline;
+    //     width: auto;
+    //     background: linear-gradient(
+    //             to bottom,
+    //             transparent 70%,
+    //             var(--color-extra) 0
+    //         )
+    //         no-repeat;
+    //     &::before {
+    //         content: '';
+    //         margin-top: 1.2em;
+    //         display: block;
+    //     }
+    //     &::after {
+    //         content: '';
+    //         display: block;
+    //         margin-bottom: 0.6em;
+    //     }
+    // }
+    a {
+        position: relative;
+        z-index: 10;
+        transition: color 0.3s linear;
+        cursor: pointer;
+        font-weight: bolder;
+        // text-decoration: underline #c7254e;
+        text-decoration: none;
+        color: #ff4d20;
+        // border-bottom: 1px solid currentColor;
+        padding: 0 4px;
+        &[data-footnote-backref],
+        &[data-footnote-ref] {
+            // text-decoration: none;
+            border: none;
+            &:hover {
+                background: none;
+                animation: none;
+            }
+        }
+        &:hover {
+            content: '';
+            // text-decoration: none;
+            border: none;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath fill='none' stroke='%23ff4d20' d='M0 3.5c5 0 5-3 10-3s5 3 10 3 5-3 10-3 5 3 10 3'/%3E%3C/svg%3E")
+                repeat-x 0 100%;
+            background-size: 20px auto;
+            animation: waveMove 1s infinite linear;
+        }
+        @keyframes waveMove {
+            0% {
+                background-position: 0 100%;
+            }
+            100% {
+                background-position: -20px 100%;
+            }
+        }
+    }
 }

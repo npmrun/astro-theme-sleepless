@@ -61,7 +61,7 @@
         font-weight: bolder;
         // text-decoration: underline #c7254e;
         text-decoration: none;
-        color: #ff4d20;
+        color: var(--color-base);
         border-bottom: 1px solid currentColor;
         padding: 0 4px;
         &[data-footnote-backref],

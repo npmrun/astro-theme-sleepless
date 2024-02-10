@@ -3,6 +3,15 @@
     background-color: transparent !important;
     padding: 0 !important;
     .split-block {
+        &::before {
+            display: table;
+            content: '';
+        }
+        &::after {
+            display: table;
+            clear: both;
+            content: '';
+        }
         // https://www.aigei.com/s?q=%E8%BE%B9%E6%A1%86&type=element
         // https://www.cnblogs.com/deajax/p/13518497.html
         border: 18px solid transparent;
