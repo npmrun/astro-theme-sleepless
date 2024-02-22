@@ -4,6 +4,9 @@
     // box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
     background-color: white;
 }
+.tabs + .tabs {
+    margin-top: 1em;
+}
 .tabs .tab-name {
     line-height: 1;
     p {
