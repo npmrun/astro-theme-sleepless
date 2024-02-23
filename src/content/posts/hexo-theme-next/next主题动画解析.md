@@ -8,7 +8,7 @@ tags:
     - 解析
 category: next主题
 author: NPMRUN
-heroImage: https://api.r10086.com/%E5%9B%BE%E5%8C%85webp/%E5%8A%A8%E6%BC%AB%E7%BB%BC%E5%90%882/6aa537d892a0a2c5dbbcf9e043ce5f4f.png!q90.webp
+heroImage: https://pic.xieyaxin.top/r10086/%E5%9B%BE%E5%8C%85webp/%E5%8A%A8%E6%BC%AB%E7%BB%BC%E5%90%882/6aa537d892a0a2c5dbbcf9e043ce5f4f.png!q90.webp
 ---
 
 ## Next主题的初始化
