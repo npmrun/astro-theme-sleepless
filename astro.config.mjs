@@ -12,12 +12,13 @@ import rehypeIframe from './plugins/rehype/rehype-iframe.mjs'
 import rehypeCodeBtn from './plugins/rehype/rehype-code-btn.mjs'
 import rehypeTabs from './plugins/rehype/rehype-tabs.mjs'
 import rehypesplitSections from './plugins/rehype/rehype-splitSections.mjs'
-import { rehypeHeadingIds } from '@astrojs/markdown-remark';
+import { rehypeHeadingIds } from '@astrojs/markdown-remark'
 
 import remarkCommon from './plugins/remark/remark-common.mjs'
 
 import browserslist from 'browserslist'
 import { resolveToEsbuildTarget } from 'esbuild-plugin-browserslist'
+import icon from 'astro-icon'
 
 // https://astro.build/config
 export default defineConfig({
@@ -46,7 +47,10 @@ export default defineConfig({
             footnoteBackLabel: '回到文本',
         },
     },
-    integrations: [tailwind()],
+    integrations: [
+        icon(),
+        tailwind(),
+    ],
     vite: {
         build: {
             cssTarget: resolveToEsbuildTarget(browserslist(), {

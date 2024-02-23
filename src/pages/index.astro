@@ -12,7 +12,7 @@ getTagsCount,
 getCategoryCount,
 } from '@blog/utils'
 import { getEntry } from 'astro:content'
-import Icon from 'astro-icon'
+import { Icon } from 'astro-icon/components'
 
 const blogList = await getBlogDataSortByTime()
 const lifeList = await getLifeDataSortByTime()

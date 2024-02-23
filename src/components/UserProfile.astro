@@ -1,20 +1,23 @@
 ---
-import { Icon } from 'astro-icon'
+import { Icon } from 'astro-icon/components'
 import OldPicture from './OldPicture.astro'
 import { getEntry } from 'astro:content'
 
 const { data: user } = await getEntry('authors', 'NPMRUN')
 ---
 
-<a href="/" class="mt-6 block
-">
+<a href="/" class="mt-6 block">
     <OldPicture avatar={user.avatar} />
 </a>
 <div class="inline-grid mx-auto grid-flow-col auto-cols-auto gap-x-3 mt-4">
     {
         user.links.map((link: any) => {
             return (
-                <a class:list={[link.target === '_self' ? 'text-red-400':'']} href={link.url} target={link.target ?? "_blank"}>
+                <a
+                    class:list={[link.target === '_self' ? 'text-red-400' : '']}
+                    href={link.url}
+                    target={link.target ?? '_blank'}
+                >
                     <Icon
                         name={`${link.name}`}
                         title={link.title}
