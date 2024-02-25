@@ -9,6 +9,7 @@ tags:
 category: 杂记
 author: NPMRUN
 heroImage: https://pic.rmb.bdstatic.com/bjh/0e0fcfcf1a0983dccf207fd1364f0eb9.jpeg
+hot: true
 relatedPosts:
     - unified/如何将一个md文档按h2和h3分块
 ---

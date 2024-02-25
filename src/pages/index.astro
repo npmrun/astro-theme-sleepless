@@ -194,7 +194,7 @@ const menus = [
                 </div>
             </div>
             {
-                blogTopList.map(async (item) => {
+                blogTopList.slice(0,0).map(async (item) => {
                     return (
                         <div class="w-[300px] h-[100px] relative">
                             <svg
