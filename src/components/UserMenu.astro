@@ -42,12 +42,13 @@ const menus = [
     class="w-[300px] w sticky top-0 h-[100vh] flex flex-col gap-2 max-lg:z-[52] max-lg:!bg-white max-lg:left-[-310px] transition-all bg-white/[.6] shadow max-lg:shadow-none max-lg:fixed"
 >
     <div class="pt-8 text-center">
-        <a
-            href="/"
-            class="text-2xl flex items-center justify-center border-y py-2 shadow w-[102%] bg-white/[.8]"
+        <div
+            
+            class="text-2xl flex items-baseline justify-center border-y py-2 shadow w-[102%] bg-white/[.8]"
         >
-            失眠先生
-        </a>
+            <a href="/home">失眠先生</a>
+            <a href="/" class="text-[12px] leading-[12px] inline-block bg-red-400 text-white px-[6px] py-[4px] rounded-[10px] ml-1"><span class="text-green">To</span>个人页</a>
+        </div>
         <UserProfile />
         <div class="flex mt-4 mx-3 border-b pb-2">
             {

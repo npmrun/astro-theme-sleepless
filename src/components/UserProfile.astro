@@ -6,7 +6,7 @@ import { getEntry } from 'astro:content'
 const { data: user } = await getEntry('authors', 'NPMRUN')
 ---
 
-<a href="/" class="mt-6 block">
+<a class="mt-6 block" href="/home">
     <OldPicture avatar={user.avatar} />
 </a>
 <div class="inline-grid mx-auto grid-flow-col auto-cols-auto gap-x-3 mt-4">
