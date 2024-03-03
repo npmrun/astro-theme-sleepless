@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 }
 // 2. For your template, you can get the entry directly from the prop
 const { entry, preBlog, nextBlog } = Astro.props
-const { Content, headings } = await entry.render()
+const { Content, headings, remarkPluginFrontmatter } = await entry.render()
 
 let author
 if (entry.data.author) {
@@ -65,6 +65,13 @@ if (entry.data.relatedPosts) {
             <div class="line-clamp-2 text-3xl drop-shadow-lg">
                 {entry.data.title}
             </div>
+            {
+                entry.data.description && (
+                    <div class=" max-w-[550px] mx-auto text-center line-clamp-2 text-sm drop-shadow-md">
+                        {entry.data.description}
+                    </div>
+                )
+            }
             <div
                 class="inline-grid mx-auto md:grid-flow-col max-lg:grid-cols-1 auto-cols-auto text-md gap-x-6 mt-1"
             >
@@ -112,13 +119,7 @@ if (entry.data.relatedPosts) {
             </div>
         </figcaption>
     </figure>
-    {
-        entry.data.description && (
-            <div class="mb-3 max-w-[1080px] mx-auto text-gray-400 line-clamp-3 text-sm drop-shadow-md text-center md:text-left">
-                描述：{entry.data.description}
-            </div>
-        )
-    }
+    
     <div
         class="mb-3 max-w-[1080px] mx-auto text-gray-400 text-sm text-center md:text-left"
     >
