@@ -13,6 +13,26 @@
         margin-bottom: 0;
     }
 }
+// code模式直接展示代码
+.tabs.code{
+    .tab > .pre-wrapper >  pre {
+        margin-bottom: 0;
+    }
+    .tab > .pre-wrapper{
+        margin: -1rem;
+    }
+    .tab-name{
+        border-top-left-radius: 0.5rem;
+        border-top-right-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .tab{
+        border-bottom-left-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+        border-top-right-radius: 0.5rem;
+    }
+}
 .tabs label {
     order: 1;
     display: block;

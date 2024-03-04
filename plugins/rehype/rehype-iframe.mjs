@@ -58,7 +58,6 @@ export default function () {
                 let isLazy = testLazyFn(node.value)
                 let result = node.value.split(" ").slice(1, -1)
                 if (result && result.length >= 2) {
-                    console.log(result);
                     let [_, url, styleOrTitle, title = ""] = result
                     let index = -1
                     for (let i = 0; i < parent.children.length; i++) {
