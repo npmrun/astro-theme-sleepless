@@ -56,7 +56,7 @@ const menus = [
     >
         <div class="pt-5">
             <UserProfile />
-            <div class="flex mt-4 mx-3 border-b pb-2">
+            <div class="flex min-w-[220px] mt-4 mx-3 border-b pb-2">
                 {
                     menus.map((menu: any) => {
                         return (
@@ -75,7 +75,7 @@ const menus = [
                 }
             </div>
             <div class="flex gap-x-8 justify-center relative mb-2 mx-3 border-b">
-                <a
+                <!-- <a
                     href="/life"
                     class="flex justify-center items-center py-2 group"
                     title={lifeCount as any as string}
@@ -86,7 +86,7 @@ const menus = [
                     <div class="text-md drop-shadow-lg ml-2 whitespace-nowrap">
                         生活
                     </div>
-                </a>
+                </a> -->
                 <a
                     href="/friends"
                     class="flex justify-center items-center py-2 group"
@@ -284,10 +284,10 @@ const menus = [
                 })
             }
         </div>
-        <div class="mt-2 text-red-500 border px-3 border-red-500">
+        <!-- <div class="mt-2 text-red-500 border px-3 border-red-500">
             装饰用的壁纸服务失效了 <br>
             后续有时间再改
-        </div>
+        </div> -->
         <div class="text-3xl my-5">
             <svg class="anim-fire" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><g fill="none"><path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="currentColor" d="m11.514 2.142l-1.26-.755l-.24 1.449C9.632 5.124 8.069 7.25 6.345 8.744C2.97 11.67 2.231 14.85 3.276 17.475c1 2.512 3.538 4.232 6.114 4.519l.596.066c-1.474-.901-2.42-3.006-2.09-4.579c.326-1.546 1.438-2.994 3.574-4.33l1.077-.672l.402 1.205c.237.712.647 1.284 1.064 1.865c.2.28.403.563.589.864c.643 1.045.813 2.207.398 3.36c-.378 1.048-1.001 1.872-1.86 2.329l.97-.108c2.418-.269 4.193-1.096 5.346-2.479C20.599 18.144 21 16.379 21 14.5c0-1.75-.719-3.554-1.567-5.055c-.994-1.758-2.291-3.218-3.707-4.633c-.245.49-.226.688-.73 1.475a8.146 8.146 0 0 0-3.482-4.145"/></g></svg>
         </div>
@@ -307,7 +307,7 @@ const menus = [
                 stroke="#fff"
                 stroke-width="2"></line>
         </svg>
-        <a href="/life" target="_blank" class="mt-4 flex items-center"><div class=" transform rotate-180 -ml-[20px] mr-2"><svg class="anim-updown peer-checked:text-green-300" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16"><path fill="currentColor" d="M9.5 15H7a1.502 1.502 0 0 1-1.307-2.236a1.5 1.5 0 0 1-.31-2.264A1.494 1.494 0 0 1 5.086 9H1.5C.673 9 0 8.327 0 7.5S.673 6 1.5 6h6.167L6.201 3.25a1.502 1.502 0 0 1 2.381-1.789l.011.012L12 5.21V4.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-.691l-2.276 1.138A.496.496 0 0 1 9.5 15m4-1a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1m-4.118 0L12 12.691V6.694L7.857 2.15a.5.5 0 0 0-.782.614l1.866 3.5a.499.499 0 0 1-.441.735h-7a.5.5 0 0 0 0 1h5a.5.5 0 0 1 0 1a.5.5 0 0 0 0 1a.5.5 0 0 1 0 1a.5.5 0 0 0 0 1H7a.5.5 0 0 1 0 1a.5.5 0 0 0 0 1h2.382z"/></svg></div>生活吐槽</a>
+        <!-- <a href="/life" target="_blank" class="mt-4 flex items-center"><div class=" transform rotate-180 -ml-[20px] mr-2"><svg class="anim-updown peer-checked:text-green-300" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16"><path fill="currentColor" d="M9.5 15H7a1.502 1.502 0 0 1-1.307-2.236a1.5 1.5 0 0 1-.31-2.264A1.494 1.494 0 0 1 5.086 9H1.5C.673 9 0 8.327 0 7.5S.673 6 1.5 6h6.167L6.201 3.25a1.502 1.502 0 0 1 2.381-1.789l.011.012L12 5.21V4.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-.691l-2.276 1.138A.496.496 0 0 1 9.5 15m4-1a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1m-4.118 0L12 12.691V6.694L7.857 2.15a.5.5 0 0 0-.782.614l1.866 3.5a.499.499 0 0 1-.441.735h-7a.5.5 0 0 0 0 1h5a.5.5 0 0 1 0 1a.5.5 0 0 0 0 1a.5.5 0 0 1 0 1a.5.5 0 0 0 0 1H7a.5.5 0 0 1 0 1a.5.5 0 0 0 0 1h2.382z"/></svg></div>生活吐槽</a> -->
         <div class="my-5 group w-[60%] max-md:w-full">
             <label>
                 <input type="checkbox"
