@@ -1,0 +1,20 @@
+---
+
+---
+
+<script lang="ts" type="module">
+    // 在src\layouts\Base\Base.astro中进行了初始化的切换
+    const toggleTheme = document.getElementById('theme-toggle')
+    const htmlElement = document.documentElement
+    toggleTheme.addEventListener('click', function (ev) {
+        if (htmlElement.getAttribute('data-theme') !== 'light') {
+            htmlElement.setAttribute('data-theme', 'light')
+            localStorage.setItem('data-theme', 'light')
+        } else {
+            htmlElement.setAttribute('data-theme', 'dark')
+            localStorage.setItem('data-theme', 'dark')
+        }
+    })
+    console.log(11)
+</script>
+<button id="theme-toggle">切换暗色</button>

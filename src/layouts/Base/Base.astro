@@ -2,13 +2,22 @@
 import '@blog/assets/style/common.scss'
 import BaseHead from '@blog/components/BaseHead.astro'
 import UserMenu from '@blog/components/UserMenu.astro'
+// import ThemeToggle from '@blog/components/ThemeToggle.astro'
 import { UseMotion } from '@blog/config'
 ---
 
 <html lang="zh-CN">
     <head>
         <BaseHead {...Astro.props} />
-
+        <script is:raw is:inline>
+            ;(function(){
+                var htmlElement = document.documentElement
+                var curTheme = localStorage.getItem('data-theme')
+                if (curTheme) {
+                    htmlElement.setAttribute('data-theme', curTheme)
+                }
+            })()
+        </script>
         <!-- 这个CDN太慢了,先不用了 -->
         <!-- https://github.com/chawyehsu/lxgw-wenkai-webfont -->
         <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css" /> -->
