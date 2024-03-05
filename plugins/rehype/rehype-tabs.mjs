@@ -38,6 +38,7 @@ function parseTab(list) {
 
 export default function () {
     return async (tree) => {
+        let count = 0
         function done(node, ancestors) {
             const parent = ancestors[ancestors.length - 1]
             const reg = new RegExp(`<\!-- tabs (.*?) -->$`)
@@ -85,11 +86,11 @@ export default function () {
                                 tagName: 'input',
                                 properties: {
                                     type: 'radio',
-                                    name: name.replace(/\s/g, ''),
+                                    name: name.replace(/\s/g, '')+`-${count}`,
                                     id: `${name.replace(
                                         /\s/g,
                                         ''
-                                    )}-tab${tabIndex}`,
+                                    )}-tab${tabIndex}-${count}`,
                                     checked: tabIndex === 0 ? 'checked' : '',
                                 },
                             })
@@ -101,7 +102,7 @@ export default function () {
                                     for: `${name.replace(
                                         /\s/g,
                                         ''
-                                    )}-tab${tabIndex}`,
+                                    )}-tab${tabIndex}-${count}`,
                                 },
                                 children: [
                                     {
@@ -128,6 +129,7 @@ export default function () {
                             },
                             children: tabChildren,
                         })
+                        count++
                     }
                     return CONTINUE
                 }

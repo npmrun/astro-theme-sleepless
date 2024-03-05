@@ -13,8 +13,11 @@ import rehypeCodeBtn from './plugins/rehype/rehype-code-btn.mjs'
 import rehypeTabs from './plugins/rehype/rehype-tabs.mjs'
 import rehypesplitSections from './plugins/rehype/rehype-splitSections.mjs'
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
+import mdx from '@astrojs/mdx'
 
 import remarkCommon from './plugins/remark/remark-common.mjs'
+
+import remarkGlobalComponent from './plugins/remark/remark-global-component.mjs'
 
 import browserslist from 'browserslist'
 import { resolveToEsbuildTarget } from 'esbuild-plugin-browserslist'
@@ -48,6 +51,9 @@ export default defineConfig({
         },
     },
     integrations: [
+        mdx({
+            remarkPlugins: [remarkGlobalComponent],
+        }),
         icon(),
         tailwind(),
     ],

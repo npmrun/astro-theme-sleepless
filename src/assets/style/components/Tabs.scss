@@ -14,7 +14,7 @@
     }
 }
 // code模式直接展示代码
-.tabs.code{
+.tabs[class*="code"]{
     .tab > .pre-wrapper >  pre {
         margin-bottom: 0;
     }
