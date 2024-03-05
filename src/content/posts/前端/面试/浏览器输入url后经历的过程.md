@@ -5,7 +5,7 @@ pubDate: 2023/9/5 11:14:42
 updatedDate: 2023/09/07 09:51:22
 tags:
     - 面试
-category: 前端知识
+category: 面试
 author: NPMRUN
 heroImage: https://pic.xieyaxin.top/r10086/%E5%9B%BE%E5%8C%85webp/%E5%8A%A8%E6%BC%AB%E7%BB%BC%E5%90%882/5a80c559ae57e81e1a281a8b508b9c5d.png!q90.webp
 ---

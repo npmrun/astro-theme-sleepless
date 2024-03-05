@@ -1,9 +1,10 @@
 .tab>.iframe-wrapper-parent{
-    margin: -1rem;
+    margin: -1rem !important;
 }
 
 .iframe-wrapper-parent{
     height: 350px;
+    margin-bottom: 0.6em !important;
 }
 
 .iframe-wrapper {
@@ -16,7 +17,7 @@
     @apply border;
     margin-bottom: 0.6em !important;
 
-    &:last-child{
+    .tab &:last-child{
         margin-bottom: 0 !important;
     }
 
