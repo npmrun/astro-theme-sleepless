@@ -18,6 +18,19 @@ relatedPosts:
 
 ## 标签
 
+<!-- tabs code -->
+<!-- tab javascript -->
+```js
+console.log("adasd")
+```
+<!-- endtab javascript -->
+<!-- tab css -->
+```js
+console.log("ssss")
+```
+<!-- endtab css -->
+<!-- endtabs code -->
+
 <!-- tabs aaa -->
 
 <!-- tab bbb -->
