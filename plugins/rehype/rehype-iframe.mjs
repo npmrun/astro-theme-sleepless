@@ -54,6 +54,7 @@ export default function () {
                 }
                 return false
             }
+            node.value = node.value.trim()
             if (node.type === 'raw' && (testLazyFn(node.value)||testFn(node.value))) {
                 let isLazy = testLazyFn(node.value)
                 let result = node.value.split(" ").slice(1, -1)
