@@ -50,18 +50,9 @@ dependencies:
   hast-util-from-html:
     specifier: ^2.0.1
     version: 2.0.1
-  mdast-util-from-markdown:
-    specifier: ^2.0.0
-    version: 2.0.0
-  mdast-util-mdxjs-esm:
-    specifier: ^2.0.1
-    version: 2.0.1
   medium-zoom:
     specifier: ^1.1.0
     version: 1.1.0
-  micromark-extension-mdxjs-esm:
-    specifier: ^3.0.0
-    version: 3.0.0
   prism-theme-vars:
     specifier: ^0.2.4
     version: 0.2.4
