@@ -4,7 +4,7 @@ import ArticleCard from '@blog/components/ArticleCard.astro'
 import SinglePage from '@blog/layouts/SinglePage.astro'
 import { getBlogDataSortByTime, getLifeDataSortByTime, getBlogTop } from '@blog/utils'
 import { getEntry } from 'astro:content'
-import HomeMd from './home.mdx'
+import HomeMd from '@blog/docs/home.mdx'
 
 const blogList = await getBlogDataSortByTime()
 const lifeList = await getLifeDataSortByTime()
