@@ -1,0 +1,81 @@
+---
+import {
+    getBlogDataSortByTime,
+    getLifeDataSortByTime,
+    getBlogTop,
+    getBlogCount,
+    getLiftCount,
+    getTagsCount,
+    getCategoryCount,
+} from '@blog/utils'
+
+const blogList = await getBlogDataSortByTime()
+const blogCount = await getBlogCount()
+const lifeCount = await getLiftCount()
+const tagsCount = await getTagsCount()
+const categoryCount = await getCategoryCount()
+---
+
+<style lang="scss" scoped>
+    .shine {
+        text-transform: uppercase;
+        letter-spacing: 0.5em;
+        // border: 4px double rgba(255, 255, 255, 0.25);
+        border: 4px double var(--color-base);// rgba(255, 0, 0, 0.493);
+        border-width: 4px 0;
+        padding: 1.5em 0em;
+        span {
+            font:
+                700 4em/1 'Oswald',
+                sans-serif;
+            letter-spacing: 0;
+            padding: 0.25em 0 0.325em;
+            display: block;
+            margin: 0 auto;
+            text-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
+            &::selection {
+                -webkit-text-fill-color: white;
+            }
+            /* Clip Background Image */
+
+            background: url(/shine-mask.png) repeat-y;
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            /* Animate Background Image */
+
+            -webkit-text-fill-color: transparent;
+            -webkit-animation: aitf 80s linear infinite;
+
+            /* Activate hardware acceleration for smoother animations */
+
+            -webkit-transform: translate3d(0, 0, 0);
+            -webkit-backface-visibility: hidden;
+        }
+    }
+
+    /* Animate Background Image */
+
+    @-webkit-keyframes aitf {
+        0% {
+            background-position: 0% 50%;
+        }
+        100% {
+            background-position: 100% 50%;
+        }
+    }
+</style>
+
+<p class="shine text-center max-lg:text-balance">
+    <span> <slot /></span>
+</p>
+<div class="mb-3 text-center p-4 bg-slate-100 text-gray-400 font-normal">
+    <div class="m-6">轮播图为置顶文章，还有三个是最近编辑的文章</div>
+    <div>----&gt;<a href="/archive" target="_blank">归档</a>&lt;----</div>
+    <div>
+        这里共计{blogCount}篇<a href="/posts" target="_blank">技术文章</a>
+    </div>
+    <div>有{lifeCount}篇<a href="/life" target="_blank">生活分享</a></div>
+    <div>存在{tagsCount}个个性标签</div>
+    <div>具备{categoryCount}个分类</div>
+</div>
