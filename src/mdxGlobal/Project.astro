@@ -1,0 +1,42 @@
+---
+import { getEntry } from 'astro:content'
+
+const projects = await getEntry('authors', 'projects')
+
+---
+
+<h2>项目</h2>
+
+<div class="grid grid-cols-3 gap-4">
+    {
+        projects?.data.list.map((item) => (
+            <div
+                class="basis-1/3 hover:!scale-105 !transition-transform !transform bg-red-100 !border !border-transparent hover:!bg-none !font-normal !text-current hover:!border-solid hover:!border-red-400 !px-3 !py-2 rounded-md shadow-md hover:shadow-lg"
+                style={item?.style}
+            >
+                <a
+                    target="_blank"
+                    href={item.url}
+                    class="text-2xl truncate !border !border-transparent hover:!bg-none !font-normal !text-current hover:!border-solid block !p-0"
+                >
+                    {item.title}
+                </a>
+                <div title={item.desc} class="line-clamp-2 opacity-55 my-2 leading-[1.2] h-[2.4em]">
+                    {item.desc} <span>
+                </div>
+                <div class="flex flex-wrap gap-3 overflow-hidden">
+                    {item?.website?.map((tag) => (
+                        <a
+                            target="_blank"
+                            href={tag.url}
+                            class="!border !border-transparent hover:!bg-none !font-normal !text-current hover:!border-solid bg-red-300 hover:!bg-red-300 !text-white px-2 py-1 rounded-sm text-[12px]"
+                            style={tag?.style}
+                        >
+                            {tag.name}
+                        </a>
+                    ))}
+                </div>
+            </div>
+        ))
+    }
+</div>

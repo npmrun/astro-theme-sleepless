@@ -1,0 +1,96 @@
+{
+    "list": [
+        {
+            "title": "art-theme",
+            "desc": "一个astro主题",
+            "url": "https://github.com/npmrun/art-theme",
+            "style": {
+                "color": "white !important",
+                "backgroundColor": "#DF4C5E"
+            },
+            "website": [
+                {
+                    "name": "效果",
+                    "style": {
+                        "backgroundColor": "#D87F57"
+                    },
+                    "url": "https://art-theme.netlify.app/"
+                }
+            ]
+        },
+        {
+            "title": "ene-desktop",
+            "desc": "electron软件，包含一些自以为还可以的功能，比如编辑器，代码片段管理之类的",
+            "url": "https://github.com/npmrun/ene-desktop",
+            "style": {
+                "color": "white !important",
+                "backgroundColor": "#F37EAD"
+            },
+            "website": []
+        },
+        {
+            "title": "nuxt3 demo项目",
+            "desc": "一个博客网站，包括博文的基本功能。",
+            "url": "",
+            "style": {
+                "color": "white !important",
+                "backgroundColor": "#EECB80"
+            },
+            "website": []
+        },
+        {
+            "title": "pp",
+            "desc": "创建模板的项目，管理git地址，快速制作原型项目",
+            "url": "https://github.com/npmrun/pp",
+            "style": {
+                "color": "white !important",
+                "backgroundColor": "#B7B48F"
+            },
+            "website": [
+                {
+                    "name": "npm",
+                    "style": {
+                        "backgroundColor": "#736285"
+                    },
+                    "url": "https://www.npmjs.com/package/@noderun/pp"
+                }
+            ]
+        },
+        {
+            "title": "niu-tools",
+            "desc": "自用工具库，支持tree-shaking",
+            "url": "https://github.com/npmrun/niu-tools",
+            "style": {
+                "color": "white !important",
+                "backgroundColor": "#0B755F"
+            },
+            "website": [
+                {
+                    "name": "官网",
+                    "style": {
+                        "backgroundColor": "#A1C59B"
+                    },
+                    "url": "https://niu-tools.xieyaxin.top/"
+                }
+            ]
+        },
+        {
+            "title": "online-editor",
+            "desc": "在线编辑器，可以运行各种在线代码，提供iframe嵌入到其他文章",
+            "url": "https://github.com/npmrun/online-editor",
+            "style": {
+                "color": "white !important",
+                "backgroundColor": "#FFC592"
+            },
+            "website": [
+                {
+                    "name": "官网",
+                    "style": {
+                        "backgroundColor": "#EF7228"
+                    },
+                    "url": "http://editor.xieyaxin.top/"
+                }
+            ]
+        }
+    ]
+}
