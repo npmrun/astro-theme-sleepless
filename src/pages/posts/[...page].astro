@@ -1,17 +1,36 @@
 ---
 import ArticleCard from '@blog/components/ArticleCard.astro'
+import Pagination from '@blog/components/Pagination/Pagination.astro'
 import SinglePage from '@blog/layouts/SinglePage.astro'
 import { getBlogDataSortByTime } from '@root/src/utils'
-const blogEntries = await getBlogDataSortByTime()
+import type { GetStaticPathsOptions } from 'astro'
+
+const PageSize = 10
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+    const PageSize = 10
+    const blogEntries = await getBlogDataSortByTime()
+    const allPages = paginate(blogEntries, { pageSize: PageSize })
+
+    // 插入posts/1规则
+    let onePage = JSON.parse(JSON.stringify(allPages[0]))
+    onePage.params.page = '1'
+    allPages.splice(1, 0, onePage)
+
+    return allPages
+}
+const { page } = Astro.props
+const count = page.total
+const curPage = page.currentPage
 ---
 
 <SinglePage>
     <div class="mb-8 text-3xl max-w-[1080px] mx-auto">技术文章</div>
     <!-- grid my-6 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  auto-cols-auto gap-x-3 gap-y-4 -->
     {
-        !!blogEntries.length && (
+        !!page.data.length && (
             <div class="flex gap-3 gap-y-12 mt-6 mb-2 flex-wrap max-w-[1080px] mx-auto">
-                {blogEntries.map((blogPostEntry) => (
+                {page.data.map((blogPostEntry) => (
                     <ArticleCard
                         articleData={blogPostEntry}
                         href={`/posts/${blogPostEntry.slug}`}
@@ -21,10 +40,16 @@ const blogEntries = await getBlogDataSortByTime()
         )
     }
     {
-        !blogEntries.length && (
+        !page.data.length && (
             <div class="text-center text-gray-400 text-2xl pt-5">
                 空空如也~~
             </div>
         )
     }
+    <Pagination
+        pageSize={PageSize}
+        base="posts"
+        curPage={curPage}
+        count={count}
+    />
 </SinglePage>
