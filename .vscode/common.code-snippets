@@ -1,0 +1,16 @@
+{
+  "tabs.code": {
+    "scope": "markdown",
+    "prefix": "tabs.code",
+    "description": "创建一个tabs代码框",
+    "body": [
+      "<!-- tabs code -->",
+      "<!-- tab javascript -->",
+      "```",
+      "$1",
+      "```",
+      "<!-- endtab javascript -->",
+      "<!-- endtabs code -->"
+    ]
+  }
+}

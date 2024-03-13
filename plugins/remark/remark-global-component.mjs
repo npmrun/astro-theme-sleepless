@@ -37,6 +37,7 @@ function jsToTreeNode(
 // mdx插件
 export default function remarkGlobalComponent() {
     return (tree, file) => {
+        // 优化：判断文本是不是mdx且内部是不是又导入对应的全局组件
         const components = list
             .map((v) => {
                 const name = v.match(/(.*?)\./)
