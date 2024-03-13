@@ -1,10 +1,15 @@
 import { visitParents, CONTINUE, EXIT, SKIP } from 'unist-util-visit-parents'
 import { selectAll, select } from 'unist-util-select';
-import { fromHtml } from 'hast-util-from-html'
+// import { fromHtml } from 'hast-util-from-html'
 
 export default function () {
     return (tree) => {
-        visitParents(tree, 'raw', (node, ancestors) => {
+        // https://github.com/syntax-tree/unist-util-is?tab=readme-ov-file#testfunction
+        visitParents(tree, (node, index, parent) => {
+            if(node.type === "element" && node.tagName === "pre" && node.properties?.className?.[0]?.startsWith("language-")) {
+              return true
+            }
+        }, (node, ancestors) => {
             const parent = ancestors[ancestors.length - 1]
             let index = -1
             for (let i = 0; i < parent.children.length; i++) {
@@ -15,7 +20,7 @@ export default function () {
                 }
             }
             if (index !== -1) {
-                const tree = fromHtml(node.value, { fragment: true })
+                const tree = node // fromHtml(node.value, { fragment: true })
                 const preElement = select('[tagName=pre]', tree);
                 if (preElement) {
                     const codeElement = select('[tagName=code]', preElement);
