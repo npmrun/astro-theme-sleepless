@@ -20,6 +20,10 @@
     }
     .tab > .pre-wrapper{
         margin: -1rem;
+        box-shadow: none;
+        &::before {
+            content: none;
+        }
     }
     .tab-name{
         border-top-left-radius: 0.5rem;

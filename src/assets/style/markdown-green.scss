@@ -111,7 +111,7 @@
     small,
         /* 图片说明 */
         figcaption {
-        font-size: 0.9em;
+        font-size: 0.75em;
         color: #888;
     }
     // .markdown-body {
@@ -129,21 +129,24 @@
     code {
         color: rgba(45,55,72,1);
         background-color: rgba(160,174,192,0.25);
+        font-family: inherit;
+        font-size: 1em;
         // color: #ffffff;
         // background-color: #ff4c209c;
         border-radius: 4px;
-        padding: 4px 4px;
+        padding: 0 4px;
         // font-size: 0.875em;
-        font-size: 1.0769em;
-        position: relative;
-        top: 0.1em;
-        margin: 0 4px;
-        vertical-align: text-bottom;
+        // font-size: 1.0769em;
+        // position: relative;
+        // top: 0.1em;
+        margin: 0 2px;
+        vertical-align: bottom;
     }
     pre {
         code {
             padding: 0;
             font-size: inherit;
+            font-weight: inherit;
             color: inherit;
             white-space: pre;
             background-color: transparent;
@@ -205,28 +208,7 @@
     h6 {
         font-size: 1em;
     }
-    h1,
-    h2,
-    h3 {
-        display: inline;
-        width: auto;
-        background: linear-gradient(
-                to bottom,
-                transparent 70%,
-                var(--color-extra) 0
-            )
-            no-repeat;
-        &::before {
-            content: '';
-            margin-top: 1.2em;
-            display: block;
-        }
-        &::after {
-            content: '';
-            display: block;
-            margin-bottom: 0.6em;
-        }
-    }
+    
     ::-webkit-calendar-picker-indicator {
         filter: invert(50%);
     }

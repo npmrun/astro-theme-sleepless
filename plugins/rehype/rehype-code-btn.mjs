@@ -26,12 +26,19 @@ export default function () {
                     const codeElement = select('[tagName=code]', preElement);
                     // 源码
                     const raw = selectAll("text", codeElement).reduce((a, b) => (a.value ?? a) + (b.value ?? b), { value: "" })
+                    let curLanguage = ""
+                    if(preElement.properties?.className?.[0]){
+                      let str = preElement.properties?.className?.[0]
+                      curLanguage = str.replace(/^language-/, "")
+                    }
+                    preElement.properties["data-language"] = curLanguage
                     parent.children[index] = {
                         type: "element",
                         tagName: "div",
                         properties: {
                             className: "pre-wrapper",
-                            style: `position: relative;`
+                            style: `position: relative;`,
+                            ["data-language"]: curLanguage
                         },
                         children: [
                             {

@@ -46,28 +46,29 @@
     }
 
     @include chinese;
-    // h1,
-    // h2,
-    // h3 {
-    //     display: inline;
-    //     width: auto;
-    //     background: linear-gradient(
-    //             to bottom,
-    //             transparent 70%,
-    //             var(--color-extra) 0
-    //         )
-    //         no-repeat;
-    //     &::before {
-    //         content: '';
-    //         margin-top: 1.2em;
-    //         display: block;
-    //     }
-    //     &::after {
-    //         content: '';
-    //         display: block;
-    //         margin-bottom: 0.6em;
-    //     }
-    // }
+    /* 给文章主题加上标题下划线 */
+    h1,
+    h2,
+    h3 {
+        display: inline;
+        width: auto;
+        background: linear-gradient(
+                to bottom,
+                transparent 70%,
+                var(--color-extra) 0
+            )
+            no-repeat;
+        &::before {
+            content: '';
+            margin-top: 1.2em;
+            display: block;
+        }
+        &::after {
+            content: '';
+            display: block;
+            margin-bottom: 0.6em;
+        }
+    }
     a {
         position: relative;
         z-index: 10;
