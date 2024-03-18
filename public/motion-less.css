@@ -1,17 +1,17 @@
-.posts .swiper-parent,
-.posts .left,
-.posts .markdown-body,
-.posts .home-panel,
-.posts .article-image,
-.posts .footer,
-.posts #menu-wrapper,
-.posts .time-wrapper,
-.posts .maybe-like,
-.posts .menus,
-.posts .comment-wrapper {
+.posts.use-motion .swiper-parent,
+.posts.use-motion .left,
+.posts.use-motion .markdown-body,
+.posts.use-motion .home-panel,
+.posts.use-motion .article-image,
+.posts.use-motion .footer,
+.posts.use-motion #menu-wrapper,
+.posts.use-motion .time-wrapper,
+.posts.use-motion .maybe-like,
+.posts.use-motion .menus,
+.posts.use-motion .comment-wrapper {
     visibility: inherit !important;
 }
-.posts .markdown-body > * {
+.posts.use-motion .markdown-body > * {
     visibility: inherit !important;
 }
 .comment-wrapper{
