@@ -4,124 +4,48 @@ import anime from 'animejs'
 if (UseMotion) {
     var tl = anime.timeline({
         easing: 'linear',
-        // duration: 1800,
     })
 
-    // const allCard = document.querySelectorAll('.article-card')
-
-    // tl.add(
-    //     {
-    //         targets: allCard,
-    //         duration: 500,
-    //         complete: function (anim) {
-    //             allCard.forEach((el, i) => {
-    //                 el.classList.add('animated', 'fadeInDown')
-    //             })
-    //         },
-    //     },
-    //     '-=200'
-    // )
-
-    const allHomePanel = document.querySelectorAll('.home-panel')
-    allHomePanel.forEach((el, i) => {
-        tl.add(
-            {
-                targets: el,
-                duration: 500,
-                complete: function (anim) {
-                    el.classList.add('animated', 'fadeInDown')
-                },
-            },
-            '-=200'
-        )
-    })
-
-    tl.add(
-        {
-            targets: '.markdown-body',
-            duration: 500,
-            complete: function (anim) {
-                document.querySelectorAll('.markdown-body').forEach((el, i) => {
-                    el.classList.add('animated', 'fadeInDown')
-                })
-            },
-        },
-        '-=600'
-    )
-    tl.add(
-        {
-            targets: '.article-image',
-            duration: 500,
-            complete: function (anim) {
-                document.querySelectorAll('.article-image').forEach((el, i) => {
-                    el.classList.add('animated', 'fadeIn')
-                })
-            },
-        },
-        '-=600'
-    )
-        tl.add(
-        {
-            targets: '.footer',
-            duration: 500,
-            complete: function (anim) {
-                document.querySelectorAll('.footer').forEach((el, i) => {
-                    el.classList.add('animated', 'fadeInUp')
-                })
-            },
-        },
-        '-=600'
-    )
-
-    // allCard.forEach((el, i) => {
-    //     tl.add(
-    //         {
-    //             targets: el,
-    //             duration: 500,
-    //             complete: function (anim) {
-    //                 el.classList.add('animated', 'fadeInDown')
-    //             },
-    //         },
-    //         '-=400'
-    //     )
-    // })
-
-    const el = document.querySelector('.left')
-
-    tl.add(
-        {
-            targets: el,
-            duration: 500,
-            complete: function (anim) {
-                el?.classList.add('animated', 'fadeInLeft')
-            },
-        },
-        '-=1200'
-    )
-
-    const swiper_el = document.querySelector('.swiper-parent')
-
-    tl.add(
-        {
-            targets: swiper_el,
-            duration: 500,
-            complete: function (anim) {
-                swiper_el?.classList.add('animated', 'fadeIn')
-            },
-        },
-        '-=1200'
-    )
-
-    const comment_el = document.querySelector('.comment-wrapper')
-
-    tl.add(
-        {
-            targets: comment_el,
-            duration: 500,
-            complete: function (anim) {
-                comment_el?.classList.add('animated', 'fadeIn')
-            },
-        },
-        '-=1200'
-    )
+    function addElement(
+        els: string,
+        opts: { timelineOffset?: string | Function | number; duration: number | Function, classList: string[] }
+    ) {
+        const elements = document.querySelectorAll(els)
+        if (elements.length) {
+            elements.forEach((el, i) => {
+                tl.add(
+                    {
+                        targets: el,
+                        duration: opts.duration && (["string","number"].includes(typeof opts.duration) ? opts.duration : (opts.duration as Function)(i, elements.length)),
+                        complete: function () {
+                            el.classList.add(...opts.classList)
+                        },
+                    },
+                    opts.timelineOffset && (["string","number"].includes(typeof opts.timelineOffset) ? opts.timelineOffset : (opts.timelineOffset as Function)(i, elements.length))
+                )
+            })
+        }
+    }
+    if(location.pathname.startsWith("/posts")) {
+        addElement('.article-image', {duration: 200, classList: ['animated', 'fadeIn']})
+        addElement('#menu-wrapper', {timelineOffset: 200, duration: 300, classList: ['animated', 'fadeInLeft']})
+        addElement('.menus', {timelineOffset: 200, duration: 300, classList: ['animated', 'fadeInRight']})
+        addElement('.markdown-body', {timelineOffset: 200, duration: 300, classList: ['animated', 'fadeIn']})
+        addElement('.markdown-body > *', {timelineOffset: (i: number, total: number)=>{
+            if(i == 0) return "-100"
+            if(total > 25){
+                return "-=5"
+            }else{
+                return "-=10"
+            }
+        },duration: (i: number, total: number)=>{
+            if(total > 25){
+                return 15
+            }else{
+                return 40
+            }
+        }, classList: ['animated', 'fadeInDown']})
+        addElement('.footer', {timelineOffset: 600, duration: 300, classList: ['animated', 'fadeIn']})
+        addElement('.maybe-like', {timelineOffset: 400, duration: 300, classList: ['animated', 'fadeIn']})
+    } 
 }

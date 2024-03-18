@@ -1,8 +1,8 @@
 // @import "animate.css";
 // https://theme-next.js.org/animate/?
 
-@mixin ff($name) {
-    .use-motion #{$name} {
+@mixin ff($name, $page: '') {
+    #{$page}.use-motion #{$name} {
         visibility: hidden;
         &.animated {
             animation-fill-mode: none;
@@ -12,11 +12,11 @@
 }
 @mixin fuck($names...) {
     @each $name in $names {
-        @include ff($name);
+        @include ff($name, ".posts");
     }
 }
 
-@include fuck('.swiper-parent', '.left', '.markdown-body', '.home-panel', '.article-image', '.footer', '.comment-wrapper');
+@include fuck('.swiper-parent', '.left', '.markdown-body', '.home-panel', '.article-image', '.footer', '.comment-wrapper', ".markdown-body > *", ".menus", "#menu-wrapper", ".time-wrapper", ".maybe-like");
 
 .animated {
     animation-duration: 1s;
@@ -40,7 +40,17 @@
         animation-name: #{$name};
     }
 }
+@include applyAnim(fadeInRight) {
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
 
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 @include applyAnim(fadeInDown) {
     0% {
         opacity: 0;

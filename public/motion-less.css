@@ -1,9 +1,19 @@
-.swiper-parent,
-.left,
-.markdown-body,
-.home-panel,
-.article-image,
-.footer,
-.comment-wrapper {
+.posts .swiper-parent,
+.posts .left,
+.posts .markdown-body,
+.posts .home-panel,
+.posts .article-image,
+.posts .footer,
+.posts #menu-wrapper,
+.posts .time-wrapper,
+.posts .maybe-like,
+.posts .menus,
+.posts .comment-wrapper {
     visibility: inherit !important;
+}
+.posts .markdown-body > * {
+    visibility: inherit !important;
+}
+.comment-wrapper{
+    display: none !important;
 }

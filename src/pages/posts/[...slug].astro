@@ -124,7 +124,7 @@ if (entry.data.relatedPosts) {
         class="mb-3 max-w-[1080px] mx-auto text-gray-400 text-sm text-center md:text-left"
     >
         <div
-            class="inline-grid md:grid-flow-col max-lg:grid-cols-1 auto-cols-auto gap-x-6"
+            class="time-wrapper inline-grid md:grid-flow-col max-lg:grid-cols-1 auto-cols-auto gap-x-6"
         >
             {
                 entry.data.pubDate && (
@@ -191,7 +191,7 @@ if (entry.data.relatedPosts) {
             </div>
         } -->
     </div>
-    <div class="max-w-[1080px] mx-auto">
+    <div class="max-w-[1080px] mx-auto maybe-like">
         {
             relatedPosts && relatedPosts.length && (
                 <h2 class="text-2xl my-8">可能喜欢:</h2>
