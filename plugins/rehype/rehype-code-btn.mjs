@@ -25,6 +25,7 @@ export default function () {
                 if (preElement) {
                     const codeElement = select('[tagName=code]', preElement);
                     // 源码
+                    // TODO 去除diff模式的-号代码
                     const raw = selectAll("text", codeElement).reduce((a, b) => (a.value ?? a) + (b.value ?? b), { value: "" })
                     let curLanguage = ""
                     if(preElement.properties?.className?.[0]){

@@ -14,7 +14,23 @@ relatedPosts:
     - unified/如何将一个md文档按h2和h3分块
 ---
 
-<!-- iframe https://playcode.io/lodash s:height:500px -->
+~~~diff-javascript  showLineNumbers
+@@ -4,6 +4,5 @@
+-    let foo = bar.baz([1, 2, 3]);
+-    foo = foo + 1;
++    const foo = bar.baz([1, 2, 3]) + 1;
+     console.log(`foo: ${foo}`);
+~~~
+
+```js {1,3-4} showLineNumbers
+function fancyAlert(arg) {
+  if (arg) {
+    $.facebox({ div: '#foo' })
+  }
+}
+```
+
+<!-- iframe https://playcode.io/lodash -->
 
 # Welcome to Sleepless! 欢迎来到 失眠先生!
 
@@ -117,7 +133,7 @@ ccc
 
 以下是各级标题, 最多支持 5 级标题
 
-```
+```md
 # h1
 ## h2
 ### h3
@@ -209,19 +225,21 @@ Markdown 扩展支持:
 
 支持在 Markdown 语法中嵌套 Html 标签，譬如，你可以用 Html 写一个纵跨两行的表格：
 
-    <table>
-        <tr>
-            <th rowspan="2">值班人员</th>
-            <th>星期一</th>
-            <th>星期二</th>
-            <th>星期三</th>
-        </tr>
-        <tr>
-            <td>李强</td>
-            <td>张明</td>
-            <td>王平</td>
-        </tr>
-    </table>
+```html 
+<table>
+    <tr>
+        <th rowspan="2">值班人员</th>
+        <th>星期一</th>
+        <th>星期二</th>
+        <th>星期三</th>
+    </tr>
+    <tr>
+        <td>李强</td>
+        <td>张明</td>
+        <td>王平</td>
+    </tr>
+</table>
+```
 
 <table>
     <tr>

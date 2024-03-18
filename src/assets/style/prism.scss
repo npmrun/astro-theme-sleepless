@@ -4,7 +4,7 @@
 :root {
     --prism-font-size: 1em;
     --prism-line-height: 1.5em;
-    --prism-font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
+    --prism-font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
     --prism-foreground: #393a34;
     --prism-background: var(--code-bg-color, #f6f8fa);
     --prism-comment: #a0ada0;
@@ -24,13 +24,20 @@
     --prism-constant: #a65e2b;
     --prism-regex: #ab5e3f;
     --prism-json-property: #698c96;
+
+    --prism-code-line-deleted-bg: rgba(239, 68, 68, 0.2);
+    --prism-code-line-inserted-bg: rgba(16, 185, 129, 0.2);
+    --prism-code-line-border-left-color: rgba(0, 0, 0, 0);
+    --prism-line-number-text-color: rgb(132, 136, 145);
+    --prism-highlight-line-bg: #6365f12d;
+    --prism-highlight-line-border-left-color: rgb(34, 130, 240);
 }
 
 :root[data-theme="dark"] {
     --prism-scheme: dark;
     --prism-font-size: 1em;
     --prism-line-height: 1.5em;
-    --prism-font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
+    --prism-font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
     --prism-foreground: #d4cfbf;
     --prism-background: #1e1e1e;
     --prism-comment: #758575;
@@ -54,4 +61,60 @@
     --prism-line-number-gutter: #eeeeee;
     --prism-line-highlight-background: #444444;
     --prism-selection-background: #444444;
+}
+
+pre {
+    overflow-x: auto;
+}
+
+/**
+   * Inspired by gatsby remark prism - https://www.gatsbyjs.com/plugins/gatsby-remark-prismjs/
+   * 1. Make the element just wide enough to fit its content.
+   * 2. Always fill the visible space in .code-highlight.
+   */
+.code-highlight {
+    float: left;
+    /* 1 */
+    min-width: 100%;
+    /* 2 */
+}
+
+.code-line {
+    display: block;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: -16px;
+    margin-right: -16px;
+    border-left: 4px solid var(--prism-code-line-border-left-color);
+    /* Set placeholder for highlight accent border color to transparent */
+}
+
+.code-line.inserted {
+    background-color: var(--prism-code-line-inserted-bg);
+    /* Set inserted line (+) color */
+}
+
+.code-line.deleted {
+    background-color: var(--prism-code-line-deleted-bg);
+    /* Set deleted line (-) color */
+}
+
+.highlight-line {
+    margin-left: -16px;
+    margin-right: -16px;
+    background-color: var(--prism-highlight-line-bg);
+    /* Set highlight bg color */
+    border-left: 4px solid var(--prism-highlight-line-border-left-color);
+    /* Set highlight accent border color */
+}
+
+.line-number::before {
+    display: inline-block;
+    width: 1rem;
+    text-align: right;
+    margin-right: 16px;
+    margin-left: -8px;
+    color: var(--prism-line-number-text-color);
+    /* Line number color */
+    content: attr(line);
 }
