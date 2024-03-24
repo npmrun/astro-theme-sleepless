@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Public:图片颜色渐变</title>
+    </head>
+    <body>asd
+        <!-- https://esm.sh/ -->
+        <script type="importmap">
+            {
+                "imports": {
+                    "color-thief": "https://esm.sh/color-thief@2.2.5"
+                }
+            }
+        </script>
+        <script type="module">
+            // 引入 color-thief 库
+            import ColorThief from 'color-thief'
+            const colorThief = new ColorThief()
+
+            function createColorBlurBackground(imageUrl) {
+                // 加载图片
+                const img = new Image()
+                img.src = imageUrl
+                img.setAttribute('crossOrigin', '');
+                // 等待图片加载完成后执行操作
+                img.onload = function () {
+                    // 创建一个canvas元素
+                    const canvas = document.createElement('canvas')
+                    canvas.width = img.width
+                    canvas.height = img.height
+
+                    // 在canvas上绘制图片
+                    const ctx = canvas.getContext('2d')
+                    ctx.drawImage(img, 0, 0, img.width, img.height)
+
+                    // 获取图像的每个区域的平均颜色
+                    const colors = []
+                    for (let x = 0; x < img.width; x += 10) {
+                        for (let y = 0; y < img.height; y += 10) {
+                            // 这个colorThief使用有问题
+                            const color = colorThief.getColor(canvas, x, y)
+                            colors.push(color)
+                        }
+                    }
+
+                    // 根据平均颜色创建一个大致的颜色模糊背景
+                    const backgroundImageData = ctx.createImageData(
+                        canvas.width,
+                        canvas.height
+                    )
+                    let i = 0
+                    for (let x = 0; x < canvas.width; x++) {
+                        for (let y = 0; y < canvas.height; y++) {
+                            const r = colors[i][0]
+                            const g = colors[i][1]
+                            const b = colors[i][2]
+                            backgroundImageData.data[i * 4] = r
+                            backgroundImageData.data[i * 4 + 1] = g
+                            backgroundImageData.data[i * 4 + 2] = b
+                            backgroundImageData.data[i * 4 + 3] = 255
+                            i++
+                        }
+                    }
+                    ctx.putImageData(backgroundImageData, 0, 0)
+
+                    // 将背景图像设置为页面的背景图像
+                    document.body.style.backgroundImage = `url(${canvas.toDataURL()})`
+                }
+            }
+            // createColorBlurBackground("https://w.wallhaven.cc/full/9d/wallhaven-9dz1e8.jpg")
+            // createColorBlurBackground("https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png")
+        </script>
+    </body>
+</html>

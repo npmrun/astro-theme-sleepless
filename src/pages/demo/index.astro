@@ -1,0 +1,32 @@
+---
+// import Base from '@blog/layouts/Base/Base.astro'
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="fixed text-white">
+            <a style="width: 50px;height:50px;line-height:50px;text-align:center;background:white;display:inline-block;color:black;font-weight: 300;opacity: .6;"href="javascript:history.back()">返回</a>
+        </div>
+
+        <div id="placeholder" class="w-screen h-screen font-bold text-2xl flex items-center justify-center">
+            请提供iframe网址
+        </div>
+        <script is:raw>
+            const encodeUrl = new URLSearchParams(location.search).get("url")
+            if(encodeUrl) {
+                const url = decodeURIComponent(encodeUrl)
+                placeholder.remove()
+                const iframeEL = document.createElement("iframe")
+                iframeEL.setAttribute("style", "width: 100vw;height:100vh;")
+                iframeEL.setAttribute("src", url)
+                document.body.appendChild(iframeEL)
+            }
+        </script>
+    </body>
+</html>

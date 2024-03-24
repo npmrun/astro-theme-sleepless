@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Public:flex 1+width 0</title>
+    </head>
+    <body>
+        <p>
+            这取决于flex的剩余空间大小分配方式，如果没有设置width,当内部元素的内容大小超过平均分配的剩余空间时,元素的宽度等于内容大小,如果设置了width并且这个width的大小小于平均分配的剩余空间大小时,取平均分配的剩余空间;
+            当flex设置为 1 时 相当于 剩余空间大小 = 父元素的宽度 因此
+            平均的剩余空间大小等于 = 父元素的宽度 / 元素的个数
+            直接设置width为0可以保证元素宽度平分父元素宽度。
+        </p>
+        <h2>没有width：0的效果：</h2>
+        <div
+            style="
+                display: flex;
+                background-color: red;
+                height: 300px;
+                gap: 5px;
+                flex-wrap: wrap;
+            "
+        >
+            <div style="flex: 1; background: green; height: 120px;">
+                <div
+                    style="
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                    "
+                >
+                    撒范德萨范德萨发顺丰撒范德萨范德萨发顺丰撒范德萨范德萨发顺丰
+                </div>
+            </div>
+            <div style="flex: 1; background: green; height: 120px"></div>
+            <div style="flex: 1; background: green; height: 120px"></div>
+            <div style="flex: 1; background: green; height: 120px"></div>
+            <div style="flex: 1; background: green; height: 120px"></div>
+            <div style="flex: 1; background: green; height: 120px"></div>
+            <div style="flex: 1; background: green; height: 120px"></div>
+            <div style="flex: 1; background: green; height: 120px"></div>
+            <div style="flex: 1; background: green; height: 120px"></div>
+        </div>
+        <h2>有的效果：</h2>
+        <div
+            style="
+                display: flex;
+                background-color: red;
+                height: 300px;
+                gap: 5px;
+                flex-wrap: wrap;
+            "
+        >
+            <div style="flex: 1; background: green; height: 120px; width: 0">
+                <div
+                    style="
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                    "
+                >
+                    撒范德萨范德萨发顺丰撒范德萨范德萨发顺丰撒范德萨范德萨发顺丰
+                </div>
+            </div>
+            <div style="flex: 1; background: green; height: 120px"></div>
+            <div style="flex: 1; background: green; height: 120px"></div>
+            <div style="flex: 1; background: green; height: 120px"></div>
+            <div style="flex: 1; background: green; height: 120px"></div>
+            <div style="flex: 1; background: green; height: 120px"></div>
+            <div style="flex: 1; background: green; height: 120px"></div>
+            <div style="flex: 1; background: green; height: 120px"></div>
+            <div style="flex: 1; background: green; height: 120px"></div>
+        </div>
+        <!-- https://esm.sh/ -->
+        <script type="importmap">
+            {
+                "imports": {}
+            }
+        </script>
+        <script type="module"></script>
+    </body>
+</html>
