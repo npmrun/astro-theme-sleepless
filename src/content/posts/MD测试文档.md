@@ -39,6 +39,20 @@ function fancyAlert(arg) {
 <small>PS: asda</small>
 
 <!-- tabs code -->
+<!-- tab ts -->
+```ts
+console.log("adasd")
+console.log("adasd")
+console.log("adasd")
+```
+<!-- endtab ts -->
+<!-- tab css -->
+```js
+console.log("ssss")
+```
+<!-- endtab css -->
+<!-- endtabs code -->
+<!-- tabs code -->
 <!-- tab javascript -->
 ```js
 console.log("adasd")
@@ -50,7 +64,6 @@ console.log("ssss")
 ```
 <!-- endtab css -->
 <!-- endtabs code -->
-
 <!-- tabs aaa -->
 
 <!-- tab bbb -->

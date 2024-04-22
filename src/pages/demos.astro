@@ -2,9 +2,9 @@
 import SinglePage from '@blog/layouts/SinglePage.astro'
 import { praseDemo } from '@blog/utils/demo'
 
-const demoes = await praseDemo()
+const [demoes, checkedArray] = await praseDemo()
 
-const keys = Object.keys(demoes)
+const keys = Object.keys(demoes).sort()
 ---
 
 <SinglePage title="Demo" description="Demo" showTree>
@@ -13,7 +13,7 @@ const keys = Object.keys(demoes)
         class="demoes"
     >
         <ul
-            style="position:static;top:0px;margin-right:15px;margin-bottom:50px;overflow:auto;white-space:nowrap;text-align:right;"
+            style="position:static;top:0px;margin-right:15px;margin-bottom:50px;overflow:auto;white-space:nowrap;text-align:right;width:200px;"
         >
             {
                 keys &&
@@ -27,7 +27,7 @@ const keys = Object.keys(demoes)
                                     id={`collapsible${i}`}
                                     class="toggle"
                                     style="display:none;"
-                                    checked
+                                    checked={checkedArray.includes(v)?true:false}
                                     type="checkbox"
                                 />
                                 <ul

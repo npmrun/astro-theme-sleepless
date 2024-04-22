@@ -17,15 +17,22 @@ async function getAllHTML() {
 async function praseDemo() {
     const tree = await getAllHTML()
     const result = {};
+    const checkedArray = new Set()
     for (const key in tree) {
         if (Object.prototype.hasOwnProperty.call(tree, key)) {
             const content = (tree[key] as any)?.default ?? tree[key];
             if(key.endsWith(".page.json")) {
                 try {
+                    const [,name] = key.match(/\/(.*?)\.page\.json$/)
+                    const title = name.split("\/").slice(-1)[0]
+                    
                     const data = JSON.parse(content)
+                    if(!data.title) {
+                        data.title = title
+                    }
                     let dir = data.dir
                     if(!dir){
-                        dir = "默认"
+                        dir = "0 示例"
                     }
                     if (!result[dir]) result[dir] = [];
                     result[dir].push({
@@ -54,8 +61,13 @@ async function praseDemo() {
                 desc = descReg[1];
             }
             let dir = path.parse(route).dir.replace(/\/demo\//, "").replace(/@show\/?/, "");
+            let checked = false
             if(!dir){
-                dir = "默认"
+                dir = "0 示例"
+                checked = true
+            }
+            if(checked) {
+                checkedArray.add(dir)
             }
             if (!result[dir]) result[dir] = [];
             result[dir].push({
@@ -66,7 +78,7 @@ async function praseDemo() {
             });
         }
     }
-    return result;
+    return [result, Array.from(checkedArray)];
 }
 
 export { praseDemo };
