@@ -7,12 +7,12 @@ tags:
     - nginx
 category: nginx
 author: NPMRUN
-heroImage: https://pic.xieyaxin.top/r10086/%E5%9B%BE%E5%8C%85webp/%E5%8A%A8%E6%BC%AB%E7%BB%BC%E5%90%882/70076727_p0.webp
+heroImage: https://api.r10086.com/%E5%9B%BE%E5%8C%85webp/%E5%8A%A8%E6%BC%AB%E7%BB%BC%E5%90%882/70076727_p0.webp
 comment: true
 chinese: true
 ---
 
-本次的目标，是代理 https://img.r10086.com/ 这个网站，即代理其全部的接口，使得访问我这里的api跟访问它的api是一致的，例如：https://pic.xieyaxin.top/r10086/图包/少女写真1/COS-猫ソロ/091_u89.jpg 这个接口跟 https://api.r10086.com/图包/少女写真1/COS-猫ソロ/091_u89.jpg 是一致的。为了加速图片的访问，同时增加一层缓存层，如果访问我的接口存在缓存的话，即马上返回，如果不存在缓存，则我的服务器会访问源站，就会慢一点。
+本次的目标，是代理 https://img.r10086.com/ 这个网站，即代理其全部的接口，使得访问我这里的api跟访问它的api是一致的，例如：https://api.r10086.com/图包/少女写真1/COS-猫ソロ/091_u89.jpg 这个接口跟 https://api.r10086.com/图包/少女写真1/COS-猫ソロ/091_u89.jpg 是一致的。为了加速图片的访问，同时增加一层缓存层，如果访问我的接口存在缓存的话，即马上返回，如果不存在缓存，则我的服务器会访问源站，就会慢一点。
 
 这里记录一下实现的方法，以后可能会用到,这里也是存在着一些nginx的知识点。
 

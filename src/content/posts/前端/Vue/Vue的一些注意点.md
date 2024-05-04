@@ -7,7 +7,7 @@ tags:
     - Vue
 category: Vue
 author: NPMRUN
-heroImage: https://pic.xieyaxin.top/r10086/%E5%9B%BE%E5%8C%85webp/%E5%8A%A8%E6%BC%AB%E7%BB%BC%E5%90%882/e0d69f8551d53118d28b36fcfd3b9894.png!q90.webp
+heroImage: https://api.r10086.com/%E5%9B%BE%E5%8C%85webp/%E5%8A%A8%E6%BC%AB%E7%BB%BC%E5%90%882/e0d69f8551d53118d28b36fcfd3b9894.png!q90.webp
 comment: true
 ---
 

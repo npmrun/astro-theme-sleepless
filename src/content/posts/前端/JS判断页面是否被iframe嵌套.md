@@ -7,7 +7,7 @@ tags:
     - 前端
 category: 前端
 author: NPMRUN
-heroImage: https://pic.xieyaxin.top/r10086/%E5%9B%BE%E5%8C%85webp/%E5%8A%A8%E6%BC%AB%E7%BB%BC%E5%90%882/bf0c0aba9aa421a16e75a61f293fe11c.jpg!q90.webp
+heroImage: https://api.r10086.com/%E5%9B%BE%E5%8C%85webp/%E5%8A%A8%E6%BC%AB%E7%BB%BC%E5%90%882/bf0c0aba9aa421a16e75a61f293fe11c.jpg!q90.webp
 comment: true
 ---
 

@@ -8,7 +8,7 @@ tags:
     - 知识
 category: 技术
 author: NPMRUN
-heroImage: https://pic.xieyaxin.top/r10086/%E5%9B%BE%E5%8C%85webp/%E5%8A%A8%E6%BC%AB%E7%BB%BC%E5%90%882/70462848_p01.webp
+heroImage: https://api.r10086.com/%E5%9B%BE%E5%8C%85webp/%E5%8A%A8%E6%BC%AB%E7%BB%BC%E5%90%882/70462848_p01.webp
 comment: true
 ---
 

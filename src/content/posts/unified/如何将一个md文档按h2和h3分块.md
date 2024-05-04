@@ -7,7 +7,7 @@ tags:
     - unified
 category: unified
 author: NPMRUN
-heroImage: https://pic.xieyaxin.top/r10086/%E5%9B%BE%E5%8C%85webp/%E5%8A%A8%E6%BC%AB%E7%BB%BC%E5%90%882/yande555770_charunetra.webp
+heroImage: https://api.r10086.com/%E5%9B%BE%E5%8C%85webp/%E5%8A%A8%E6%BC%AB%E7%BB%BC%E5%90%882/yande555770_charunetra.webp
 ---
 
 这个问题参照了 chatgpt 的答案并加以修改，直接看[源码](#源码)。
