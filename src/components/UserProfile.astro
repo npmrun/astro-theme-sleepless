@@ -17,6 +17,7 @@ const { data: user } = await getEntry('authors', 'NPMRUN')
                     class:list={[link.target === '_self' ? 'text-red-400' : '']}
                     href={link.url}
                     target={link.target ?? '_blank'}
+                    {...(link.props ?? {})}
                 >
                     <Icon
                         name={`${link.name}`}

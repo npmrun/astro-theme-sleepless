@@ -4,6 +4,13 @@
     "avatar": "https://xieyaxin.top/me.jpeg",
     "links": [
         {
+            "name": "mdi:search",
+            "title": "搜索",
+            "props": {
+                "id": "searchButton",
+                "style": "cursor: pointer;"
+            }
+        },{
             "name": "mdi:web",
             "title": "主页",
             "url": "https://nuxt.xieyaxin.top/home"

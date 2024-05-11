@@ -4,6 +4,7 @@ import BaseHead from '@blog/components/BaseHead.astro'
 import UserMenu from '@blog/components/UserMenu.astro'
 // import ThemeToggle from '@blog/components/ThemeToggle.astro'
 import { UseMotion } from '@blog/config'
+import Search from "@blog/components/SearchInput/Search.astro"
 
 let pageName
 const result = Astro.url.pathname.match(/\/(.*?)\//)
@@ -67,5 +68,6 @@ if(result) {
                     fill="#333C4F"></path></svg
             >
         </div>
+        <Search />
     </body>
 </html>

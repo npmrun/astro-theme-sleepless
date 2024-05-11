@@ -164,7 +164,7 @@ topEl!.addEventListener("click", (e) => {
   scrollIntoView(0)
 })
 function initScroll() {
-    
+
     const top = document.documentElement.scrollTop;
     // const maxHeight = document.body.clientHeight + document.body.clientHeight / 2
     const maxHeight = document.body.clientHeight / 2
@@ -181,3 +181,19 @@ if (OpenViewTransitions) {
     document.addEventListener('astro:page-load', initScroll)
 } else initScroll()
 window.addEventListener("scroll", initScroll);
+
+function initMark() {
+    // @ts-ignore
+    if(!Mark) return
+    // @ts-ignore
+    let instance = new Mark([document.querySelector(".markdown-body"), document.querySelector(".article-image")]);
+    const queryText = new URLSearchParams(location.search).get("query")
+    if(queryText) {
+      instance.mark(queryText);
+      console.log(instance);
+      const markEl = [...document.querySelectorAll(".article-image mark"), ...document.querySelectorAll(".markdown-body mark")][0]
+      markEl?.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+    }
+}
+
+initMark()

@@ -2,6 +2,7 @@
 import '@blog/assets/style/common.scss'
 import BaseHead from '@blog/components/BaseHead.astro'
 import { UseMotion } from '@blog/config'
+import Search from "@blog/components/SearchInput/Search.astro"
 ---
 
 <html lang="zh-CN">
@@ -10,5 +11,6 @@ import { UseMotion } from '@blog/config'
     </head>
     <body class:list={[Astro.props.bodyClass, UseMotion ? 'use-motion' : '']}>
         <slot />
+        <Search />
     </body>
 </html>

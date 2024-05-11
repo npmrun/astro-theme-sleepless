@@ -33,6 +33,31 @@
         .iframe-inner {
             background-color: #f7f7fb;
         }
+        .iframe-title{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            transition: transform .1s linear;
+            transform: translateY(-100%);
+            &::after{
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                height: 15px;
+                top: 100%;
+                cursor: pointer;
+            }
+            &:hover{
+                transform: none;
+                @apply shadow-md;
+                &::after{
+                    pointer-events: none;
+                }
+            }
+        }
     }
 
     .iframe-title {

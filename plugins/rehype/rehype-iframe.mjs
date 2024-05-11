@@ -25,7 +25,7 @@ function buildNode (url, title, isLazy, style) {
           <div class="title">${title}</div>
         </div>
         <div class="iframe-inner ${isLazy?'lazy':'notlazy'}">
-          <div class="iframe-mask"></div>
+          <div class="iframe-mask" title="${title}"></div>
           <iframe width="100%" ${isLazy?`data-src="${url}"`:`src="${url}"`}>
             <div>
             不支持iframe

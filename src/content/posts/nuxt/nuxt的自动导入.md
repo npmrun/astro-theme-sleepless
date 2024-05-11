@@ -15,6 +15,6 @@ comment: true
 
 > 推荐[五彩插件](https://www.dotalk.cn/product/wucai)，能够在网页上标注跟做笔记
 
-<!-- iframe-lazy https://stackblitz.com/github/nuxt/examples/tree/main/examples/advanced/config-extends?embed=1&file=nuxt.config.ts&theme=light s:height:500px -->
+<!-- iframe-lazy https://stackblitz.com/github/nuxt/examples/tree/main/examples/advanced/config-extends?embed=1&file=nuxt.config.ts&theme=light aa s:height:500px -->
 
 测试机哦
