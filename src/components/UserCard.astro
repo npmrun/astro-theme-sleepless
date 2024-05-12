@@ -12,7 +12,7 @@ const { desc, title, url, avatar } = Astro.props
         />
         <a class="shadow" href={url} target="_blank">前往</a>
     </div>
-    <div>{title}</div>
+    <div class="flex flex-nowrap text-nowrap">{title}</div>
     {
         desc && (
             <div class="content">
