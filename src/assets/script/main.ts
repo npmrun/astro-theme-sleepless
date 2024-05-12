@@ -182,18 +182,29 @@ if (OpenViewTransitions) {
 } else initScroll()
 window.addEventListener("scroll", initScroll);
 
+const markBtnEl = document.getElementById("clearMark") as any
+let instance: any
 function initMark() {
     // @ts-ignore
     if(!Mark) return
     // @ts-ignore
-    let instance = new Mark([document.querySelector(".markdown-body"), document.querySelector(".article-image")]);
+    instance = new Mark([document.querySelector(".markdown-body"), document.querySelector(".article-image")]);
     const queryText = new URLSearchParams(location.search).get("query")
     if(queryText) {
+      markBtnEl.style.opacity = '1'
+      markBtnEl.style.pointerEvents = "auto"
       instance.mark(queryText);
-      console.log(instance);
       const markEl = [...document.querySelectorAll(".article-image mark"), ...document.querySelectorAll(".markdown-body mark")][0]
       markEl?.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
     }
 }
+markBtnEl?.addEventListener("click", function() {
+  markBtnEl!.style.opacity = '0'
+  markBtnEl!.style.pointerEvents = "nont"
+  if(instance) {
+    history.replaceState(null, "", location.pathname);
+    instance.unmark()
+  }
+})
 
 initMark()
