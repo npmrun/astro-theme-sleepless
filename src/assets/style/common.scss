@@ -35,6 +35,30 @@ body {
   z-index: 999;
 }
 
+@keyframes aa {
+    0% {
+        content: "";
+    }
+
+    25% {
+        content: ".";
+    }
+
+    50% {
+        content: "..";
+    }
+
+    100% {
+        content: "...";
+    }
+}
+.comment-el{
+    &::after{
+        content: "";
+        animation: aa 1.2s ease-in infinite;
+    }
+}
+
 ::-webkit-scrollbar-track {
     border: none;
 }
