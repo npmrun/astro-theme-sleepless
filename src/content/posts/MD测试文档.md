@@ -34,6 +34,17 @@ function fancyAlert(arg) {
 
 # Welcome to Sleepless! 欢迎来到 失眠先生!
 
+## hover样式
+
+```
+<button data-balloon-length="fit" aria-label="What about something really big? This may surpass your window dimensions. Imagine you're on that boring class with that boring teacher and you didn't slept so well last night. Suddenly you're sleeping in class. Can you believe it?!" data-balloon-pos="up">My width will fit to element</button>
+```
+
+[balloon.css](https://kazzkiq.github.io/balloon.css/)
+
+<button data-balloon-length="fit" aria-label="What about something really big? This may surpass your window dimensions. Imagine you're on that boring class with that boring teacher and you didn't slept so well last night. Suddenly you're sleeping in class. Can you believe it?!" data-balloon-pos="up">My width will fit to element</button>
+
+
 ## 标签
 
 <small>PS: asda</small>
