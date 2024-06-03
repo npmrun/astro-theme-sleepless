@@ -9,6 +9,7 @@ const postsCollection = defineCollection({
     description: z.string().optional(),
     heroImage: z.string().optional(),
     heroPosition: z.string().optional(),
+    hidden: z.boolean().optional(),
     pubDate: z.string(),
     updatedDate: z.string().optional(),
     category: z.string(),
@@ -31,6 +32,7 @@ const lifeCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),
+    hidden: z.boolean().optional(),
     pubDate: z.string(),
     updatedDate: z.string().optional(),
     heroPosition: z.string().optional(),
