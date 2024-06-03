@@ -18,16 +18,21 @@ export async function getBlogTop() {
 /**
  * 获取所有posts文章
  */
-export async function getBlogData() {
+export async function getBlogData(showAll?: boolean) {
     const blogEntries = await getCollection(BlogCollectionName)
-    return blogEntries
+    if(showAll) {
+        return blogEntries
+    }
+    return blogEntries.filter((blog) => {
+        return !blog?.data?.hidden
+    })
 }
 
 /**
  * 获取所有posts文章，并根据修改时间与创建时间排序
  */
-export async function getBlogDataSortByTime() {
-    const blogEntries = await getBlogData()
+export async function getBlogDataSortByTime(showAll?: boolean) {
+    const blogEntries = await getBlogData(showAll)
     const getPubTimestamp = (blog: any) => {
         let pubTimestamp = 0
         if (blog.data.pubDate) {
@@ -70,7 +75,9 @@ export async function getBlogCount() {
  */
 export async function getLifeData() {
     const data = await getCollection(LifeCollectionName)
-    return data
+    return data.filter((blog) => {
+        return !blog?.data?.hidden
+    })
 }
 
 /**

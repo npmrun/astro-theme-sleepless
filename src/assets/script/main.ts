@@ -221,6 +221,9 @@ if (location.pathname.startsWith("/posts")) {
   document.body.append(topSlider)
   function initW() {
     const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight
+    if(scrollHeight === 0) {
+      topSlider.remove()
+    }
     const rate = document.documentElement.scrollTop / scrollHeight * 100
     topSlider.style.height = rate + "%"
     topSlider.setAttribute('data-rate', ~~rate + '%')
