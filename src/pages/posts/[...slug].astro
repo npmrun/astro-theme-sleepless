@@ -193,12 +193,12 @@ if (entry.data.relatedPosts) {
     </div>
     <div class="max-w-[1080px] mx-auto maybe-like">
         {
-            relatedPosts && relatedPosts.length && (
+            relatedPosts && !!relatedPosts.length && (
                 <h2 class="text-2xl my-8">可能喜欢:</h2>
             )
         }
         {
-            relatedPosts && relatedPosts.length && (
+            relatedPosts && !!relatedPosts.length && (
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-cols-auto gap-x-3 gap-y-4 mt-6 mb-6">
                     {relatedPosts &&
                         relatedPosts.length &&
