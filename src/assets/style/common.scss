@@ -31,6 +31,19 @@ body {
     // scroll-behavior: smooth; // 需要等到渲染完毕才有效果
 }
 
+// 顶部进度条
+.reading {
+    position: relative;
+    &::after {
+        content: attr(data-rate);
+        position: absolute;
+        right: calc(100% + 4px);
+        bottom: 0;
+        font-size: 0.75em;
+        color: #ef4444;
+    }
+}
+
 .medium-zoom-overlay,
 .medium-zoom-image--opened {
   z-index: 999;
@@ -91,7 +104,7 @@ pre ::selection {
 }
 
 :root[data-theme='dark'] {
-    --bg-color: red;
+    --bg-color: rgb(151, 151, 151);
     --header-color: rgba(274, 274, 251, .3);
 }
 

@@ -9,13 +9,14 @@
 
 .markdown-body {
     --color-base: #ef4444;
+    --markdown-bg: white;
     --color-bg: #ff47479c;
     --color-light: #ef44441a;
     --color-extra: rgba(239, 68, 68, 0.3);
 }
 
 .markdown-body.green {
-    background-color: white;
+    background-color: var(--markdown-bg);
     @apply p-3 lg:p-6;
 
     strong {

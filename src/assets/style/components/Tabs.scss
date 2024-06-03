@@ -17,6 +17,7 @@
 .tabs[class*="code"]{
     .tab > .pre-wrapper >  pre {
         margin-bottom: 0;
+        border: 0;
     }
     .tab > .pre-wrapper{
         margin: -1rem;

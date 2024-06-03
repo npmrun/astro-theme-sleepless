@@ -1,0 +1,13 @@
+diff --git a/lib/index.js b/lib/index.js
+index 345389ef38a84d7c4448b6a762e66546b3f5673f..0d356260c535df9560e5ca2d18eb95c9274a03f7 100644
+--- a/lib/index.js
++++ b/lib/index.js
+@@ -8,7 +8,7 @@ import { toMarkdown } from 'mdast-util-to-markdown';
+ // Test if deflist is contained in a single paragraph.
+ const isSingleDeflist = (node) => 
+ // i > 0 &&
+-/^[^:].+\n:\s/.test(toString(node)) &&
++/^[^:].+\s*\n:\s/.test(toString(node)) &&
+     node.type === 'paragraph';
+ // Test if deflist is split between two paragraphs.
+ const isSplitDeflist = (node, i, parent) => i > 0 &&

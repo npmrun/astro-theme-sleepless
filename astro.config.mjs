@@ -6,6 +6,7 @@ import Directive from 'remark-directive'
 import remarkMath from 'remark-math'
 import rehypeMathjax from 'rehype-mathjax'
 import remarkBreaks from 'remark-breaks'
+import remarkDeflist from 'remark-deflist'
 
 import rehypeCommon from './plugins/rehype/rehype-common.mjs'
 import rehypeIframe from './plugins/rehype/rehype-iframe.mjs'
@@ -51,7 +52,7 @@ export default defineConfig({
             rehypeTabs,
             rehypeIframe,
         ],
-        remarkPlugins: [Directive, remarkMath, remarkCommon, remarkBreaks],
+        remarkPlugins: [Directive, remarkMath, remarkCommon, remarkDeflist, remarkBreaks],
         remarkRehype: {
             footnoteLabel: '脚注',
             footnoteBackLabel: '回到文本',

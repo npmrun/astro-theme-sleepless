@@ -431,4 +431,22 @@
     .toc{
         margin-left: 0;
     }
+
+    dl {
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        unicode-bidi: isolate;
+        dt {
+            display: block;
+            unicode-bidi: isolate;
+        }
+        dd {
+            display: block;
+            margin-inline-start: 40px;
+            unicode-bidi: isolate;
+        }
+    }
 }

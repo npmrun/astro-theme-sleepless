@@ -208,3 +208,72 @@ markBtnEl?.addEventListener("click", function() {
 })
 
 initMark()
+
+//===== 顶部进度条 ===== Start
+if (location.pathname.startsWith("/posts")) {
+  const topSlider = document.createElement("div")
+  topSlider.style.position = "fixed"
+  topSlider.style.top = "0"
+  topSlider.style.bottom = "0"
+  topSlider.style.right = "0"
+  topSlider.style.width = "4px"
+  topSlider.style.backgroundColor = "#ef4444"
+  document.body.append(topSlider)
+  function initW() {
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight
+    const rate = document.documentElement.scrollTop / scrollHeight * 100
+    topSlider.style.height = rate + "%"
+    topSlider.setAttribute('data-rate', ~~rate + '%')
+    if (rate >= 10) {
+      topSlider.classList.add("reading")
+    } else {
+      topSlider.classList.remove("reading")
+    }
+  }
+  if (OpenViewTransitions) {
+    document.addEventListener('astro:page-load', initW)
+  } else initW()
+  window.addEventListener("scroll", initW);
+}
+//===== 顶部进度条 =====  End
+
+// const allTitleSelector =
+//   ".markdown-body h1[id],.markdown-body h2[id],.markdown-body h3[id],.markdown-body h4[id],.markdown-body h5[id],.markdown-body h6[id]";
+// const allHeadSelector = "a.head";
+// const offset = 50
+// let activeIndex = 0;
+// function initColor() {
+//   const headElement = document.querySelectorAll(allHeadSelector);
+//   if (!!headElement.length) {
+//     [...(document.querySelectorAll(allTitleSelector) as unknown as HTMLDivElement[])].forEach((el, i) => {
+//       if (headElement[i]) {
+//         const top = el.getBoundingClientRect().top;
+//         if (top < offset) {
+//           activeIndex = i
+//           // @ts-ignore
+//           headElement[i].style.color = "#1abc9c";
+//         } else {
+//           // @ts-ignore
+//           headElement[i].style.color = "";
+//         }
+//         if (headElement[i].parentElement.classList.contains("active")) {
+//           headElement[i].parentElement.classList.remove('active')
+//         }
+//       }
+//     });
+//     if (activeIndex != -1 && headElement[activeIndex]) {
+//       // @ts-ignore
+//       headElement[activeIndex].style.color = "#8e32dc";
+//       if (!headElement[activeIndex].parentElement.classList.contains("active")) {
+//         headElement[activeIndex].parentElement.classList.add('active')
+//       }
+//       // @ts-ignore
+//       // headElement[activeIndex].parentElement.style.backgroundColor = "#1abc9c48";
+//       // headElement[activeIndex].parentElement.style.borderLeft = "4px solid #1abc9c";
+//     }
+//   }
+// }
+// initColor();
+// window.addEventListener("scroll", function () {
+//   initColor();
+// });
