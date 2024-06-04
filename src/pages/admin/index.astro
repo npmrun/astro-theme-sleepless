@@ -1,0 +1,163 @@
+---
+import { getBlogDataSortByTime } from '@blog/utils'
+
+const allPost = await getBlogDataSortByTime()
+const postArray = allPost.map((v) => v.slug)
+const isDEV = import.meta.env.DEV
+---
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Admin</title>
+        <!-- <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script> -->
+        <script is:inline>
+            window.CMS_MANUAL_INIT = true
+        </script>
+        <script is:inline src="/admin/netlify-identity-widget.js"></script>
+        <!-- <link rel="cms-config-url" type="text/yaml" href="/admin/config.yml" /> -->
+    </head>
+    <body>
+        <!-- Include the script that builds the page and powers Netlify CMS -->
+        <!-- <script is:inline src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script> -->
+        <script
+            is:inline
+            src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+        <!-- <script src="@blog/assets/script/cms.ts"></script> -->
+        <script is:inline define:vars={{ postArray, isDEV }}>
+            initCMS({
+                config: {
+                    backend: {
+                        name: 'git-gateway',
+                        branch: 'master',
+                    },
+                    local_backend: isDEV,
+                    load_config_file: false,
+                    publish_mode: 'editorial_workflow',
+                    media_folder: '/public/images',
+                    public_folder: '/images',
+                    collections: [
+                        {
+                            name: 'posts',
+                            label: '文章',
+                            folder: 'src/content/posts/随笔',
+                            path: '{{slug}}',
+                            media_folder: '/public/images',
+                            public_folder: '/images',
+                            extension: 'md',
+                            format: 'frontmatter',
+                            create: true,
+                            slug: '{{slug}}',
+                            identifier_field: 'slug',
+                            summary: '{{title}}',
+                            nested: {
+                                depth: 100,
+                                summary: '{{path}}',
+                            },
+                            fields: [
+                                {
+                                    label: '标题',
+                                    name: 'title',
+                                    widget: 'string',
+                                },
+                                {
+                                    label: '描述',
+                                    name: 'description',
+                                    widget: 'string',
+                                    required: false,
+                                },
+                                {
+                                    label: '发布时间',
+                                    name: 'pubDate',
+                                    format: 'YYYY/MM/DD hh:mm:ss',
+                                    widget: 'datetime',
+                                },
+                                {
+                                    label: '修改时间',
+                                    name: 'updatedDate',
+                                    format: 'YYYY/MM/DD hh:mm:ss',
+                                    widget: 'datetime',
+                                },
+                                {
+                                    label: '作者',
+                                    name: 'author',
+                                    widget: 'string',
+                                    default: 'NPMRUN',
+                                },
+                                {
+                                    label: '分类',
+                                    name: 'category',
+                                    widget: 'string',
+                                    default: '随笔',
+                                },
+                                {
+                                    label: '标签',
+                                    name: 'tags',
+                                    widget: 'list',
+                                    default: ['随笔'],
+                                },
+                                {
+                                    label: '图像',
+                                    name: 'heroImage',
+                                    widget: 'string',
+                                    default:
+                                        'https://api.r10086.com/樱道随机图片api接口.php?图片系列=动漫综合2',
+                                },
+                                {
+                                    label: '是否置顶',
+                                    name: 'hot',
+                                    widget: 'boolean',
+                                    default: false,
+                                    required: false,
+                                },
+                                {
+                                    label: '是否隐藏',
+                                    name: 'hidden',
+                                    widget: 'boolean',
+                                    default: false,
+                                    required: false,
+                                },
+                                {
+                                    label: '正文',
+                                    name: 'body',
+                                    widget: 'markdown',
+                                },
+                                {
+                                    label: '关联',
+                                    name: 'relatedPosts',
+                                    widget: 'select',
+                                    options: postArray,
+                                    multiple: true,
+                                    required: false,
+                                    min: 0,
+                                    max: 3,
+                                    default: [],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            })
+            CMS.registerPreviewStyle(
+                'https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap'
+            )
+            CMS.registerPreviewStyle('/styles/content.module.css')
+            var PostPreview = createClass({
+                render: function () {
+                    var entry = this.props.entry
+                    var date = entry.getIn(['data', 'date'])
+                    return h(
+                        'div',
+                        { className: 'content' },
+                        h('h1', {}, entry.getIn(['data', 'title'])),
+                        h('time', {}, entry.getIn(['data', 'date'])),
+                        h('div', {}, this.props.widgetFor('body'))
+                    )
+                },
+            })
+            CMS.registerPreviewTemplate('posts', PostPreview)
+        </script>
+    </body>
+</html>

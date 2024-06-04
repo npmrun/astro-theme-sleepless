@@ -11,6 +11,11 @@
                 "style": "cursor: pointer;"
             }
         },{
+            "name": "flat-color-icons:planner",
+            "title": "随笔",
+            "url": "/posts/随笔",
+            "target": "_self"
+        },{
             "name": "mdi:web",
             "title": "主页",
             "url": "https://nuxt.xieyaxin.top/home"
@@ -34,6 +39,11 @@
             "name": "ant-design:code-filled",
             "title": "编辑器",
             "url": "https://editor.xieyaxin.top"
+        },
+        {
+            "name": "mdi:administrator",
+            "title": "管理员",
+            "url": "/admin"
         }
     ]
 }
