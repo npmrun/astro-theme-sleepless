@@ -12,7 +12,6 @@ hidden: true
 relatedPosts:
   - md测试文档
   - 怎么阅读开源项目
-  - inversifyjs/inversifyjs的使用方式
 comment: true
 ---
 
