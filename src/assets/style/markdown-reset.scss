@@ -176,6 +176,10 @@
         // background: #fffdd1;
         border-bottom: 1px solid #ffedce;
         padding: 2px;
+
+        &.active{
+            background: rgb(255, 187, 0);
+        }
         // margin: 0 5px;
     }
     /* 统一h1元素的间隔和字体大小 */

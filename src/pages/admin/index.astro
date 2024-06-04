@@ -27,6 +27,7 @@ const isDEV = import.meta.env.DEV
             src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
         <!-- <script src="@blog/assets/script/cms.ts"></script> -->
         <script is:inline define:vars={{ postArray, isDEV }}>
+            // npx decap-server
             initCMS({
                 config: {
                     backend: {
@@ -39,6 +40,55 @@ const isDEV = import.meta.env.DEV
                     media_folder: '/public/images',
                     public_folder: '/images',
                     collections: [
+                        // {
+                        //     name: 'author',
+                        //     label: '作者',
+                        //     // folder: 'src/content/authors',
+                        //     // extension: 'json',
+                        //     // show_preview_links: false,
+                        //     files: [
+                        //         {
+                        //             name: 'NPMRUN',
+                        //             label: 'NPMRUN',
+                        //             file: 'src/content/authors/NPMRUN.json',
+                        //             fields: [
+                        //                 {
+                        //                     label: '姓名',
+                        //                     name: 'name',
+                        //                     widget: 'string',
+                        //                 },
+                        //                 {
+                        //                     label: 'GithubName',
+                        //                     name: 'github_name',
+                        //                     widget: 'string',
+                        //                 },
+                        //                 {
+                        //                     label: '头像',
+                        //                     name: 'avatar',
+                        //                     widget: 'string',
+                        //                 },
+                        //                 {
+                        //                     label: "Links",
+                        //                     name: "links",
+                        //                     summary: '{{fields.title}}',
+                        //                     widget: "list",
+                        //                     fields: [
+                        //                         { label: "name", name: "name", widget: "string" },
+                        //                         { label: "title", name: "title", widget: "string" },
+                        //                         { label: "url", name: "url", widget: "string", required: false },
+                        //                         { label: "target", name: "target", widget: "string", required: false },
+                        //                         // { 
+                        //                         //     label: "props", 
+                        //                         //     name: "props", 
+                        //                         //     widget: "widget",
+                        //                         //     required: false,
+                        //                         // }
+                        //                     ]
+                        //                 }
+                        //             ]
+                        //         }
+                        //     ]
+                        // },
                         {
                             name: 'posts',
                             label: '文章',
@@ -46,6 +96,7 @@ const isDEV = import.meta.env.DEV
                             path: '{{slug}}',
                             media_folder: '/public/images',
                             public_folder: '/images',
+                            preview_path: "/posts/{{slug}}",
                             extension: 'md',
                             format: 'frontmatter',
                             create: true,

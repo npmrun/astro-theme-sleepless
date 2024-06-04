@@ -183,7 +183,11 @@ if (OpenViewTransitions) {
 window.addEventListener("scroll", initScroll);
 
 const markBtnEl = document.getElementById("clearMark") as any
+const nextMarkEl = document.getElementById("nextMark") as any
+const preMarkEl = document.getElementById("preMark") as any
 let instance: any
+let markElList: any[] = []
+let curIndex = 0
 function initMark() {
     // @ts-ignore
     if(!Mark) return
@@ -193,14 +197,39 @@ function initMark() {
     if(queryText) {
       markBtnEl.style.opacity = '1'
       markBtnEl.style.pointerEvents = "auto"
+      nextMarkEl.style.opacity = '1'
+      nextMarkEl.style.pointerEvents = "auto"
+      preMarkEl.style.opacity = '1'
+      preMarkEl.style.pointerEvents = "auto"
       instance.mark(queryText);
-      const markEl = [...document.querySelectorAll(".article-image mark"), ...document.querySelectorAll(".markdown-body mark")][0]
-      markEl?.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+      markElList = [...document.querySelectorAll(".article-image mark"), ...document.querySelectorAll(".markdown-body mark")]
+      curIndex = 0
+      markElList.forEach(el=> el.classList.remove("active"))
+      markElList[curIndex].classList.add("active")
+      markElList[curIndex]?.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
     }
 }
+nextMarkEl?.addEventListener("click", function() {
+  curIndex++
+  if(curIndex > markElList.length-1 ) curIndex = markElList.length-1
+  markElList.forEach(el=> el.classList.remove("active"))
+  markElList[curIndex].classList.add("active")
+  markElList[curIndex]?.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+})
+preMarkEl?.addEventListener("click", function() {
+  curIndex--
+  if(curIndex < 0 ) curIndex = 0
+  markElList.forEach(el=> el.classList.remove("active"))
+  markElList[curIndex].classList.add("active")
+  markElList[curIndex]?.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+})
 markBtnEl?.addEventListener("click", function() {
   markBtnEl!.style.opacity = '0'
   markBtnEl!.style.pointerEvents = "nont"
+  nextMarkEl!.style.opacity = '0'
+  nextMarkEl!.style.pointerEvents = "nont"
+  preMarkEl!.style.opacity = '0'
+  preMarkEl!.style.pointerEvents = "nont"
   if(instance) {
     history.replaceState(null, "", location.pathname);
     instance.unmark()

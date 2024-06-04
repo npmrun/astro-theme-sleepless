@@ -271,6 +271,9 @@ mark {
   padding: 2px;
   margin: 0 5px;
 }
+mark.active{
+  background: rgb(255, 187, 0);
+}
 
 /* 代码片断 */
 pre,
