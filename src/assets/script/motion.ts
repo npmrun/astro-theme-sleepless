@@ -29,6 +29,7 @@ if (UseMotion) {
     if(location.pathname.startsWith("/posts")) {
         addElement('.article-image', {duration: 200, classList: ['animated', 'fadeIn']})
         addElement('#menu-wrapper', {timelineOffset: 200, duration: 300, classList: ['animated', 'fadeInLeft']})
+        addElement('.time-wrapper', {timelineOffset: 200, duration: 300, classList: ['animated', 'fadeIn']})
         addElement('.comment-wrapper', {timelineOffset: 200, duration: 300, classList: ['animated', 'fadeIn']})
         addElement('.menus', {timelineOffset: 200, duration: 300, classList: ['animated', 'fadeInRight']})
         addElement('.markdown-body', {timelineOffset: 200, duration: 300, classList: ['animated', 'fadeIn']})
