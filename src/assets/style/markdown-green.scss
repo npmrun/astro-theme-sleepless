@@ -13,6 +13,7 @@
     --color-bg: #ff47479c;
     --color-light: #ef44441a;
     --color-extra: rgba(239, 68, 68, 0.3);
+    --color-more: rgba(239, 68, 68, 0.4);
 }
 
 .markdown-body.green {
@@ -46,13 +47,13 @@
         z-index: 600;
         padding: 20px 20px 15px 20px;
         line-height: 1.4 !important;
-        background-color: rgba(239, 68, 68, 0.04);
+        background-color: rgba(239, 68, 68, 0.06);
         border-radius: .4em;
         > * {
             position: relative;
             &:first-child:before {
               content: '\201C';
-              color: var(--color-extra);
+              color: var(--color-light);
               font-size: 6.5em;
               font-weight: 700;
               transform: rotate(15deg) translateX(-10px);
@@ -184,24 +185,48 @@
     table {
         width: 100%;
         display: table;
+        border: 1px solid var(--color-light);
+        tr:hover {
+            background: var(--color-light);
+        }
+        &:hover{
+            border: 1px solid var(--color-extra);
+            th {
+                border-right: 1px solid var(--color-extra);
+                background: var(--color-extra);
+                border-bottom: 1px solid var(--color-extra);
+            }
+            td {
+                border-right: 1px solid var(--color-extra);
+            }
+            caption {
+                border-right: 1px solid var(--color-extra);
+            }
+            thead {
+                th {
+                    background: var(--color-extra);
+                }
+            }
+        }
         // table-layout: fixed;
         th {
-            border: 1px solid #ddd;
+            border-right: 1px solid var(--color-light);
             padding: 0.5em 1em;
-            background: #fbfbfb;
+            background: var(--color-light);
+            border-bottom: 1px solid var(--color-light);
         }
         td {
-            border: 1px solid #ddd;
+            border-right: 1px solid var(--color-light);
             padding: 0.5em 1em;
         }
         caption {
-            border: 1px solid #ddd;
+            border-right: 1px solid var(--color-light);
             padding: 0.5em 1em;
             border-bottom: none;
         }
         thead {
             th {
-                background: #f1f1f1;
+                background: var(--color-extra);
             }
         }
     }
