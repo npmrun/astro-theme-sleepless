@@ -43,10 +43,10 @@ relatedPosts:
 |?	|other，忽略文件|
 
 > cmd查询本地忽略
-> git ls-files -v |find /V "H "
+> `git ls-files -v |find /V "H "`
 
 > linux查询方法
-> git ls-files -v | grep '^h\ '
+> `git ls-files -v | grep '^h\ '`
 
 这两个参数区别:
 
@@ -55,11 +55,11 @@ relatedPosts:
 2. skip-worktree 跳过工作树
     这个不会关闭文件与远程仓库的跟踪，只是告诉Git不要跟踪对本地文件/文件夹的更改
 
-> pull拉取最新的变化,会提示冲突，但因为没有跟踪本地更改，所以需要no-skip-worktree再合并最新的变化
+> pull拉取最新的变化,会提示冲突，但因为没有跟踪本地更改，所以需要`no-skip-worktree`再合并最新的变化
 
-最合适的是skip-worktree，因为它还在跟踪远程库的修改。只是合并修改比较麻烦
+最合适的是`skip-worktree`，因为它还在跟踪远程库的修改。只是合并修改比较麻烦
 
-> 另：.git/info/exclude：这个会删除远程仓库忽略文件，保留本地文件
+> 另：`.git/info/exclude`：这个会删除远程仓库忽略文件，保留本地文件
 
 ## 附录
 
