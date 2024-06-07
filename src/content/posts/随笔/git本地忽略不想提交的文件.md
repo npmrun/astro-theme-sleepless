@@ -31,16 +31,16 @@ relatedPosts:
     小写h开头是assume-unchanged,大写S是skip-worktree。
 
 
-|文件标识|	描述|
-|:--:|:--:|
-|H	|缓存，正常跟踪文件|
-|S	|skip-worktree文件|
-|h	|assume-unchanged文件|
-|M	|unmerged, 未合并|
-|R	|removed/deleted|
-|C	|modified/changed修改|
-|K	|to be killed|
-|?	|other，忽略文件|
+| 文件标识 |         描述         |
+|:--------:|:--------------------:|
+|    H     |  缓存，正常跟踪文件   |
+|    S     |  skip-worktree文件   |
+|    h     | assume-unchanged文件 |
+|    M     |   unmerged, 未合并   |
+|    R     |   removed/deleted    |
+|    C     | modified/changed修改 |
+|    K     |     to be killed     |
+|    ?     |    other，忽略文件    |
 
 > cmd查询本地忽略
 > git ls-files -v |find /V "H "
