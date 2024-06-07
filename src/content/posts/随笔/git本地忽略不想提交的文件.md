@@ -1,7 +1,7 @@
 ---
 title: git本地忽略不想提交的文件
 pubDate: 2024/06/04 09:53:00
-updatedDate: 2024/06/04 09:54:00
+updatedDate: 2024/06/07 03:07:00
 author: NPMRUN
 category: 随笔
 tags:
@@ -65,3 +65,5 @@ relatedPosts:
 
 - https://github.com/Alcyon-Dev/vscode-ext-git-skip
 - https://automationpanda.com/2018/09/19/ignoring-files-with-git/
+- https://blog.csdn.net/qq_34451909/article/details/110866065
+- https://blog.csdn.net/CMEguagua/article/details/115075415
