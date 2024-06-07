@@ -61,6 +61,8 @@ relatedPosts:
 
 > 另：`.git/info/exclude`：这个会删除远程仓库忽略文件，保留本地文件
 
+> 注意，新增的文件无法使用这种忽略，可以先将其添加到`.gitignore`，然后将`.gitignore` skip。
+
 ## 附录
 
 - https://github.com/Alcyon-Dev/vscode-ext-git-skip
