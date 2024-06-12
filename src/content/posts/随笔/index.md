@@ -15,4 +15,3 @@ hidden: true
 
 - [ ] 结合`decapcms`开发一个收藏界面，实现在线编辑收藏，包含文件树功能
 - [ ] decapcms编辑时实时渲染最终效果
-- aa
