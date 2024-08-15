@@ -7,6 +7,18 @@
   "markdown-image.local.referencePath": "/article/${mdname}/",
   "markdown-image.base.fileNameFormat": "${mdname}/${YY}-${MM}-${DD}_${DD}-${HH}-${mm}-${ss}",
   "markdown-image.base.urlEncode": false,
+  "mdPasteEnhanced.path": "${projectRoot}/public/article/${currentFileNameWithoutExt}",
+  "mdPasteEnhanced.basePath": "${projectRoot}/public",
+  "mdPasteEnhanced.defaultName": "Y-MM-DD_DD-HH-mm-ss",
+  "mdPasteEnhanced.renderMap": [
+    "**/*.md  => ![${userVar}](/${imagePath})",
+    "**/*.typ => #image(\"${imagePath}\"${userVar})",
+    "**/*     => ${imagePath}"
+  ],
+  "gutterpreview.sourceFolder": "public/",
+  "gutterpreview.paths":{
+    // "/article": "${workspaceFolder}/public/article"
+  },
   "templateGenerator.fields.author": "NPMRUN",
   "templateGenerator.fields.email": "1549469775",
   "templateGenerator.fields.link": "https://blog.xieyaxin.top",
@@ -37,5 +49,11 @@
         "strings": false
     },
   },
-  "workbench.tree.enableStickyScroll": true
+  "workbench.tree.enableStickyScroll": true,
+  // 如果实在wsl中运行的话，粘贴图片需要这个配置
+  "remote.extensionKind": {
+    "hancel.markdown-image": [
+      "ui"
+    ]
+  }
 }
