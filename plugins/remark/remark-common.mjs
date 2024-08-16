@@ -16,7 +16,7 @@ export default function () {
             })
             //===== 解析图片 =====  End
 
-            const url = node.url
+            const url = node.url.replace(/^\/public/, "")
             const alt = node.alt
             node.type = 'html'
             const altStr = `alt="${alt}"`
