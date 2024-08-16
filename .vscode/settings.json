@@ -4,11 +4,11 @@
   "scss.lint.unknownAtRules": "ignore",
   "scss.validate": false,
   "markdown-image.local.path": "/public/article", 
-  "markdown-image.local.referencePath": "/article/${mdname}/",
+  "markdown-image.local.referencePath": "/public/article/${mdname}/",
   "markdown-image.base.fileNameFormat": "${mdname}/${YY}-${MM}-${DD}_${DD}-${HH}-${mm}-${ss}",
   "markdown-image.base.urlEncode": false,
   "mdPasteEnhanced.path": "${projectRoot}/public/article/${currentFileNameWithoutExt}",
-  "mdPasteEnhanced.basePath": "${projectRoot}/public",
+  "mdPasteEnhanced.basePath": "${projectRoot}",
   "mdPasteEnhanced.defaultName": "Y-MM-DD_DD-HH-mm-ss",
   "mdPasteEnhanced.renderMap": [
     "**/*.md  => ![${userVar}](/${imagePath})",

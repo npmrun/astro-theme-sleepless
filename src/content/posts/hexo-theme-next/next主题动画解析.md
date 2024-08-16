@@ -50,6 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 `motion.js`的原理大致如下：
 
-![](/article/next主题动画解析/2023-09-02_02-21-31-43.png)  
+![](/public/article/next主题动画解析/2023-09-02_02-21-31-43.png)  
 
 header等存放的都是一些anima.js的参数，代码十分简单，有时间用一下。

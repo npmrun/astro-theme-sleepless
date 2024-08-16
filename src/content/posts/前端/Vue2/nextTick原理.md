@@ -14,7 +14,7 @@ chinese: true
 
 Vue2中有个`nextTick`函数，这个函数是在更改数据后当你想立即使用js操作新的视图的时候需要使用它，`nextTick` 是在下次 DOM 更新循环结束之后执行延迟回调。[源码在此](https://github.com/vuejs/vue/blob/main/src/core/util/next-tick.ts#L88), 可以去看看。以下是一个简图：
 
-![](/article/nextTick原理/2024-03-01_01-18-40-08.png)
+![](/public/article/nextTick原理/2024-03-01_01-18-40-08.png)
 
 可以看到，vue会维护一个callbacks栈，可以通过Promise,MutatuinObserver等执行并清空，vue的策略是通过Promise这种可以函数，将callbacks栈清空的任务放在微任务，也会提供降级，当不支持微任务的时候会通过`setTimeout`创建宏任务。
 

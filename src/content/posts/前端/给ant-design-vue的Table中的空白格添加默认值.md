@@ -18,7 +18,7 @@ comment: true
 
 先看看我们需要的效果：
 
-![图 0](/article/给ant-design-vue的Table中的空白格添加默认值/2023-10-13_13-18-46-18.png)  
+![图 0](/public/article/给ant-design-vue的Table中的空白格添加默认值/2023-10-13_13-18-46-18.png)  
 
 不错，目的就是为了给没数据的列添加`-`字符。接下来看方法：
 

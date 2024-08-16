@@ -18,17 +18,17 @@ heroImage: https://api.r10086.com/%E5%9B%BE%E5%8C%85webp/%E5%8A%A8%E6%BC%AB%E7%B
 
 在[vite仓库](https://github.com/vitejs/vite)搜索`preprocessorOptions`,可以发现结果中有一个`packages/vite/src/node/plugins/css.ts`，那么可以肯定就是在这里处理了。搜索可找到如下代码：
 
-![图 0](/article/Vite是怎么使用additionalData的？/2023-09-07_07-01-00-10.png)  
+![图 0](/public/article/Vite是怎么使用additionalData的？/2023-09-07_07-01-00-10.png)  
 
 可以知道preProcessors是持有`scss`,`less`处理方法的对象，按照这个搜索，可发现
 
-![图 1](/article/Vite是怎么使用additionalData的？/2023-09-07_07-01-01-05.png)  
+![图 1](/public/article/Vite是怎么使用additionalData的？/2023-09-07_07-01-01-05.png)  
 
-![图 2](/article/Vite是怎么使用additionalData的？/2023-09-07_07-01-02-07.png)  
+![图 2](/public/article/Vite是怎么使用additionalData的？/2023-09-07_07-01-02-07.png)  
 
 通过sass显然是没有additionalData属性的，我们接下来继续找，从这里可以知道`getSource`就是获取scss代码的，看一看`getSource`函数
 
-![图 3](/article/Vite是怎么使用additionalData的？/2023-09-07_07-01-03-41.png)  
+![图 3](/public/article/Vite是怎么使用additionalData的？/2023-09-07_07-01-03-41.png)  
 
 出现了additionalData ，如果additionalData是函数，会传入源码处理，如果是字符串，会将additionalData 拼接在前面。
 

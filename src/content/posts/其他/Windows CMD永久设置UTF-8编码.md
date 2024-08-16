@@ -25,11 +25,11 @@ chcp 65001
 
 然后“右键-新建”，选择“字符串值”，“名称”列填写`autorun`，数值数据填写`chcp 65001`
 
-![图 0](/article/Windows CMD永久设置UTF-8编码/2024-06-12_12-15-30-04.png)  
+![图 0](/public/article/Windows CMD永久设置UTF-8编码/2024-06-12_12-15-30-04.png)  
 
 添加成功后
 
-![图 1](/article/Windows CMD永久设置UTF-8编码/2024-06-12_12-15-30-16.png)  
+![图 1](/public/article/Windows CMD永久设置UTF-8编码/2024-06-12_12-15-30-16.png)  
 
 再次在运行中输入cmd，就会自动把编码格式设置为UTF-8
 

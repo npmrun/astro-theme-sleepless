@@ -12,7 +12,7 @@ export default function () {
             images.push({
                 name: name,
                 alt: node.alt,
-                url: node.url,
+                url: node.url.replace(/^\/public/, ""),
             })
             //===== 解析图片 =====  End
 
