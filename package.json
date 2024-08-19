@@ -19,12 +19,12 @@
     "@iconify-json/ant-design": "^1.1.17",
     "@iconify-json/flat-color-icons": "^1.1.11",
     "@iconify-json/mdi": "^1.1.68",
-    "@iconify-json/tabler": "^1.1.119",
+    "@iconify-json/tabler": "^1.1.120",
     "@types/animejs": "^3.1.12",
     "acorn": "^8.12.1",
     "animate.css": "^4.1.1",
     "animejs": "^3.2.2",
-    "astro": "^4.13.2",
+    "astro": "^4.14.2",
     "balloon-css": "^1.2.0",
     "browserslist": "^4.23.3",
     "esbuild-plugin-browserslist": "^0.14.0",
@@ -43,13 +43,13 @@
     "remark-math": "^6.0.0",
     "remove-markdown": "^0.5.2",
     "swiper": "^11.1.9",
-    "tailwindcss": "^3.4.9",
+    "tailwindcss": "^3.4.10",
     "unist-util-select": "^5.1.0",
     "unist-util-visit": "^5.0.0",
     "unist-util-visit-parents": "^6.0.1"
   },
   "devDependencies": {
-    "astro-icon": "^1.1.0",
+    "astro-icon": "^1.1.1",
     "sass": "^1.77.8"
   },
   "pnpm": {

@@ -9,6 +9,7 @@ import remarkBreaks from 'remark-breaks'
 import remarkDeflist from 'remark-deflist'
 
 import rehypeCommon from './plugins/rehype/rehype-common.mjs'
+import rehypeBlockquote from './plugins/rehype/rehype-blockquote.mjs'
 import rehypeIframe from './plugins/rehype/rehype-iframe.mjs'
 import rehypeCodeBtn from './plugins/rehype/rehype-code-btn.mjs'
 import rehypeTabs from './plugins/rehype/rehype-tabs.mjs'
@@ -47,6 +48,7 @@ export default defineConfig({
             rehypeHeadingIds,
             rehypeMathjax,
             rehypeCommon,
+            rehypeBlockquote,
             rehypeCodeBtn,
             rehypesplitSections,
             rehypeTabs,

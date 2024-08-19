@@ -187,10 +187,10 @@ const menus = [
                         stroke-width="2"
                     />
                 </svg>
-                <div class="relative p-2 text-xl hover:bg-gray-300/50 cursor-pointer h-[100px]  flex flex-col justify-center">
-                    Hi. Welcome There!
+                <div class="relative p-2 text-xl hover:bg-gray-300/50 cursor-pointer h-[100px] text-balance flex flex-col justify-center">
+                    愿君在此，得见心中所想。
                     <br>
-                    I'm a Front-end Developer.
+                    所思所感，皆有所获。
                 </div>
             </div>
             {
@@ -312,11 +312,11 @@ const menus = [
                 <input type="checkbox"
                     class="before:content[''] peer hidden"/>
                 <div class="text-3xl mb-5 flex items-center justify-center gap-2 cursor-pointer ml-[20px]">
-                    技术文章
+                    技术文章<span class="text-sm self-end">(近5条)</span>
                     <svg class="anim-updown peer-checked:text-green-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" d="M9.5 15H7a1.502 1.502 0 0 1-1.307-2.236a1.5 1.5 0 0 1-.31-2.264A1.494 1.494 0 0 1 5.086 9H1.5C.673 9 0 8.327 0 7.5S.673 6 1.5 6h6.167L6.201 3.25a1.502 1.502 0 0 1 2.381-1.789l.011.012L12 5.21V4.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-.691l-2.276 1.138A.496.496 0 0 1 9.5 15m4-1a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1m-4.118 0L12 12.691V6.694L7.857 2.15a.5.5 0 0 0-.782.614l1.866 3.5a.499.499 0 0 1-.441.735h-7a.5.5 0 0 0 0 1h5a.5.5 0 0 1 0 1a.5.5 0 0 0 0 1a.5.5 0 0 1 0 1a.5.5 0 0 0 0 1H7a.5.5 0 0 1 0 1a.5.5 0 0 0 0 1h2.382z"/></svg>
                 </div>
                 {
-                    blogList.map(async (item) => {
+                    blogList.slice(0, 5).map(async (item) => {
                         return (
                             <a
                                 href={`/posts/${item.slug}`}
