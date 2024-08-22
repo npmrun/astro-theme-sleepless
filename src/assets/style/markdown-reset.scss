@@ -18,6 +18,8 @@
         --color-accent-emphasis: #0969da; // 背景强调色
         --color-attention-subtle: #fff8c5; // 背景注意色
         --color-danger-fg: #cf222e; // 文本危险色
+        --color-mark-default: rgb(255, 255, 0); // mark 默认色
+        --color-mark-fg: rgb(255, 187, 0); // mark 强调色
     }
 }
 .markdown-body {
@@ -26,6 +28,7 @@
     text-rendering: optimizelegibility;
     margin: 0;
     word-wrap: break-word;
+    color: var(--color-fg-muted);
     &::before {
         display: table;
         content: '';
@@ -172,13 +175,13 @@
     }
     /* 标记，类似于手写的荧光笔的作用 */
     mark {
-        background: rgb(255, 255, 0);
+        background: var(--color-mark-default);
         // background: #fffdd1;
-        border-bottom: 1px solid #ffedce;
+        // border-bottom: 1px solid #ffedce;
         padding: 2px;
 
         &.active{
-            background: rgb(255, 187, 0);
+            background: var(--color-mark-fg);
         }
         // margin: 0 5px;
     }
