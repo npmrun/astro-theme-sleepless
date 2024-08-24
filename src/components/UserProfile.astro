@@ -6,10 +6,26 @@ import { getEntry } from 'astro:content'
 const { data: user } = await getEntry('authors', 'NPMRUN')
 ---
 
-<a class="mt-6 block" href="/">
+<style lang="scss" is:global>
+    .user-profile {
+        a {
+            border-bottom: none !important;
+            &:hover {
+                background: none !important;
+            }
+        }
+        border-bottom: none !important;
+        &:hover {
+            background: none !important;
+        }
+    }
+</style>
+<a class="user-profile mt-6 block" href="/">
     <OldPicture avatar={user.avatar} />
 </a>
-<div class="inline-grid mx-auto grid-flow-col auto-cols-auto gap-x-3 mt-4">
+<div
+    class="user-profile inline-grid mx-auto grid-flow-col auto-cols-auto gap-x-3 mt-4"
+>
     {
         user.links.map((link: any) => {
             return (

@@ -4,16 +4,19 @@ import BaseHead from '@blog/components/BaseHead.astro'
 import UserMenu from '@blog/components/UserMenu.astro'
 // import ThemeToggle from '@blog/components/ThemeToggle.astro'
 import { UseMotion } from '@blog/config'
-import Search from "@blog/components/SearchInput/Search.astro"
-import RocketIcon from "@blog/icons/Rocket.astro"
-import ClearIcon from "@blog/icons/Clear.astro"
+import Search from '@blog/components/SearchInput/Search.astro'
+import RocketIcon from '@blog/icons/Rocket.astro'
+import ClearIcon from '@blog/icons/Clear.astro'
+import { Icon } from 'astro-icon/components'
 
 let pageName
 const result = Astro.url.pathname.match(/\/(.*?)\//)
-if(result) {
+if (result) {
     const [_, _pageName] = result
     pageName = _pageName
 }
+
+const isHome = Astro.url.pathname === '/'
 ---
 
 <html lang="zh-CN">
@@ -53,7 +56,22 @@ if(result) {
         <noscript>
             <link rel="stylesheet" href="/motion-less.css" />
         </noscript>
-        <div class="fixed right-4 bottom-4 flex flex-col items-end gap-y-3 pointer-events-none">
+        {
+            !isHome && (
+                <div class="fixed max-lg:hidden right-[80px] bottom-4 flex flex-col items-end gap-y-3">
+                    <a
+                        href="/"
+                        title="首页"
+                        class="bg-white rounded-full shdow p-3 shadow-lg transition-all cursor-pointer"
+                    >
+                        <Icon name="mdi:home-flood" class="w-[25px] h-[25px]" />
+                    </a>
+                </div>
+            )
+        }
+        <div
+            class="fixed right-4 bottom-4 flex flex-col items-end gap-y-3 pointer-events-none"
+        >
             <div class="flex gap-x-2">
                 <div
                     class="bg-white rounded-full shdow p-3 shadow-lg opacity-0 pointer-events-none transition-all cursor-pointer"

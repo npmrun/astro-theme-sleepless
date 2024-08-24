@@ -2,9 +2,15 @@
 // https://iconify.design/docs/usage/svg/astro/
 import ArticleCard from '@blog/components/ArticleCard.astro'
 import SinglePage from '@blog/layouts/SinglePage.astro'
-import { getBlogDataSortByTime, getLifeDataSortByTime, getBlogTop } from '@blog/utils'
+import {
+    getBlogDataSortByTime,
+    getLifeDataSortByTime,
+    getBlogTop,
+} from '@blog/utils'
 import { getEntry } from 'astro:content'
 import HomeMd from '@blog/docs/home.mdx'
+import UserProfile from '@blog/components/UserProfile.astro'
+import { Icon } from 'astro-icon/components'
 
 const blogList = await getBlogDataSortByTime()
 const lifeList = await getLifeDataSortByTime()
@@ -117,8 +123,46 @@ const blogTopList = await getBlogTop()
         </div> -->
     </div>
     <div class="my-6 home-panel overflow-auto">
-        <article class="markdown-body green p-3 lg:p-6 bg-white rounded-lg max-w-[980px] !mx-auto mb-8 shadow-sm">
-            <HomeMd></HomeMd>
+        <div class="text-center mb-[20px] max-lg:hidden">
+            <UserProfile />
+            <div class="flex gap-x-8 justify-center relative mx-3 border-b">
+                <a
+                    href="/friends"
+                    class="flex justify-center items-center py-2 group"
+                >
+                    <Icon name="tabler:friends" class="w-[18px] h-[18px]" />
+                    <div class="text-md drop-shadow-lg ml-1 whitespace-nowrap">
+                        朋友
+                    </div>
+                </a>
+                <a
+                    href="/about"
+                    class="flex justify-center items-center py-2 group"
+                >
+                    <Icon name="mdi:feather" class="w-[18px] h-[18px]" />
+                    <div class="text-md drop-shadow-lg ml-1 whitespace-nowrap">
+                        关于
+                    </div>
+                </a>
+            </div>
+            <div
+                class="flex gap-x-8 justify-center relative mb-2 mx-3 border-b"
+            >
+                <a
+                    href="/demos"
+                    class="flex justify-center items-center py-2 group"
+                >
+                    <Icon name="mdi:key" class="w-[18px] h-[18px]" />
+                    <div class="text-md drop-shadow-lg ml-1 whitespace-nowrap">
+                        一些前端示例
+                    </div>
+                </a>
+            </div>
+        </div>
+        <article
+            class="markdown-body green p-3 lg:p-6 bg-white rounded-lg max-w-[980px] !mx-auto mb-8 shadow-sm"
+        >
+            <HomeMd />
         </article>
         <!-- <div class="flex items-center sticky left-0">
             <a
@@ -150,7 +194,7 @@ const blogTopList = await getBlogTop()
         </div> -->
     </div>
     <!-- <div class="my-6 home-panel overflow-auto"> -->
-        <!-- <div class="flex items-center sticky left-0">
+    <!-- <div class="flex items-center sticky left-0">
             <a
                 href="/life"
                 class="text-2xl relative group hover:text-red-400 transition-all"
@@ -162,8 +206,8 @@ const blogTopList = await getBlogTop()
                  生活
             </a>
         </div> -->
-        <!-- grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 auto-cols-auto gap-x-3 gap-y-4 mt-6 -->
-        <!-- <div
+    <!-- grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 auto-cols-auto gap-x-3 gap-y-4 mt-6 -->
+    <!-- <div
             class="flex gap-3 mt-6 mb-2"
         >
             {

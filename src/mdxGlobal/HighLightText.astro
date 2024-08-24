@@ -21,7 +21,7 @@ const categoryCount = await getCategoryCount()
         text-transform: uppercase;
         letter-spacing: 0.5em;
         // border: 4px double rgba(255, 255, 255, 0.25);
-        border: 4px double var(--color-base);// rgba(255, 0, 0, 0.493);
+        border: 4px double var(--color-base); // rgba(255, 0, 0, 0.493);
         border-width: 4px 0;
         padding: 1.5em 0em;
         span {
@@ -70,6 +70,13 @@ const categoryCount = await getCategoryCount()
     <span> <slot /></span>
 </p>
 <div class="mb-3 text-center p-4 bg-slate-100 text-gray-400 font-normal">
+    <div
+        id="searchButton"
+        style="text-align: center;color:var(--color-base);"
+        class="cursor-pointer flex items-center justify-center"
+    >
+        <span class="text-lg font-bold">点击搜索文章</span>
+    </div>
     <!-- <div class="m-6">轮播图为置顶文章，还有三个是最近编辑的文章</div> -->
     <div>----&gt;<a href="/archive" target="_blank">归档</a>&lt;----</div>
     <div>
