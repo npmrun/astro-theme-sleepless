@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^5.2.0",
-    "@astrojs/mdx": "^3.1.3",
+    "@astrojs/mdx": "^3.1.4",
     "@astrojs/tailwind": "^5.1.0",
     "@iconify-json/ant-design": "^1.1.17",
     "@iconify-json/flat-color-icons": "^1.1.11",
@@ -24,14 +24,14 @@
     "acorn": "^8.12.1",
     "animate.css": "^4.1.1",
     "animejs": "^3.2.2",
-    "astro": "^4.14.2",
+    "astro": "^4.14.5",
     "balloon-css": "^1.2.0",
     "browserslist": "^4.23.3",
     "esbuild-plugin-browserslist": "^0.14.0",
     "fast-glob": "^3.3.2",
     "github-slugger": "^2.0.0",
     "gray-matter": "^4.0.3",
-    "hast-util-from-html": "^2.0.1",
+    "hast-util-from-html": "^2.0.2",
     "medium-zoom": "^1.1.0",
     "prism-theme-vars": "^0.2.5",
     "refractor": "^4.8.1",
@@ -42,7 +42,7 @@
     "remark-directive": "^3.0.0",
     "remark-math": "^6.0.0",
     "remove-markdown": "^0.5.2",
-    "swiper": "^11.1.9",
+    "swiper": "^11.1.10",
     "tailwindcss": "^3.4.10",
     "unist-util-select": "^5.1.0",
     "unist-util-visit": "^5.0.0",
@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "astro-icon": "^1.1.1",
-    "sass": "^1.77.8"
+    "sass": "1.77.6"
   },
   "pnpm": {
     "patchedDependencies": {
