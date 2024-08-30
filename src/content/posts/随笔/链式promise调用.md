@@ -29,3 +29,4 @@ export function to(
 }
 ```
 
+该思路十分类似于go的书写方式
