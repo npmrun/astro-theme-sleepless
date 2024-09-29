@@ -22,7 +22,7 @@ function parseDate(date: string) {
                 let curYear = 0
                 let curYearList: astroHTML.JSX.HTMLAttributes[] = []
                 const renderList: astroHTML.JSX.HTMLAttributes[] = []
-                blogList.forEach((item) => {
+                blogList.forEach((item: any) => {
                     const curDate = parseDate(
                         (item.data.updatedDate as string) ?? item.data.pubDate,
                     )

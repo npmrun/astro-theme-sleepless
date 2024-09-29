@@ -4,6 +4,7 @@ import SinglePage from '@blog/layouts/SinglePage.astro'
 import ArticleCard from '@root/src/components/ArticleCard.astro'
 import { getBlogData } from '@root/src/utils'
 import BlogMenu from '@root/src/components/BlogMenu.astro'
+import Copyright from '@root/src/components/Copyright.astro'
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
     const blogEntries = await getBlogData(true)
@@ -188,6 +189,7 @@ const canEdit = decodeURIComponent(Astro.url.pathname).startsWith("/posts/随笔
                 relatedPosts && relatedPosts.length &&
                     relatedPosts.map((p) => <a href={p.slug}>{p.data.title}</a>)
             } -->
+            <Copyright />
         </article>
         <BlogMenu headings={headings}></BlogMenu>
         <!-- {

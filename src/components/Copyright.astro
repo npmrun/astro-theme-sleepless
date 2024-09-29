@@ -1,0 +1,51 @@
+---
+import { getEntry } from 'astro:content'
+
+const { data: author } = await getEntry('authors', 'NPMRUN')
+---
+
+<style lang="scss" is:global>
+    .copyright {
+        font-family: 'Arial', sans-serif;
+        margin: 15px 0;
+        padding: 12px 15px;
+        border-radius: 6px;
+        background-color: #f8f9fa;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+        border-left: 3px solid #007bff;
+
+        h3 {
+            margin-top: 0;
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        p {
+            color: #555;
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 6px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: #0056b3;
+                text-decoration: underline;
+            }
+        }
+    }
+</style>
+
+<div class="copyright">
+    <h3>版权声明</h3>
+    <p>
+        本博客所有文章均为原创内容，版权归原作者所有。未经作者允许，禁止转载、摘编、复制或建立镜像。
+    </p>
+    <p>如需转载，请通过以下方式联系作者：</p>
+    <p><a href={'mailto:' + author.email}>{author.email}</a></p>
+</div>

@@ -1,0 +1,73 @@
+---
+import { getRoutes } from '../utils/generateTree'
+
+const routes = await getRoutes('src/content/posts')
+---
+
+<style lang="scss" is:global>
+    .tree {
+        list-style-type: none; /* 去掉默认的列表样式 */
+        padding-left: 10px; /* 左侧内边距 */
+        background-color: #f9f9f9; /* 背景颜色 */
+        border-radius: 5px; /* 圆角 */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+    }
+
+    .tree-node {
+        margin: 5px 0; /* 节点之间的间距 */
+        position: relative; /* 为伪元素定位 */
+        padding: 5px; /* 节点内边距 */
+        transition: background 0.3s; /* 背景过渡效果 */
+    }
+
+    .tree-node:hover {
+        background-color: #e0f7fa; /* 悬停时的背景颜色 */
+    }
+
+    .tree-title {
+        font-weight: bold; /* 目录节点加粗 */
+        color: #333; /* 目录节点颜色 */
+    }
+
+    .tree-link {
+        text-decoration: none; /* 去掉链接下划线 */
+        color: #1a73e8; /* 链接颜色 */
+        transition: color 0.3s; /* 颜色过渡效果 */
+    }
+
+    .tree-link:hover {
+        color: #ff5722; /* 悬停时的颜色 */
+        font-weight: bold; /* 悬停时加粗 */
+    }
+</style>
+<h1>目录树</h1>
+{
+    (function renderTree(nodes) {
+        return (
+            <ul class="tree">
+                {nodes.map((node) => (
+                    <li class="tree-node">
+                        {node.children && node.children.length > 0 ? (
+                            <details open>
+                                <summary class="tree-title">
+                                    {node.name}
+                                </summary>{' '}
+                                {/* 目录节点 */}
+                                <ul>
+                                    {renderTree(node.children)}{' '}
+                                    {/* 渲染子节点 */}
+                                </ul>
+                            </details>
+                        ) : (
+                            <span class="tree-title">
+                                <a href={node.path} class="tree-link">
+                                    {node.name}
+                                </a>
+                            </span> // 文章节点
+                        )}
+                    </li>
+                ))}
+            </ul>
+        )
+    })(routes)
+}

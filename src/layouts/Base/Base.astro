@@ -5,6 +5,7 @@ import UserMenu from '@blog/components/UserMenu.astro'
 // import ThemeToggle from '@blog/components/ThemeToggle.astro'
 import { UseMotion } from '@blog/config'
 import Search from '@blog/components/SearchInput/Search.astro'
+import FileTree from '@blog/components/FileTree.astro'
 import RocketIcon from '@blog/icons/Rocket.astro'
 import ClearIcon from '@blog/icons/Clear.astro'
 import { Icon } from 'astro-icon/components'
@@ -69,6 +70,18 @@ const isHome = Astro.url.pathname === '/'
                 </div>
             )
         }
+        <div class="fixed max-lg:hidden group right-[80px] bottom-[80px] flex flex-col items-end gap-y-3">
+            <a
+                href="/"
+                title="目录"
+                class="bg-white rounded-full shadow-lg p-3 transition-all cursor-pointer hover:shadow-xl"
+            >
+                <Icon name="mdi:file-word" class="w-[25px] h-[25px]" />
+            </a>
+            <div class="absolute hidden group-hover:block bottom-0 right-[100%] pr-[10px] bg-white p-2 rounded shadow-md max-h-[65vh] w-[500px] overflow-y-auto">
+                <FileTree></FileTree>
+            </div>
+        </div>
         <div
             class="fixed right-4 bottom-4 flex flex-col items-end gap-y-3 pointer-events-none"
         >
