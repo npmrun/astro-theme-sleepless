@@ -29,3 +29,14 @@ export function to(
 }
 ```
 
+该思路十分类似于go的书写方式，其使用方式如下：
+```
+const [err, res] = await to(getEnergyConsumptionWarningList())
+// finally 
+if(err) {
+    // 异常
+    throw err
+}
+// 成功
+```
+如此可以精细的控制每一个promise的执行。不需要手动try catch包裹。
