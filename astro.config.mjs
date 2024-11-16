@@ -25,11 +25,11 @@ import browserslist from 'browserslist'
 import { resolveToEsbuildTarget } from 'esbuild-plugin-browserslist'
 import icon from 'astro-icon'
 
-import { refractor } from 'refractor/lib/all';
-import rehypePrismGenerator from 'rehype-prism-plus/generator';
+import { refractor } from 'refractor/lib/all'
+import rehypePrismGenerator from 'rehype-prism-plus/generator'
 
-refractor.alias('html', ['vue', 'svelte']);
-const rehypePrismPlus = rehypePrismGenerator(refractor);
+refractor.alias('html', ['vue', 'svelte'])
+const rehypePrismPlus = rehypePrismGenerator(refractor)
 
 // https://astro.build/config
 export default defineConfig({
@@ -43,7 +43,7 @@ export default defineConfig({
         syntaxHighlight: false,
         extendDefaultPlugins: true,
         rehypePlugins: [
-            [rehypePrismPlus, { ignoreMissing: true, defaultLanguage: "txt" }],
+            [rehypePrismPlus, { ignoreMissing: true, defaultLanguage: 'txt' }],
             // https://docs.astro.build/en/guides/markdown-content/#heading-ids-and-plugins
             rehypeHeadingIds,
             rehypeMathjax,
