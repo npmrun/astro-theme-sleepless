@@ -3,10 +3,6 @@
   "less.validate": false,
   "scss.lint.unknownAtRules": "ignore",
   "scss.validate": false,
-  "markdown-image.local.path": "/public/article", 
-  "markdown-image.local.referencePath": "/public/article/${mdname}/",
-  "markdown-image.base.fileNameFormat": "${mdname}/${YY}-${MM}-${DD}_${DD}-${HH}-${mm}-${ss}",
-  "markdown-image.base.urlEncode": false,
   "mdPasteEnhanced.path": "${projectRoot}/public/article/${currentFileNameWithoutExt}",
   "mdPasteEnhanced.basePath": "${projectRoot}",
   "mdPasteEnhanced.defaultName": "Y-MM-DD_DD-HH-mm-ss",
@@ -24,7 +20,7 @@
   "templateGenerator.fields.link": "https://blog.xieyaxin.top",
   "templateGenerator.templatesPath": "${rootPath}/template",
   // linux的edge位置
-//   "browse-lite.chromeExecutable": "/usr/bin/microsoft-edge-stable",
+  //   "browse-lite.chromeExecutable": "/usr/bin/microsoft-edge-stable",
   // window的edge位置
   "browse-lite.chromeExecutable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
   "browse-lite.startUrl": "http://localhost:3311",
