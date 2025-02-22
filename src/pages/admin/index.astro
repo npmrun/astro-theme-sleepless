@@ -14,6 +14,8 @@ const isDEV = import.meta.env.DEV
         <title>Admin</title>
         <!-- <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script> -->
         <script is:inline>
+import { undefined } from "astro:schema";
+
             window.CMS_MANUAL_INIT = true
         </script>
         <script is:inline src="/admin/netlify-identity-widget.js"></script>
@@ -161,6 +163,13 @@ const isDEV = import.meta.env.DEV
                                     name: 'hot',
                                     widget: 'boolean',
                                     default: false,
+                                    required: false,
+                                },
+                                {
+                                    label: '显示版权',
+                                    name: 'license',
+                                    widget: 'boolean',
+                                    default: true,
                                     required: false,
                                 },
                                 {

@@ -189,7 +189,7 @@ const canEdit = decodeURIComponent(Astro.url.pathname).startsWith("/posts/随笔
                 relatedPosts && relatedPosts.length &&
                     relatedPosts.map((p) => <a href={p.slug}>{p.data.title}</a>)
             } -->
-            <Copyright />
+            { (entry.data.license ?? true) && <Copyright />}
         </article>
         <BlogMenu headings={headings}></BlogMenu>
         <!-- {

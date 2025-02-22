@@ -17,6 +17,51 @@ const categoryCount = await getCategoryCount()
 ---
 
 <style lang="scss" scoped>
+    .box{
+        &::before {
+            content: "";
+            position: absolute;
+            left: 30px;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background-image: url(./mm.png);
+            background-size: contain;
+            background-position: left;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            opacity: .6;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 30px;
+            top: 0;
+            bottom: 0;
+            background-image: url(./mm.png);
+            background-size: contain;
+            background-position: right;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            opacity: .6;
+        }
+    }
+    .text-a {
+        z-index: 99;
+        writing-mode: vertical-rl; /* 竖排文字 */
+        text-align: justify; /* 文字两端对齐 */
+        text-align-last: justify; /* 最后一行也两端对齐 */
+        padding: 10px;
+        line-height: 1.5; /* 行间距 */
+        &::after {
+            content: '';
+            display: inline-block;
+            width: 0;
+            height: 100%;
+            vertical-align: top;
+        }
+    }
     .shine {
         text-transform: uppercase;
         letter-spacing: 0.5em;
@@ -69,7 +114,15 @@ const categoryCount = await getCategoryCount()
 <p class="shine text-center max-lg:text-balance">
     <span> <slot /></span>
 </p>
-<div class="mb-3 text-center p-4 bg-slate-100 text-gray-400 font-normal">
+<div
+    class="mb-3 text-center p-4 bg-slate-100 text-gray-400 font-normal relative box"
+>
+    <div class="absolute w-[34px] left-0 top-0 bottom-0 text-a">敕令诸鬼退避</div>
+    <div
+        class="absolute w-[34px] right-0 top-0 bottom-0 text-a"
+    >
+        邀请财神到场
+    </div>
     <div
         id="searchButton"
         style="text-align: center;color:var(--color-base);"
