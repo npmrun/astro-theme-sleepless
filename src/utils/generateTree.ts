@@ -26,6 +26,7 @@ export async function getRoutes(dir: string, basePath: string = 'posts'): Promis
         if (stat.isDirectory()) {
             // 递归调用，保留目录结构
             const childRoutes = await getRoutes(filePath, path.join(basePath, file));
+            childRoutes.sort(v=>v.children?1:-1)
             tree.push({ name: file, path: filePath, children: childRoutes });
         } else if (file.endsWith('.md')) {
             // 规范化文件名并生成对应的URL路径
