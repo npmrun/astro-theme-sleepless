@@ -2,12 +2,13 @@ import path from "path";
 import fs from "fs";
 import { fileURLToPath } from "url";
 import glob from "fast-glob";
+import grayMatter from "gray-matter";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 async function getAllHTML() {
-    const tree = await import.meta.glob("@root/public/demo/@show/**/*.(html|page.json)", {
+    const tree = await import.meta.glob("@root/public/demo/@show/**/*.(html|md)", {
         eager: true,
         query: "?raw",
     })
@@ -20,13 +21,15 @@ async function praseDemo() {
     const checkedArray = new Set()
     for (const key in tree) {
         if (Object.prototype.hasOwnProperty.call(tree, key)) {
-            const content = (tree[key] as any)?.default ?? tree[key];
-            if(key.endsWith(".page.json")) {
+            let content = (tree[key] as any)?.default ?? tree[key];
+            const {
+                data: { title: _title, route: _route, dir: _dir },
+                content: mdContent,
+            } = grayMatter(content);
+            content = mdContent
+            if(key.endsWith(".md")) {
                 try {
-                    const [,name] = key.match(/\/(.*?)\.page\.json$/)
-                    const title = name.split("\/").slice(-1)[0]
-                    
-                    const data = JSON.parse(content)
+                    const data = { title: _title, route: _route, dir: _dir, content }
                     if(!data.title) {
                         data.title = title
                     }
@@ -75,6 +78,7 @@ async function praseDemo() {
                 desc,
                 dir,
                 route,
+                content,
             });
         }
     }

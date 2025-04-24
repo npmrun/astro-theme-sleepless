@@ -37,11 +37,16 @@ const keys = Object.keys(demoes).sort()
                                     {demoes[v].map((v) => (
                                         <li
                                             data-route={v.route}
+                                            data-input={`collapsible${i}`}
+                                            data-title={v.title}
                                             class="demo-li"
                                             title={v.desc}
                                         >
                                             {v.title}
                                         </li>
+                                        <textarea id={"input-"+v.title} style="display:none;">
+                                            {v.content}
+                                        </textarea>
                                     ))}
                                 </ul>
                                 <div><label for={`collapsible${i}`} class="label">
@@ -70,8 +75,29 @@ const keys = Object.keys(demoes).sort()
                 }
             </style>
         </ul>
-        <div
-            style="position:relative;margin-bottom:50px;height:100%;width:0px;flex:1 1 0%;border:1px solid rgba(187, 187, 187, 0.637);border-radius: 4px;"
+        <div class="flex-1">
+            <label for="open" class="label">
+                <span>效果</span>
+            </label>
+            <label for="souce" class="label">
+                <span>源码</span>
+            </label>
+            <input
+                id="souce"
+                class="toggle hidden"
+                name="aaa"
+                type="radio"
+            />
+            <pre class="demo w-full whitespace-pre-wrap" id="source-panel"></pre>
+            <input
+                id="open"
+                class="toggle hidden"
+                checked
+                name="aaa"
+                type="radio"
+            />
+        <div class="demo"
+            style="position:relative;margin-bottom:50px;height:100%;width:100%;border:1px solid rgba(187, 187, 187, 0.637);border-radius: 4px;"
         >
             <iframe
                 id="iframeDemo"
@@ -88,17 +114,61 @@ const keys = Object.keys(demoes).sort()
                 暂无展示
             </div>
         </div>
+        </div>
         <script is:raw data-pjax>
             var iframeDemo = document.getElementById('iframeDemo')
             var liEl = document.querySelectorAll('.demoes .demo')
             var liElItem = document.querySelectorAll('.demoes .demo .demo-li')
             var loadingEl = document.querySelector('.demoes .loading')
+
+            let searchParams = new URLSearchParams(window.location.search);
+            let title = searchParams.get('title')
+            if(title) {
+                var el = document.querySelector(`[data-title="${title}"]`)
+                el.style.color="red"
+                iframeDemo.src = el.dataset.route
+                loadingEl.style.display = 'flex'
+                document.getElementById(el.dataset.input).checked = true
+
+                document.getElementById("source-panel").innerText = document.getElementById("input-"+title).value
+
+                loadingEl.innerHTML = '加载中...'
+                if (iframeDemo.attachEvent) {
+                    // IE
+                    iframeDemo.attachEvent('onload', function () {
+                        loadingEl.style.display = 'none'
+                    })
+                    iframeDemo.attachEvent('onerror', function () {
+                        loadingEl.innerHTML = '加载出错'
+                    })
+                } else {
+                    // 非IE
+                    iframeDemo.onload = function () {
+                        loadingEl.style.display = 'none'
+                    }
+                    iframeDemo.onerror = function () {
+                        loadingEl.innerHTML = '加载出错'
+                    }
+                }
+            }
+
             liEl.forEach((li) => {
                 li.addEventListener('click', (evt) => {
+                    const title = evt.target.dataset.title
+                    if(!title) return
                     liElItem.forEach((li) => {
                         li.style.color = "black"
                     })
                     evt.target.style.color="red"
+                    // 获取当前 URL 的参数
+                    let searchParams = new URLSearchParams(window.location.search);
+                    // 修改参数值
+                    searchParams.set('title', title);
+                    // 创建一个新的 URL，替换当前的 URL 但不刷新页面
+                    window.history.replaceState({}, '', `${window.location.pathname}?${searchParams.toString()}`);
+
+                    document.getElementById("source-panel").innerText = document.getElementById("input-"+title).value
+
                     const route = evt.target.dataset.route
                     if (route) {
                         iframeDemo.src = route

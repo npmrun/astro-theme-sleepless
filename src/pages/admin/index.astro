@@ -77,9 +77,9 @@ const isDEV = import.meta.env.DEV
                         //                         { label: "title", name: "title", widget: "string" },
                         //                         { label: "url", name: "url", widget: "string", required: false },
                         //                         { label: "target", name: "target", widget: "string", required: false },
-                        //                         // { 
-                        //                         //     label: "props", 
-                        //                         //     name: "props", 
+                        //                         // {
+                        //                         //     label: "props",
+                        //                         //     name: "props",
                         //                         //     widget: "widget",
                         //                         //     required: false,
                         //                         // }
@@ -89,6 +89,35 @@ const isDEV = import.meta.env.DEV
                         //         }
                         //     ]
                         // },
+                        {
+                            name: "demo",
+                            label: "前端示例",
+                            folder: 'public/demo/@show',
+                            summary: '{{title}}',
+                            create: true,
+                            fields: [
+                                {
+                                    label: '标题',
+                                    name: 'title',
+                                    widget: 'string',
+                                },
+                                {
+                                    label: '目录',
+                                    name: 'dir',
+                                    widget: 'string',
+                                },
+                                {
+                                    label: '路径',
+                                    name: 'route',
+                                    widget: 'text',
+                                },
+                                {
+                                    label: '正文',
+                                    name: 'body',
+                                    widget: 'markdown',
+                                },
+                            ],
+                        },
                         {
                             name: 'posts',
                             label: '文章',
@@ -187,6 +216,107 @@ const isDEV = import.meta.env.DEV
                                     default: [],
                                 },
                             ],
+                        },{
+                            name: 'life',
+                            label: '生活',
+                            folder: 'src/content/life/随笔',
+                            path: '{{slug}}',
+                            media_folder: '/public/images',
+                            public_folder: '/images',
+                            preview_path: "/life/{{slug}}",
+                            extension: 'md',
+                            format: 'frontmatter',
+                            create: true,
+                            slug: '{{slug}}',
+                            identifier_field: 'slug',
+                            summary: '{{title}}',
+                            nested: {
+                                depth: 100,
+                                summary: '{{path}}',
+                            },
+                            fields: [
+                                {
+                                    label: '标题',
+                                    name: 'title',
+                                    widget: 'string',
+                                },
+                                {
+                                    label: '描述',
+                                    name: 'description',
+                                    widget: 'string',
+                                    required: false,
+                                },
+                                {
+                                    label: '发布时间',
+                                    name: 'pubDate',
+                                    format: 'YYYY/MM/DD hh:mm:ss',
+                                    widget: 'datetime',
+                                },
+                                {
+                                    label: '修改时间',
+                                    name: 'updatedDate',
+                                    format: 'YYYY/MM/DD hh:mm:ss',
+                                    widget: 'datetime',
+                                },
+                                {
+                                    label: '作者',
+                                    name: 'author',
+                                    widget: 'string',
+                                    default: 'NPMRUN',
+                                },
+                                {
+                                    label: '分类',
+                                    name: 'category',
+                                    widget: 'string',
+                                    default: '随笔',
+                                },
+                                {
+                                    label: '标签',
+                                    name: 'tags',
+                                    widget: 'list',
+                                    default: ['随笔'],
+                                },
+                                {
+                                    label: '主题',
+                                    name: 'theme',
+                                    widget: 'select',
+                                    options: ["green", "split", "article"],
+                                    default: ["green"]
+                                },
+                                {
+                                    label: '图像',
+                                    name: 'heroImage',
+                                    widget: 'string',
+                                    default:
+                                        'https://api.r10086.com/樱道随机图片api接口.php?图片系列=动漫综合2',
+                                },
+                                {
+                                    label: '是否置顶',
+                                    name: 'hot',
+                                    widget: 'boolean',
+                                    default: false,
+                                    required: false,
+                                },
+                                {
+                                    label: '国内布局',
+                                    name: 'chinese',
+                                    widget: 'boolean',
+                                    default: true,
+                                    required: false,
+                                },
+                                {
+                                    label: '是否隐藏',
+                                    name: 'hidden',
+                                    widget: 'boolean',
+                                    default: false,
+                                    required: false,
+                                },
+                                {
+                                    label: '正文',
+                                    name: 'body',
+                                    widget: 'markdown',
+                                },
+                            ],
                         },
                     ],
                 },
@@ -208,7 +338,9 @@ const isDEV = import.meta.env.DEV
                     )
                 },
             })
+            CMS.registerPreviewTemplate('demo', PostPreview)
             CMS.registerPreviewTemplate('posts', PostPreview)
+            CMS.registerPreviewTemplate('life', PostPreview)
         </script>
     </body>
 </html>

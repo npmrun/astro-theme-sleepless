@@ -13,6 +13,8 @@ const lifeCount = await getLiftCount()
 const tagsCount = await getTagsCount()
 const categoryCount = await getCategoryCount()
 
+const isHome = Astro.url.pathname === '/'
+
 const menus = [
     {
         name: '分类',
@@ -39,11 +41,12 @@ const menus = [
 
 <div
     id="menu-wrapper"
-    class="w-[300px] max-lg:flex hidden w sticky top-0 h-[100vh] flex-col gap-2 max-lg:z-[999] max-lg:!bg-white max-lg:left-[-310px] transition-all bg-white/[.6] shadow max-lg:shadow-none max-lg:fixed"
+    class="w-[300px] max-lg:hidden flex sticky top-0 h-[100vh] flex-col gap-2 max-lg:z-[999] max-lg:!bg-white max-lg:left-[-310px] transition-all bg-white/[.6] shadow max-lg:shadow-none max-lg:fixed"
+    class:list={isHome ? 'hidden' : ''}
 >
     <div class="pt-8 text-center">
         <div
-            
+
             class="text-2xl flex items-baseline justify-center border-y py-2 shadow w-[102%] bg-white/[.8]"
         >
             <a href="/">失眠先生</a>
@@ -101,7 +104,7 @@ const menus = [
                     关于
                 </div>
             </a>
-            
+
             <!-- <hr class="w-full mx-auto absolute bottom-0" /> -->
         </div>
         <div class="flex gap-x-8 justify-center relative mb-2 mx-3 border-b">
