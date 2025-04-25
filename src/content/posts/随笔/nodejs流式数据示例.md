@@ -3,14 +3,17 @@ title: nodejs流式数据示例
 pubDate: 2025/02/22 11:09:00
 updatedDate: 2025/02/22 11:09:00
 author: NPMRUN
-category: 随笔
+category: 代码
 tags:
-  - 随笔
-heroImage: https://api.r10086.com/樱道随机图片api接口.php?图片系列=动漫综合2
+  - 代码
+heroImage: https://api.r10086.com/%E5%9B%BE%E5%8C%85webp/%E5%8A%A8%E6%BC%AB%E7%BB%BC%E5%90%882/69940657_p01.webp
 hot: false
 hidden: false
 relatedPosts: []
 ---
+> 服务端  
+采用的可读流传输
+
 ```
 import fs from 'node:fs';
 import http from 'node:http';
@@ -33,6 +36,8 @@ server.listen(3000, ()=>{
   console.log('listening... http://localhost:3000');
 });
 ```
+
+>  客户端
 
 ```
 const response = await fetch("http://localhost:3000", {
